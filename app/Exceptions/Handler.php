@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Exceptions;
+namespace IPMEDT4K\Exceptions;
 
 use Exception;
 use Illuminate\Auth\AuthenticationException;

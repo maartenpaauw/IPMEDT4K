@@ -1,6 +1,6 @@
 <?php
 
-namespace App;
+namespace IPMEDT4K;
 
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;

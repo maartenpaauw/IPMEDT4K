@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Http\Controllers\Auth;
+namespace IPMEDT4K\Http\Controllers\Auth;
 
-use App\Http\Controllers\Controller;
+use IPMEDT4K\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 
 class LoginController extends Controller
