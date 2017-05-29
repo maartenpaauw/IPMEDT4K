@@ -1,0 +1,29 @@
+language: php
+
+php:
+  - '7.0'
+  - '7.1'
+
+sudo: required
+dist: trusty
+
+cache:
+  directories:
+    - $HOME/.composer/cache
+    - $HOME/.cache/yarn
+
+services:
+  - mysql
+
+before_install:
+  - . ci/travis/before_install.sh
+
+before_script:
+  - . ci/travis/before_script.sh
+
+script:
+  - . ci/travis/script.sh
+
+notifications:
+  email:
+    on_failure: always
