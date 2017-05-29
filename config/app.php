@@ -176,11 +176,6 @@ return [
         // IPMEDT4K\Providers\BroadcastServiceProvider::class,
         IPMEDT4K\Providers\EventServiceProvider::class,
         IPMEDT4K\Providers\RouteServiceProvider::class,
-
-        /*
-         * Composer packages
-         */
-        \Laravel\Dusk\DuskServiceProvider::class
     ],
 
     /*
