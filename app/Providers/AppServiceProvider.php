@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Providers;
+namespace IPMEDT4K\Providers;
 
 use Illuminate\Support\ServiceProvider;
 

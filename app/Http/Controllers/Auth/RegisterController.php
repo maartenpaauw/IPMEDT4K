@@ -1,9 +1,9 @@
 <?php
 
-namespace App\Http\Controllers\Auth;
+namespace IPMEDT4K\Http\Controllers\Auth;
 
-use App\User;
-use App\Http\Controllers\Controller;
+use IPMEDT4K\User;
+use IPMEDT4K\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
 
