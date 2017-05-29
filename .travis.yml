@@ -4,12 +4,16 @@ php:
   - '7.0'
   - '7.1'
 
+node_js:
+  - 6.10
+
 sudo: required
 dist: trusty
 
 cache:
   directories:
     - $HOME/.composer/cache
+    - $HOME/.cache/yarn
 
 services:
   - mysql
@@ -22,3 +26,7 @@ before_script:
 
 script:
   - . ci/travis/script.sh
+
+notifications:
+  email:
+    on_failure: always
