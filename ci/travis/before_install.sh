@@ -1,5 +1,6 @@
 #!/usr/bin/env bash
 
+# Database
 mysql -e 'CREATE DATABASE IPMEDT4K;'
 
 # Composer
