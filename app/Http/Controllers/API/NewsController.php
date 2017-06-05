@@ -2,8 +2,8 @@
 
 namespace IPMEDT4K\Http\Controllers\API;
 
-use Illuminate\Http\Request;
 use Feeds;
+use Illuminate\Http\Request;
 use IPMEDT4K\Http\Controllers\Controller;
 
 class NewsController extends Controller

@@ -16,4 +16,4 @@ Route::get('/', function () {
 });
 
 
-Route::get('monitor', 'MonitorController');
+Route::get('monitor', 'Web\MonitorController');
