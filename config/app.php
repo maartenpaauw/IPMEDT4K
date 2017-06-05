@@ -176,6 +176,11 @@ return [
         // IPMEDT4K\Providers\BroadcastServiceProvider::class,
         IPMEDT4K\Providers\EventServiceProvider::class,
         IPMEDT4K\Providers\RouteServiceProvider::class,
+
+        /*
+         * Vendor
+         */
+        \willvincent\Feeds\FeedsServiceProvider::class
     ],
 
     /*
@@ -225,6 +230,10 @@ return [
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View' => Illuminate\Support\Facades\View::class,
 
+        /*
+         * Vendor
+         */
+        'Feeds' => \willvincent\Feeds\Facades\FeedsFacade::class
     ],
 
 ];
