@@ -2,6 +2,7 @@
 window._ = require('lodash');
 window.moment = require('moment');
 
+moment.locale('nl_NL');
 
 /**
  * We'll load jQuery and the Bootstrap jQuery plugin which provides support
