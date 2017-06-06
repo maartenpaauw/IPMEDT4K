@@ -1,15 +1,14 @@
 @import "app";
+@import "../../../node_modules/weather-icons/css/weather-icons.css";
 
-.bg-lightgray {
-  background: #F6F7FA;
+.news {
+
+  .news-item {
+    display: inline;
+  }
 }
 
-.bg-white {
-  background: #ffffff;
-}
-
-.bg-yellow,
-.badge-yellow {
+.badge-watchout {
   background-color: $brand-watchout;
 }
 
@@ -17,7 +16,7 @@
   border-radius: 0 !important;
 }
 
-.border-lightgray {
+.border-light-gray {
   border: 1px solid #e9edf0;
 }
 

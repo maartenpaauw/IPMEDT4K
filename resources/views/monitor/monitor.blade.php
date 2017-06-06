@@ -12,7 +12,7 @@
         <meta name="csrf-token" content="{{ csrf_token() }}">
     </head>
 
-    <body class="bg-lightgray">
+    <body class="light-gray-bg">
 
         <!-- Vue js wrapper -->
         <div id="app">
@@ -73,14 +73,14 @@
                         </div>
 
                         <!-- Waiting patient -->
-                        <div class="row bg-white border-lightgray border-bottom-0">
+                        <div class="row white-bg border-light-gray border-bottom-0">
 
                             <!-- Urgency -->
                             <div class="col-1 py-5 bg-danger"></div>
 
                             <!-- Code -->
                             <div class="col align-self-center ml-3">
-                                <h4 class="h1 m-0 text-primary">56934</h4>
+                                <h4 class="h1 m-0 dark-blue">56934</h4>
                             </div>
 
                             <!-- Status -->
@@ -92,14 +92,14 @@
                         </div>
 
                         <!-- Waiting patient -->
-                        <div class="row bg-white border-lightgray border-bottom-0">
+                        <div class="row white-bg border-light-gray border-bottom-0">
 
                             <!-- Urgency -->
                             <div class="col-1 py-5 bg-warning"></div>
 
                             <!-- Code -->
                             <div class="col align-self-center ml-3">
-                                <h4 class="h1 m-0 text-primary">56934</h4>
+                                <h4 class="h1 m-0 dark-blue">56934</h4>
                             </div>
 
                             <!-- Status -->
@@ -111,14 +111,14 @@
                         </div>
 
                         <!-- Waiting patient -->
-                        <div class="row bg-white border-lightgray border-bottom-0">
+                        <div class="row white-bg border-light-gray border-bottom-0">
 
                             <!-- Urgency -->
-                            <div class="col-1 py-5 bg-yellow"></div>
+                            <div class="col-1 py-5 brand-watchout-bg"></div>
 
                             <!-- Code -->
                             <div class="col align-self-center ml-3">
-                                <h4 class="h1 m-0 text-primary">56934</h4>
+                                <h4 class="h1 m-0 dark-blue">56934</h4>
                             </div>
 
                             <!-- Status -->
@@ -130,14 +130,14 @@
                         </div>
 
                         <!-- Waiting patient -->
-                        <div class="row bg-white border-lightgray border-bottom-0">
+                        <div class="row white-bg border-light-gray border-bottom-0">
 
                             <!-- Urgency -->
                             <div class="col-1 py-5 bg-success"></div>
 
                             <!-- Code -->
                             <div class="col align-self-center ml-3">
-                                <h4 class="h1 m-0 text-primary">56934</h4>
+                                <h4 class="h1 m-0 dark-blue">56934</h4>
                             </div>
 
                             <!-- Status -->
@@ -149,14 +149,14 @@
                         </div>
 
                         <!-- Waiting patient -->
-                        <div class="row bg-white border-lightgray">
+                        <div class="row white-bg border-light-gray">
 
                             <!-- Urgency -->
                             <div class="col-1 py-5 bg-info"></div>
 
                             <!-- Code -->
                             <div class="col align-self-center ml-3">
-                                <h4 class="h1 m-0 text-primary">56934</h4>
+                                <h4 class="h1 m-0 dark-blue">56934</h4>
                             </div>
 
                             <!-- Status -->
@@ -181,13 +181,13 @@
                         <div class="row">
 
                             <!-- Triage explanation -->
-                            <div class="col-12 p-4 mb-5 bg-white border-lightgray">
+                            <div class="col-12 p-4 mb-5 white-bg border-light-gray">
 
                                 <div class="row">
 
                                     <!-- Label -->
                                     <div class="col-4 align-self-center">
-                                        <h3 class="h4 text-primary">Triage</h3>
+                                        <h3 class="h4 blue-dark">Triage</h3>
                                     </div>
 
                                     <!-- Triage -->
@@ -218,7 +218,7 @@
                                             <!-- Triage - Urgent -->
                                             <div class="col-6 mb-2">
                                                 <div class="row">
-                                                    <div class="col-2 badge badge-yellow d-block border-radius-0"></div>
+                                                    <div class="col-2 badge badge-watchout d-block border-radius-0"></div>
                                                     <div class="col">
                                                         <span class="text-muted">Urgent</span>
                                                     </div>
@@ -250,13 +250,13 @@
                             </div>
 
                             <!-- Triage counter -->
-                            <div class="col-12 p-4 mb-5 bg-white border-lightgray">
+                            <div class="col-12 p-4 mb-5 white-bg border-light-gray">
 
                                 <div class="row">
 
                                     <!-- Label -->
                                     <div class="col-4 align-self-center">
-                                        <h3 class="h4 m-0 text-primary">Patiënten</h3>
+                                        <h3 class="h4 m-0 dark-blue">Patiënten</h3>
                                     </div>
 
                                     <div class="col align-self-center pl-0">
@@ -267,7 +267,7 @@
                                         <div class="rounded-circle text-center text-white circle float-left mr-1 bg-warning">
                                             <span class="m-auto h4">2</span>
                                         </div>
-                                        <div class="rounded-circle text-center text-white circle float-left mr-1 bg-yellow">
+                                        <div class="rounded-circle text-center text-white circle float-left mr-1 brand-watchout-bg">
                                             <span class="m-auto h4">3</span>
                                         </div>
                                         <div class="rounded-circle text-center text-white circle float-left mr-1 bg-success">
@@ -281,23 +281,23 @@
                             </div>
 
                             <!-- Weather -->
-                            <div class="col-12 p-4 mb-5 bg-white border-lightgray">
+                            <div class="col-12 p-4 mb-5 white-bg border-light-gray">
                                 <div class="row">
 
                                     <div class="col-12">
-                                        <h3 class="h4 text-primary">
+                                        <h3 class="h4 dark-blue">
                                             <strong>Leiden,</strong> Nederland
                                         </h3>
-                                        <p>
-                                            <i class="text-info">Hoogte 0m 52.15 N, 4.49 E | Geüpdatet 12 minuten geleden</i>
-                                        </p>
+                                        <small>
+                                            <i class="text-info">Hoogte 0m 52.15 N, 4.49 E&emsp;<span class="blue-dark">|</span>&emsp;Geüpdatet 12 minuten geleden</i>
+                                        </small>
                                     </div>
 
                                     <div class="col-12 mt-5 mb-4">
                                         <div class="row">
                                             <div class="col">
                                                 <p class="h1 text-center" style="font-size: 4rem;">
-                                                    <i class="wi wi-day-rain mr-3 text-info"></i> <span class="text-primary">13.5<sup>&deg;c</sup></span>
+                                                    <i class="wi wi-day-rain mr-3 text-info"></i> <span class="dark-blue">13.5<sup>&deg;c</sup></span>
                                                 </p>
                                             </div>
                                         </div>
@@ -311,17 +311,17 @@
                                         <div class="row">
                                             <div class="col">
                                                 <p class="m-0 text-info">
-                                                    <i class="m-0 mr-2 h4 wi wi-sunrise align-middle"></i> <span class="text-primary align-middle">06:54</span>
+                                                    <i class="wi wi-sunrise fa-2x  m-0 mr-2 align-middle"></i> <span class="align-middle blue-dark">06:54</span>
                                                 </p>
                                             </div>
                                             <div class="col">
                                                 <p class="m-0 text-info">
-                                                    <i class="m-0 mr-2 h4 wi wi-sunset align-middle"></i> <span class="text-primary align-middle">20:31</span>
+                                                    <i class="wi wi-sunset  fa-2x m-0 mr-2 align-middle"></i> <span class="align-middle blue-dark">20:31</span>
                                                 </p>
                                             </div>
                                             <div class="col-5">
                                                 <p class="m-0 text-info text-right">
-                                                    <i class="m-0 mr-2 h4 wi wi-strong-wind align-middle"></i> <span class="text-primary align-middle">6.1 km/h - ZW</span>
+                                                    <i class="wi wi-strong-wind fa-2x m-0 mr-2 align-middle"></i> <span class="align-middle blue-dark">6.1 km/h - ZW</span>
                                                 </p>
                                             </div>
                                         </div>
@@ -333,7 +333,7 @@
                 </div>
 
                 <!-- NU.nl -->
-                <div class="row my-5 px-1 py-3 bg-white border-lightgray">
+                <div class="row my-5 px-1 py-3 white-bg border-light-gray">
 
                     <!-- Logo -->
                     <div class="col-1">
@@ -343,10 +343,20 @@
                     <!-- Feed -->
                     <div class="col align-self-center">
 
-                        <!-- News item -->
-                        <p class="m-0">
-                            <strong class="text-info">06:45</strong>&emsp;<span class="text-primary">&mdash;&emsp;Nieuwe advocaat voor verdachte in zaak Everink.</span>
-                        </p>
+                        <!-- News -->
+                        <div class="news">
+
+                            <!-- News item -->
+                            <p class="m-0 mr-5 news-item">
+                                <strong class="text-info">06:45</strong><span class="dark-blue">&emsp;&mdash;&emsp;</span>Nieuwe advocaat voor verdachte in zaak Everink.
+                            </p>
+
+                            <!-- News item -->
+                            <p class="m-0 news-item">
+                                <strong class="text-info">06:45</strong><span class="dark-blue">&emsp;&mdash;&emsp;</span>Nieuwe advocaat voor verdachte in zaak Everink.
+                            </p>
+                        </div>
+
                     </div>
                 </div>
             </div>
