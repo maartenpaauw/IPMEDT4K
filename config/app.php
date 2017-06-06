@@ -163,6 +163,7 @@ return [
         Illuminate\Validation\ValidationServiceProvider::class,
         Illuminate\View\ViewServiceProvider::class,
 
+
         /*
          * Package Service Providers...
          */
@@ -180,7 +181,9 @@ return [
         /*
          * Vendor
          */
-        \willvincent\Feeds\FeedsServiceProvider::class
+        \willvincent\Feeds\FeedsServiceProvider::class,
+
+        Collective\Html\HtmlServiceProvider::class,
     ],
 
     /*
@@ -233,7 +236,10 @@ return [
         /*
          * Vendor
          */
-        'Feeds' => \willvincent\Feeds\Facades\FeedsFacade::class
+        'Feeds' => \willvincent\Feeds\Facades\FeedsFacade::class,
+
+        'Form' => Collective\Html\FormFacade::class,
+        'Html' => Collective\Html\HtmlFacade::class
     ],
 
 ];

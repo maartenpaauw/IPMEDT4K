@@ -21,4 +21,5 @@ mix
     .js('resources/assets/js/monitor.js', 'public/js')
     .sass('resources/assets/sass/app.scss', 'public/css')
     .sass('resources/assets/sass/monitor.scss', 'public/css')
-    .sass('resources/assets/sass/dashboard.scss', 'public/css');
+    .sass('resources/assets/sass/dashboard.scss', 'public/css')
+    .sass('resources/assets/sass/login.scss', 'public/css');
