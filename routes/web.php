@@ -20,5 +20,9 @@ Route::get('monitor', 'Web\MonitorController');
 
 Route::get('dashboard', 'Web\DashboardController')->name('dashboard');
 
+Route::get('login', array('uses' => 'Web\LoginController@showLogin'));
+
+Route::post('login', array('uses' => 'Web\LoginController@doLogin'));
+
 Route::resource('patienten', 'Web\PatientController');
 
