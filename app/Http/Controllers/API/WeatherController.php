@@ -13,8 +13,11 @@ class WeatherController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function __invoke ()
+    public function __invoke()
     {
+        // Wind directions
+        $dirs = array('N', 'NO', 'O', 'ZO', 'Z', 'ZW', 'W', 'NW', 'N');
+
         // Icons
         $icons = json_decode(file_get_contents(storage_path('app/icons.json')), true);
 
@@ -24,20 +27,20 @@ class WeatherController extends Controller
         // Make the request.
         $res = $client->request(
             'GET',
-            'http://api.openweathermap.org/data/2.5/weather', [
+            'http://api.openweathermap.org/data/2.5/weather',
+            [
                 'query' => [
-                    'lat'   => '52.1583',
-                    'lon'   => '4.4931',
+                    'lat' => '52.1583',
+                    'lon' => '4.4931',
                     'units' => 'metric',
-                    'lang'  => 'nl',
-                    'appid' => env('OPEN_WEATHER_API_KEY')
-                ]
+                    'lang' => 'nl',
+                    'appid' => env('OPEN_WEATHER_API_KEY'),
+                ],
             ]
         );
 
         // Check the status code.
-        if ($res->getStatusCode() === 200)
-        {
+        if ($res->getStatusCode() === 200) {
             // Body
             $body = json_decode($res->getBody(), true);
 
@@ -47,14 +50,17 @@ class WeatherController extends Controller
 
             // If we are not in the ranges mentioned above, add a day/night prefix.
             if (!($code > 699 && $code < 800) && !($code > 899 && $code < 1000)) {
-                $icon = 'day-' . $icon;
+                $icon = 'day-'.$icon;
             }
 
             // Finally tack on the prefix.
-            $icon = $prefix . $icon;
+            $icon = $prefix.$icon;
 
             // Overwrite it with the symbol we need.
             $body['weather'][0]['icon'] = $icon;
+
+            // Add the wind direction.
+            $body['wind']['dir'] = $dirs[round($body['wind']['deg'] / 45)];
 
             // Return the body.
             return response($body);
