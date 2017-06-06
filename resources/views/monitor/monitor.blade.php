@@ -19,7 +19,7 @@
 
             <!-- Menu -->
             <div class="container-fluid">
-                <div class="row bg-primary py-3 px-5">
+                <div class="row blue-dark-bg py-3 px-5">
                     <div class="col-2 align-self-center">
                         <img src="{{ asset('images/logo.png') }}" alt="Krankenhaus Krak - Logo" width="150px">
                     </div>
@@ -85,7 +85,7 @@
 
                             <!-- Status -->
                             <div class="col align-self-center">
-                                <p class="m-0 text-success">
+                                <p class="m-0 h5 text-success">
                                     <span class="fa fa-clock-o"></span> <strong>In behandeling</strong>
                                 </p>
                             </div>
@@ -104,7 +104,7 @@
 
                             <!-- Status -->
                             <div class="col align-self-center">
-                                <p class="m-0 text-muted">
+                                <p class="m-0 h5 text-muted">
                                     <span class="fa fa-clock-o"></span> Wachten
                                 </p>
                             </div>
@@ -123,7 +123,7 @@
 
                             <!-- Status -->
                             <div class="col align-self-center">
-                                <p class="m-0 text-muted">
+                                <p class="m-0 h5 text-muted">
                                     <span class="fa fa-clock-o"></span> Wachten
                                 </p>
                             </div>
@@ -142,7 +142,7 @@
 
                             <!-- Status -->
                             <div class="col align-self-center">
-                                <p class="m-0 text-muted">
+                                <p class="m-0 h5 text-muted">
                                     <span class="fa fa-clock-o"></span> Wachten
                                 </p>
                             </div>
@@ -161,7 +161,7 @@
 
                             <!-- Status -->
                             <div class="col align-self-center">
-                                <p class="m-0 text-muted">
+                                <p class="m-0 h5 text-muted">
                                     <span class="fa fa-clock-o"></span> Wachten
                                 </p>
                             </div>
@@ -321,7 +321,7 @@
                                             </div>
                                             <div class="col-5">
                                                 <p class="m-0 text-info text-right">
-                                                    <i class="m-0 mr-2 h4 wi wi-strong-wind align-middle"></i> <span class="text-primary align-middle">6.1km/h - ZW</span>
+                                                    <i class="m-0 mr-2 h4 wi wi-strong-wind align-middle"></i> <span class="text-primary align-middle">6.1 km/h - ZW</span>
                                                 </p>
                                             </div>
                                         </div>
