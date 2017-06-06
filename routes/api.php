@@ -17,4 +17,12 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 
+/*
+ * News
+ */
 Route::get('nu.nl', 'API\NewsController');
+
+/*
+ * Weather
+ */
+Route::get('weather', 'API\WeatherController');
