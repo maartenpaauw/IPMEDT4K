@@ -16,6 +16,7 @@ window.Vue = require('vue');
  */
 
 Vue.component('monitor-header', require('./components/monitor/Header.vue'));
+Vue.component('monitor-triage', require('./components/monitor/Triage.vue'));
 
 const app = new Vue({
     el: '#app'

@@ -164,73 +164,7 @@
                         <div class="row">
 
                             <!-- Triage explanation -->
-                            <div class="col-12 p-4 mb-5 white-bg border-light-gray">
-
-                                <div class="row">
-
-                                    <!-- Label -->
-                                    <div class="col-4 align-self-center">
-                                        <h3 class="h4 blue-dark">Triage</h3>
-                                    </div>
-
-                                    <!-- Triage -->
-                                    <div class="col">
-
-                                        <div class="row">
-
-                                            <!-- Triage - Onmiddelijk -->
-                                            <div class="col-6 mb-2">
-                                                <div class="row">
-                                                    <div class="col-2 badge badge-danger d-block border-radius-0"></div>
-                                                    <div class="col">
-                                                        <span class="text-muted">Onmiddelijk</span>
-                                                    </div>
-                                                </div>
-                                            </div>
-
-                                            <!-- Triage - Hoog urgent -->
-                                            <div class="col-6 mb-2">
-                                                <div class="row">
-                                                    <div class="col-2 badge badge-warning d-block border-radius-0"></div>
-                                                    <div class="col">
-                                                        <span class="text-muted">Hoog urgent</span>
-                                                    </div>
-                                                </div>
-                                            </div>
-
-                                            <!-- Triage - Urgent -->
-                                            <div class="col-6 mb-2">
-                                                <div class="row">
-                                                    <div class="col-2 badge badge-watchout d-block border-radius-0"></div>
-                                                    <div class="col">
-                                                        <span class="text-muted">Urgent</span>
-                                                    </div>
-                                                </div>
-                                            </div>
-
-                                            <!-- Triage - Urgent -->
-                                            <div class="col-6 mb-2">
-                                                <div class="row">
-                                                    <div class="col-2 badge badge-success d-block border-radius-0"></div>
-                                                    <div class="col">
-                                                        <span class="text-muted">Standaard</span>
-                                                    </div>
-                                                </div>
-                                            </div>
-
-                                            <!-- Triage - Urgent -->
-                                            <div class="col-6 mb-2">
-                                                <div class="row">
-                                                    <div class="col-2 badge badge-info d-block border-radius-0"></div>
-                                                    <div class="col">
-                                                        <span class="text-muted">Niet urgent</span>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
+                            <monitor-triage></monitor-triage>
 
                             <!-- Triage counter -->
                             <div class="col-12 p-4 mb-5 white-bg border-light-gray">
