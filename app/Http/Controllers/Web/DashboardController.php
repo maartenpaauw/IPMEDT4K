@@ -16,6 +16,6 @@ class DashboardController extends Controller
     public function __invoke ()
     {
         // Return the monitor view.
-        return view('dashboard.dashboard');
+        return view('dashboard.dashboard.index');
     }
 }

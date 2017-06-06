@@ -18,4 +18,7 @@ Route::get('/', function () {
 
 Route::get('monitor', 'Web\MonitorController');
 
-Route::get('dashboard', 'Web\DashboardController');
+Route::get('dashboard', 'Web\DashboardController')->name('dashboard');
+
+Route::resource('patienten', 'Web\PatientController');
+
