@@ -21,6 +21,8 @@
     "metismenu": "^2.0.3",
     "nprogress": "^0.2.0",
     "responsive-toolkit": "^2.5.0",
-    "vue": "2.3.3"
+    "vue": "2.3.3",
+    "moment": "^2.18.1",
+    "weather-icons": "^1.3.2"
   }
 }
