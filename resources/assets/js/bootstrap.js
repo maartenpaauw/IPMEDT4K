@@ -1,6 +1,7 @@
 
 window._ = require('lodash');
 
+
 /**
  * We'll load jQuery and the Bootstrap jQuery plugin which provides support
  * for JavaScript based Bootstrap features such as modals and tabs. This
@@ -12,6 +13,11 @@ try {
 
     require('bootstrap');
 } catch (e) {}
+
+require('animate.css');
+require('metismenu');
+window.NProgress = require('nprogress');
+window.ResponsiveBootstrapToolkit = require('responsive-toolkit');
 
 /**
  * We'll load the axios HTTP library which allows us to easily issue requests

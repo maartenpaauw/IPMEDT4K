@@ -1,0 +1,37 @@
+$brand-primary: #37A8D6;
+$brand-secondary: #43C1B8;
+
+$blue-dark: #0E1A35;
+$light-blue: #122143;
+
+$light-gray: #F6F7FA;
+
+
+// Main Colors
+
+$brand-primary-dark:    darken($brand-primary, 5%)!default;
+
+
+$brand-success:         #5cb85c !default;
+$brand-success-dark:    darken($brand-success, 5%)!default;
+
+$brand-info:            #5bc0de !default;
+$brand-info-dark:       darken($brand-info,5%)!default;
+
+$brand-warning:         #f0ad4e !default;
+$brand-warning-dark:    darken($brand-warning,5%)!default;
+
+$brand-danger:          #d9534f !default;
+$brand-danger-dark:     darken($brand-danger,5%)!default;
+
+$brand-watchout:        #ffd500 !default;
+$brand-watchout-dark:   darken($brand-watchout,5%)!default;
+
+
+.brand-primary {
+  color: $brand-primary;
+}
+
+.brand-primary-bg {
+  background: $brand-primary;
+}
