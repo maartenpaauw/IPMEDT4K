@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta content="ie=edge" http-equiv="x-ua-compatible">
-    <title>Krankenhaus Krak - Dashboard</title>
+    <title>Krankenhaus Krak - @yield('title')</title>
     <meta content="" name="description">
     <meta content="width=device-width, initial-scale=1" name="viewport">
     <link href="apple-touch-icon.png" rel="apple-touch-icon">
@@ -49,20 +49,12 @@
                 </div>
                 <nav class="menu">
                     <ul class="nav metismenu" id="sidebar-menu">
-                        <li class="active">
-                            <a href="#"><i class="fa fa-home brand-primary"></i> Dashboard</a>
+                        <li {{ (Request::is('dashboard') ? 'class=active' : '') }}>
+                            <a href="{!! route('dashboard') !!}"><i class="fa fa-home brand-primary"></i> Dashboard</a>
                         </li>
                         <hr class="menu-hr p-0 m-0">
-                        <li class="">
-                            <a href=""><i class="fa fa-users brand-primary"></i> Patiënten <i class="fa arrow"></i></a>
-                            <ul>
-                                <li>
-                                    <a href="#">Dosier 1</a>
-                                </li>
-                                <li>
-                                    <a href="#">Dosier 2</a>
-                                </li>
-                            </ul>
+                        <li {{ (Request::is('patienten') ? 'class=active' : '') }}>
+                            <a href="{!! route('patienten.index') !!}"><i class="fa fa-users brand-primary"></i> Patiënten </a>
                         </li>
                         <hr class="menu-hr p-0 m-0">
                     </ul>
@@ -76,10 +68,11 @@
                 <div class="title-block">
                     <div class="row">
                         <div class="col-md-6">
-                            <h3 class="title">Dashboard</h3>
+                            <h3 class="title">@yield('title')</h3>
                         </div>
                     </div>
                 </div>
+                @yield('content')
             </div>
         </article>
         <footer class="footer">
