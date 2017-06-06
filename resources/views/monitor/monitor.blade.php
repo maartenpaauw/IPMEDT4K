@@ -4,12 +4,12 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <link rel="stylesheet" href="{{ mix('css/app.css') }}">
-        <link rel="stylesheet" href="{{ mix('css/monitor.css') }}">
+        <link rel="stylesheet" href="{!! mix('css/app.css') !!}">
+        <link rel="stylesheet" href="{!! mix('css/monitor.css') !!}">
 
         <title>Monitor</title>
 
-        <meta name="csrf-token" content="{{ csrf_token() }}">
+        <meta name="csrf-token" content="{!! csrf_token() !!}">
     </head>
 
     <body class="light-gray-bg">
@@ -18,24 +18,7 @@
         <div id="app">
 
             <!-- Menu -->
-            <div class="container-fluid">
-                <div class="row blue-dark-bg py-3 px-5">
-                    <div class="col-2 align-self-center">
-                        <img src="{{ asset('images/logo.png') }}" alt="Krankenhaus Krak - Logo" width="150px">
-                    </div>
-                    <div class="col text-center text-white align-self-center">
-                        <h1 class="m-0 text-uppercase">Wacht indicatie</h1>
-                    </div>
-                    <div class="col-2 text-right text-white align-self-center">
-                        <h4>
-                            <i class="fa fa-calendar mr-2"></i> 25-05-2017
-                        </h4>
-                        <h4>
-                            <i class="fa fa-clock-o mr-2"></i> 13:37
-                        </h4>
-                    </div>
-                </div>
-            </div>
+            <monitor-header logo="{!! asset('images/logo.png') !!}"></monitor-header>
 
             <!-- Container -->
             <div class="container">
@@ -337,7 +320,7 @@
 
                     <!-- Logo -->
                     <div class="col-1">
-                        <img src="{{ asset('images/nu.nl.png') }}" alt="Nu.nl - Logo" style="height: 50px;">
+                        <img src="{!! asset('images/nu.nl.png') !!}" alt="Nu.nl - Logo" style="height: 50px;">
                     </div>
 
                     <!-- Feed -->
@@ -363,6 +346,6 @@
 
         </div>
 
-        <script type="text/javascript" src="{{ asset('js/app.js') }}"></script>
+        <script type="text/javascript" src="{!! asset('js/monitor.js') !!}"></script>
     </body>
 </html>
