@@ -12,7 +12,7 @@ const { mix } = require('laravel-mix');
  */
 
 mix.browserSync({
-    proxy: 'ipmedt4k.dev'
+    proxy: process.env.MIX_BROWSER_SYNC_DOMAIN
 });
 
 mix.js('resources/assets/js/app.js', 'public/js')
