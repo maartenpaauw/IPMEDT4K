@@ -3,6 +3,7 @@
 namespace IPMEDT4K\Http\Controllers\Web;
 
 use Illuminate\Http\Request;
+use Illuminate\View\View;
 use IPMEDT4K\Http\Controllers\Controller;
 
 class MonitorController extends Controller
@@ -14,6 +15,7 @@ class MonitorController extends Controller
      */
     public function __invoke ()
     {
-        //
+        // Return the monitor view.
+        return view('monitor.monitor');
     }
 }
