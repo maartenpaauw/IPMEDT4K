@@ -1,3 +1,5 @@
+@import "../../../node_modules/weather-icons/css/weather-icons.min.css";
+
 .bg-lightgray {
   background: #F6F7FA;
 }
@@ -11,19 +13,18 @@
   background-color: yellow;
 }
 
+.border-radius-0 {
+  border-radius: 0 !important;
+}
+
 .border-lightgray {
   border: 1px solid #e9edf0;
 }
 
 .circle {
-  width: 50px;
-  height: 50px;
+  width: 59px;
+  height: 59px;
   display: flex;
   flex-direction: column;
   justify-content: center;
-}
-
-.circle-small {
-  width: 20px !important;
-  height: 20px !important;
 }
