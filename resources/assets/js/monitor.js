@@ -15,8 +15,10 @@ window.Vue = require('vue');
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
 
-Vue.component('monitor-header', require('./components/monitor/Header.vue'));
-Vue.component('monitor-triage', require('./components/monitor/Triage.vue'));
+Vue.component('monitor-header',         require('./components/monitor/Header.vue'));
+Vue.component('monitor-triage',         require('./components/monitor/Triage.vue'));
+Vue.component('monitor-triage-counter', require('./components/monitor/TriageCounter.vue'));
+Vue.component('monitor-patients',       require('./components/monitor/Patients.vue'));
 
 const app = new Vue({
     el: '#app'

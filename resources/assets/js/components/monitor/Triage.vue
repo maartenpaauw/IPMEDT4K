@@ -1,14 +1,9 @@
 <template>
     <div class="col-12 p-4 mb-5 white-bg border-light-gray">
-
         <div class="row">
-
-            <!-- Label -->
             <div class="col-4 align-self-center">
                 <h3 class="h4 blue-dark">Triage</h3>
             </div>
-
-            <!-- Triage -->
             <div class="col">
                 <div class="row">
                     <div class="col-6 mb-2" v-for="triage in triages">
