@@ -17,3 +17,5 @@ Route::get('/', function () {
 
 
 Route::get('monitor', 'Web\MonitorController');
+
+Route::get('dashboard', 'Web\DashboardController');
