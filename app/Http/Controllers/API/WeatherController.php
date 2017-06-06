@@ -41,15 +41,19 @@ class WeatherController extends Controller
 
         // Check the status code.
         if ($res->getStatusCode() === 200) {
+
             // Body
             $body = json_decode($res->getBody(), true);
 
+            // Icon class.
             $prefix = 'wi wi-';
             $code = $body['weather'][0]['id'];
             $icon = $icons[$code]['icon'];
 
             // If we are not in the ranges mentioned above, add a day/night prefix.
             if (!($code > 699 && $code < 800) && !($code > 899 && $code < 1000)) {
+
+                // Append day to icon class.
                 $icon = 'day-'.$icon;
             }
 
@@ -60,7 +64,7 @@ class WeatherController extends Controller
             $body['weather'][0]['icon'] = $icon;
 
             // Add the wind direction.
-            $body['wind']['dir'] = $dirs[round($body['wind']['deg'] / 45)];
+            $body['wind']['dir'] = $dirs[(int) round($body['wind']['deg'] / 45)];
 
             // Return the body.
             return response($body);
