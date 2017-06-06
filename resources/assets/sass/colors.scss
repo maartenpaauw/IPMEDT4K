@@ -27,50 +27,9 @@ $brand-danger-dark:     darken($brand-danger,5%)!default;
 $brand-watchout:        #ffd500 !default;
 $brand-watchout-dark:   darken($brand-watchout,5%)!default;
 
-
-.brand-primary {
-  color: $brand-primary;
-}
-
-.brand-primary-bg {
-  background: $brand-primary;
-}
-
-.brand-secondary {
-  color: $brand-secondary;
-}
-
-.brand-secondary-bg {
-  background: $brand-secondary;
-}
-
-.blue-dark {
-  color: $blue-dark;
-}
-
-.blue-dark-bg {
-  background: $blue-dark;
-}
-
-.light-blue {
-  color: $light-blue;
-}
-
-.light-blue-bg {
-  background: $light-blue;
-}
-
-.light-gray {
-  color: $light-gray;
-}
-
-.light-gray-bg {
-  background: $light-gray;
-}
-
 .brand-success {
   color: $brand-success;
-}f
+}
 
  .brand-success-bg {
    background: $brand-success;
@@ -98,12 +57,4 @@ $brand-watchout-dark:   darken($brand-watchout,5%)!default;
 
 .brand-danger-bg {
   background: $brand-danger;
-}
-
-.brand-watchout {
-  color: $brand-watchout;
-}
-
-.brand-watchout-bg {
-  background: $brand-watchout;
 }
