@@ -15,5 +15,7 @@ mix.browserSync({
     proxy: process.env.MIX_BROWSER_SYNC_DOMAIN
 });
 
-mix.js('resources/assets/js/app.js', 'public/js')
-   .sass('resources/assets/sass/app.scss', 'public/css');
+mix
+    .js('resources/assets/js/app.js', 'public/js')
+    .sass('resources/assets/sass/app.scss', 'public/css')
+    .sass('resources/assets/sass/monitor.scss', 'public/css');
