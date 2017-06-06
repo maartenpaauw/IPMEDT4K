@@ -14,12 +14,12 @@
 
         <!-- Menu -->
         <div class="container-fluid">
-            <div class="row bg-primary py-5 px-5">
+            <div class="row bg-primary py-4 px-5">
                 <div class="col-2 align-self-center">
                     <img src="{{ asset('images/logo.png') }}" alt="Krankenhaus Krak - Logo" width="150px">
                 </div>
                 <div class="col text-center text-white align-self-center">
-                    <h1>Wacht indicatie</h1>
+                    <h1 class="m-0 text-uppercase">Wacht indicatie</h1>
                 </div>
                 <div class="col-2 text-right text-white align-self-center">
                     <h4>
@@ -37,8 +37,8 @@
 
             <!-- Title -->
             <div class="row pt-5">
-                <div class="col-12">
-                    <h1 class="text-primary">Wachtende patiënten</h1>
+                <div class="col-12 px-0">
+                    <h2 class="h1 text-primary">Wachtende patiënten</h2>
                 </div>
             </div>
 
@@ -46,10 +46,10 @@
             <div class="row pt-5">
 
                 <!-- Waiting timers -->
-                <div class="col-6">
+                <div class="col-6 mr-5">
 
                     <!-- Labels -->
-                    <div class="row">
+                    <div class="row py-3">
 
                         <!-- Urgency -->
                         <div class="col-1 align-self-center">
@@ -75,7 +75,7 @@
 
                         <!-- Code -->
                         <div class="col align-self-center ml-3">
-                            <h2 class="m-0">12345</h2>
+                            <h4 class="h1 m-0 text-primary">56934</h4>
                         </div>
 
                         <!-- Status -->
@@ -94,7 +94,7 @@
 
                         <!-- Code -->
                         <div class="col align-self-center ml-3">
-                            <h2 class="m-0">56934</h2>
+                            <h4 class="h1 m-0 text-primary">56934</h4>
                         </div>
 
                         <!-- Status -->
@@ -113,7 +113,7 @@
 
                         <!-- Code -->
                         <div class="col align-self-center ml-3">
-                            <h2 class="m-0">56934</h2>
+                            <h4 class="h1 m-0 text-primary">56934</h4>
                         </div>
 
                         <!-- Status -->
@@ -132,7 +132,7 @@
 
                         <!-- Code -->
                         <div class="col align-self-center ml-3">
-                            <h2 class="m-0">56934</h2>
+                            <h4 class="h1 m-0 text-primary">56934</h4>
                         </div>
 
                         <!-- Status -->
@@ -151,7 +151,7 @@
 
                         <!-- Code -->
                         <div class="col align-self-center ml-3">
-                            <h2 class="m-0">56934</h2>
+                            <h4 class="h1 m-0 text-primary">56934</h4>
                         </div>
 
                         <!-- Status -->
@@ -163,14 +163,11 @@
                     </div>
                 </div>
 
-                <!-- Divider -->
-                <div class="col-1"></div>
-
                 <!-- Legenda -->
-                <div class="col-5">
+                <div class="col">
 
                     <!-- Margin top -->
-                    <div class="row">
+                    <div class="row py-3">
                         <div class="col">
                             <p class="mb-1">&nbsp;</p>
                         </div>
@@ -185,7 +182,7 @@
 
                                 <!-- Label -->
                                 <div class="col-4 align-self-center">
-                                    <h3 class="text-primary">Triage</h3>
+                                    <h3 class="h4 text-primary">Triage</h3>
                                 </div>
 
                                 <!-- Triage -->
@@ -196,7 +193,7 @@
                                         <!-- Triage - Onmiddelijk -->
                                         <div class="col-6 mb-2">
                                             <div class="row">
-                                                <div class="col-2 badge badge-danger d-block"></div>
+                                                <div class="col-2 badge badge-danger d-block border-radius-0"></div>
                                                 <div class="col">
                                                     <span class="text-muted">Onmiddelijk</span>
                                                 </div>
@@ -206,7 +203,7 @@
                                         <!-- Triage - Hoog urgent -->
                                         <div class="col-6 mb-2">
                                             <div class="row">
-                                                <div class="col-2 badge badge-warning d-block"></div>
+                                                <div class="col-2 badge badge-warning d-block border-radius-0"></div>
                                                 <div class="col">
                                                     <span class="text-muted">Hoog urgent</span>
                                                 </div>
@@ -216,7 +213,7 @@
                                         <!-- Triage - Urgent -->
                                         <div class="col-6 mb-2">
                                             <div class="row">
-                                                <div class="col-2 badge badge-yellow d-block"></div>
+                                                <div class="col-2 badge badge-yellow d-block border-radius-0"></div>
                                                 <div class="col">
                                                     <span class="text-muted">Urgent</span>
                                                 </div>
@@ -226,7 +223,7 @@
                                         <!-- Triage - Urgent -->
                                         <div class="col-6 mb-2">
                                             <div class="row">
-                                                <div class="col-2 badge badge-success d-block"></div>
+                                                <div class="col-2 badge badge-success d-block border-radius-0"></div>
                                                 <div class="col">
                                                     <span class="text-muted">Standaard</span>
                                                 </div>
@@ -236,7 +233,7 @@
                                         <!-- Triage - Urgent -->
                                         <div class="col-6 mb-2">
                                             <div class="row">
-                                                <div class="col-2 badge badge-info d-block"></div>
+                                                <div class="col-2 badge badge-info d-block border-radius-0"></div>
                                                 <div class="col">
                                                     <span class="text-muted">Niet urgent</span>
                                                 </div>
@@ -248,16 +245,17 @@
                         </div>
 
                         <!-- Triage counter -->
-                        <div class="col-12 bg-white p-4 border-lightgray">
+                        <div class="col-12 p-4 mb-5 bg-white border-lightgray">
 
                             <div class="row">
 
                                 <!-- Label -->
                                 <div class="col-4 align-self-center">
-                                    <h3 class="m-0 text-primary">Patiënten</h3>
+                                    <h3 class="h4 m-0 text-primary">Patiënten</h3>
                                 </div>
 
-                                <div class="col align-self-center">
+                                <div class="col align-self-center pl-0">
+
                                     <div class="rounded-circle text-center text-white circle float-left mr-1 bg-danger">
                                         <span class="m-auto h4">1</span>
                                     </div>
@@ -278,15 +276,51 @@
                         </div>
 
                         <!-- Weather -->
-                        <div class="col-12">
-                            <p>Weather</p>
+                        <div class="col-12 p-4 mb-5 bg-white border-lightgray">
+                            <div class="row">
+
+                                <div class="col-12">
+                                    <h3 class="h4 text-primary">
+                                        <strong>Leiden,</strong> Nederland
+                                    </h3>
+                                    <p>
+                                        <i class="text-info">Hoogte 0m 52.15 N, 4.49 E | Geupdate 12 minuten geleden</i>
+                                    </p>
+                                </div>
+
+                                <div class="col-12">
+                                    <div class="row">
+                                        <div class="col">
+                                            icon
+                                        </div>
+                                        <div class="col">
+                                            tempratuur
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-12">
+                                    <hr>
+                                </div>
+
+                                <div class="col-12">
+                                    <div class="row">
+                                        <div class="col">
+                                            Neerslag
+                                        </div>
+                                        <div class="col">
+                                            Wind
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
 
             <!-- NU.nl -->
-            <div class="row mt-5 px-1 py-3 bg-white border-lightgray">
+            <div class="row my-5 px-1 py-3 bg-white border-lightgray">
 
                 <!-- Logo -->
                 <div class="col-1">
@@ -298,7 +332,7 @@
 
                     <!-- News item -->
                     <p class="m-0">
-                        <strong class="text-primary">06:45</strong>&emsp;<span class="text-muted">&mdash;&emsp;Nieuwe advocaat voor verdachte in zaak Everink.</span>
+                        <strong class="text-info">06:45</strong>&emsp;<span class="text-primary">&mdash;&emsp;Nieuwe advocaat voor verdachte in zaak Everink.</span>
                     </p>
                 </div>
             </div>
