@@ -1,4 +1,4 @@
-@import "../../../node_modules/weather-icons/css/weather-icons.min.css";
+@import "app";
 
 .bg-lightgray {
   background: #F6F7FA;
@@ -10,7 +10,7 @@
 
 .bg-yellow,
 .badge-yellow {
-  background-color: yellow;
+  background-color: $brand-watchout;
 }
 
 .border-radius-0 {

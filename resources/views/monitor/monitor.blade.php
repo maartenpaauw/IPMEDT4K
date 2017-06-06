@@ -19,7 +19,7 @@
 
             <!-- Menu -->
             <div class="container-fluid">
-                <div class="row bg-primary py-3 px-5">
+                <div class="row blue-dark-bg py-3 px-5">
                     <div class="col-2 align-self-center">
                         <img src="{{ asset('images/logo.png') }}" alt="Krankenhaus Krak - Logo" width="150px">
                     </div>
