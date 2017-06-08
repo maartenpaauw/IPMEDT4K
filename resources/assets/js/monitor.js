@@ -16,6 +16,7 @@ window.Vue = require('vue');
  */
 
 Vue.component('monitor-header',         require('./components/monitor/Header.vue'));
+Vue.component('monitor-title',          require('./components/monitor/Title.vue'));
 Vue.component('monitor-triage',         require('./components/monitor/Triage.vue'));
 Vue.component('monitor-triage-counter', require('./components/monitor/TriageCounter.vue'));
 Vue.component('monitor-patients',       require('./components/monitor/Patients.vue'));
