@@ -4,10 +4,10 @@ namespace IPMEDT4K\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Triage extends Model 
+class Patient extends Model 
 {
 
-    protected $table = 'triages';
+    protected $table = 'patients';
     public $timestamps = true;
 
 }
