@@ -3,13 +3,15 @@
         <div class="col-1">
             <img :src="logo" alt="Nu.nl - Logo" style="height: 50px;">
         </div>
-        <div class="col align-self-center">
+        <div class="col-11 align-self-center">
             <div class="news">
-                <marquee>
-                    <p class="m-0 mr-5 news-item" v-for="item in news">
-                        <strong class="text-info">{{ item.date | date }}</strong><span class="dark-blue">&emsp;&mdash;&emsp;</span>{{ item.title }}.
-                    </p>
-                </marquee>
+                <p class="marquee m-0 mr-5 news-item">
+                    <span class="marquee-span">
+                        <span v-for="item in news">
+                            <strong class="text-info pl-5">{{ item.date | date }}</strong><span class="dark-blue">&emsp;&mdash;&emsp;</span>{{ item.title }}.
+                        </span>
+                    </span>
+                </p>
             </div>
         </div>
     </div>
