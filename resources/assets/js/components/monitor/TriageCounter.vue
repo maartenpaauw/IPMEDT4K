@@ -4,7 +4,7 @@
             <div class="col-4 align-self-center">
                 <h3 class="h4 m-0 dark-blue">Aantal</h3>
             </div>
-            <div class="col align-self-center pl-0 pull-right">
+            <div class="col align-self-center pl-0">
                 <div class="rounded-circle text-center text-white circle float-left mr-1" v-for="patient in patients" :class="patient.color">
                     <span class="m-auto h4">{{ patient.count }}</span>
                 </div>

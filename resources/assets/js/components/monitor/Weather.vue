@@ -68,7 +68,7 @@
                     .then( (response) => {
                         this.city = response.data.name;
                         this.weather_icon = response.data.weather[0].icon;
-                        this.temperature = response.data.main.temp;
+                        this.temperature = (response.data.main.temp).toFixed(1);
                         this.sunrise = response.data.sys.sunrise;
                         this.sunset = response.data.sys.sunset;
                         this.wind_speed = (response.data.wind.speed * 3.6).toFixed(1);

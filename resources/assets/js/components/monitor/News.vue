@@ -5,9 +5,11 @@
         </div>
         <div class="col align-self-center">
             <div class="news">
-                <p class="m-0 mr-5 news-item" v-for="item in news">
-                    <strong class="text-info">{{ item.date | date }}</strong><span class="dark-blue">&emsp;&mdash;&emsp;</span>{{ item.title }}
-                </p>
+                <marquee>
+                    <p class="m-0 mr-5 news-item" v-for="item in news">
+                        <strong class="text-info">{{ item.date | date }}</strong><span class="dark-blue">&emsp;&mdash;&emsp;</span>{{ item.title }}.
+                    </p>
+                </marquee>
             </div>
         </div>
     </div>
