@@ -7,7 +7,7 @@
         <link rel="stylesheet" href="{!! mix('css/app.css') !!}">
         <link rel="stylesheet" href="{!! mix('css/monitor.css') !!}">
 
-        <title>Monitor</title>
+        <title>Krankenhaus Krak&emsp;&mdash;&emsp;Monitor</title>
 
         <meta name="csrf-token" content="{!! csrf_token() !!}">
     </head>
@@ -24,17 +24,21 @@
             <div class="container">
 
                 <!-- Title -->
-                <div class="row pt-5">
-                    <div class="col-12 px-0">
-                        <h2 class="h1 blue-dark">Wachtende patiënten</h2>
-                    </div>
-                </div>
+                <monitor-title></monitor-title>
 
                 <!-- Main -->
                 <div class="row pt-5">
 
-                    <!-- Waiting timers -->
-                    <monitor-patients></monitor-patients>
+                    <div class="col-6 mr-5">
+                        <div class="row">
+
+                            <!-- Waiting timers -->
+                            <monitor-patients></monitor-patients>
+
+                            <!-- Triage counter -->
+                            <monitor-triage-counter></monitor-triage-counter>
+                        </div>
+                    </div>
 
                     <!-- Legenda -->
                     <div class="col">
@@ -49,10 +53,7 @@
                         <div class="row">
 
                             <!-- Triage explanation -->
-                            <monitor-triage></monitor-triage>
-
-                            <!-- Triage counter -->
-                            <monitor-triage-counter></monitor-triage-counter>
+                            <monitor-triage :triages="{{ $triages }}"></monitor-triage>
 
                             <!-- Weather -->
                             <monitor-weather></monitor-weather>

@@ -1,5 +1,5 @@
 <template>
-    <div class="col-6 mr-5">
+    <div class="col-12">
         <div class="row py-3">
             <div class="col-1 align-self-center">
                 <p class="mb-1 text-muted">Urg</p>
