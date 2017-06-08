@@ -18,6 +18,7 @@ class CreateTriagesTable extends Migration
             $table->string('slug')->unique();
             $table->string('name')->unique();
             $table->integer('urgency')->unique();
+            $table->time('maximum_waiting_time');
             $table->timestamps();
         });
     }
