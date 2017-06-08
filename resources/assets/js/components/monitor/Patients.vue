@@ -17,7 +17,7 @@
                 <h4 class="h1 m-0 dark-blue">{{ patient.number | number }}</h4>
             </div>
             <div class="col align-self-center">
-                <p class="m-0 h5" :class="{'text-success': patient.status_id === 2}">
+                <p class="m-0 h5 text-muted" :class="{'text-success': patient.status_id === 2}">
                     <span class="fa fa-clock-o"></span> {{ patient.status_id === 2 ? 'In behandeling' : 'Wachten' }}
                 </p>
             </div>
