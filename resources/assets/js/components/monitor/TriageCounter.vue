@@ -18,11 +18,11 @@
         data () {
             return {
                 patients: [
-                    { count: 1, color: 'bg-danger' },
-                    { count: 2, color: 'bg-warning' },
-                    { count: 3, color: 'brand-watchout-bg' },
-                    { count: 4, color: 'bg-success' },
-                    { count: 5, color: 'bg-info' }
+                    { count: 1, color: 'bg-onmiddelijk' },
+                    { count: 2, color: 'bg-hoog-urgent' },
+                    { count: 3, color: 'bg-urgent' },
+                    { count: 4, color: 'bg-standaard' },
+                    { count: 5, color: 'bg-niet-urgent' }
                 ]
             }
         }

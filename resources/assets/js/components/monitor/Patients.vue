@@ -30,11 +30,11 @@
         data () {
             return {
                 patients: [
-                    { number: 56934, triage: 'bg-danger',         status_id: 2 },
-                    { number: 56934, triage: 'bg-warning',        status_id: 1 },
-                    { number: 56934, triage: 'brand-watchout-bg', status_id: 1 },
-                    { number: 56934, triage: 'bg-success',        status_id: 1 },
-                    { number: 56934, triage: 'bg-info',           status_id: 1 }
+                    { number: 56934, triage: 'bg-onmiddelijk', status_id: 2 },
+                    { number: 56934, triage: 'bg-hoog-urgent', status_id: 1 },
+                    { number: 56934, triage: 'bg-urgent',      status_id: 1 },
+                    { number: 56934, triage: 'bg-standaard',   status_id: 1 },
+                    { number: 56934, triage: 'bg-niet-urgent', status_id: 1 }
                 ]
             }
         }
