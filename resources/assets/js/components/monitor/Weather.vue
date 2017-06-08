@@ -66,7 +66,6 @@
             getWeather() {
                 axios.get('/api/weather')
                     .then( (response) => {
-                        console.log(response.data);
                         this.city = response.data.name;
                         this.weather_icon = response.data.weather[0].icon;
                         this.temperature = response.data.main.temp;
