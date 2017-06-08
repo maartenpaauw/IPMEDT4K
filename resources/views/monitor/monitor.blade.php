@@ -53,7 +53,7 @@
                         <div class="row">
 
                             <!-- Triage explanation -->
-                            <monitor-triage></monitor-triage>
+                            <monitor-triage :triages="{{ $triages }}"></monitor-triage>
 
                             <!-- Weather -->
                             <monitor-weather></monitor-weather>
