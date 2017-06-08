@@ -9,9 +9,10 @@ class UsersTableSeeder extends Seeder
     public function run()
     {
         User::create([
-            'name'     => 'Zowie van Geest',
-            'username' => 's1097398',
-            'email'    => 's1097398@student.hsleiden.nl',
+            'employee_number' => '450125',
+            'first_name' => 'Zowie',
+            'last_name' => 'van Geest',
+            'email' => 's1097398@student.hsleiden.nl',
             'password' => Hash::make('spinnenpoep'),
         ]);
     }

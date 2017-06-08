@@ -16,13 +16,16 @@ Route::get('/', function () {
 });
 
 
-Route::get('monitor', 'Web\MonitorController');
+Route::get('monitor', 'Web\MonitorController')->name('monitor');
 
 Route::get('dashboard', 'Web\DashboardController')->name('dashboard');
 
 Route::get('login', array('uses' => 'Web\LoginController@showLogin'));
 
 Route::post('login', array('uses' => 'Web\LoginController@doLogin'));
+
+Route::get('personal/login', array('uses' => 'Web\PersonalController@login'));
+
 
 Route::resource('patienten', 'Web\PatientController');
 
