@@ -6,8 +6,4 @@ use Illuminate\Database\Eloquent\Model;
 
 class Status extends Model 
 {
-
-    protected $table = 'statusses';
-    public $timestamps = true;
-
 }

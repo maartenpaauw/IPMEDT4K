@@ -7,7 +7,7 @@ class CreateStatussesTable extends Migration {
 
 	public function up()
 	{
-		Schema::create('statusses', function(Blueprint $table) {
+		Schema::create('statuses', function(Blueprint $table) {
 			$table->increments('id')->unique();
 			$table->string('name')->unique();
 			$table->string('slug')->unique();
@@ -17,6 +17,6 @@ class CreateStatussesTable extends Migration {
 
 	public function down()
 	{
-		Schema::drop('statusses');
+		Schema::drop('statuses');
 	}
 }
