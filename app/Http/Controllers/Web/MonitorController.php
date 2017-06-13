@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\View\View;
 use IPMEDT4K\Http\Controllers\Controller;
 use IPMEDT4K\Models\Triage;
+use IPMEDT4K\Models\Patient;
 
 class MonitorController extends Controller
 {
@@ -17,10 +18,14 @@ class MonitorController extends Controller
         // Triage count
         $triage_count = Triage::withCount('patients')->get();
 
+        // Patients
+        $patients = Patient::take(5)->get();
+
         // Return the monitor view.
         return view('monitor.monitor')
             ->with('triages', $triages)
             ->with('triage_count', $triage_count)
+            ->with('patients', $patients)
         ;
     }
 }

@@ -3,7 +3,7 @@
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 
-class CreateStatussesTable extends Migration {
+class CreateStatusesTable extends Migration {
 
 	public function up()
 	{
