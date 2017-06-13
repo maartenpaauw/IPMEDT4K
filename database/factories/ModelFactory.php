@@ -27,7 +27,7 @@ $factory->define(\IPMEDT4K\Models\Patient::class, function(Faker\Generator $fake
     return [
         'first_name'     => $faker->firstName,
         'last_name'      => $faker->lastName,
-        'patient_number' => $faker->unique()->numberBetween(10000, 99999),
+        'number'         => $faker->unique()->numberBetween(10000, 99999),
         'band_number'    => $faker->unique()->numberBetween(10000, 99999),
         'triage_id'      => \IPMEDT4k\Models\Triage::inRandomOrder()->first()->id,
         'status_id'      => \IPMEDT4k\Models\Status::inRandomOrder()->first()->id,
