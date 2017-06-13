@@ -50,7 +50,8 @@
                 </div>
             </li>
             @foreach($patienten as $patient)
-            <li class="item">
+                @if($patient->status_id === 1 || $patient->status_id === 2 || $patient->status_id === 3)
+                    <li class="item">
                 <div class="item-row pl-0">
                     <div class="item-col item-col-title p-0">
                         @if(is_null($patient->triage_id))
@@ -92,6 +93,7 @@
                     </div>
                 </div>
             </li>
+                @endif
             @endforeach
         </ul>
     </div>
