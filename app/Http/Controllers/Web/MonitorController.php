@@ -15,9 +15,7 @@ class MonitorController extends Controller
         $triages = Triage::all();
 
         // Triage count
-        $triage_count = [
-            ''
-        ];
+        $triage_count = Triage::withCount('patients')->get();
 
         // Return the monitor view.
         return view('monitor.monitor')

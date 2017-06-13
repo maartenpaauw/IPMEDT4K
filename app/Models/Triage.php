@@ -6,6 +6,10 @@ use Illuminate\Database\Eloquent\Model;
 
 class Triage extends Model 
 {
+    public function patients () {
+        return $this->belongsTo(Patient::class, 'id', 'triage_id');
+    }
+
     public function scopeOnmiddelijk ($query) {
         return $query->where('slug', str_slug('Onmiddelijk'))->first();
     }
