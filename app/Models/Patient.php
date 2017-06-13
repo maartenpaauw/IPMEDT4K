@@ -41,6 +41,8 @@ class Patient extends Model
         ->whereIn('status_id', [Status::inBehandeling()->id, Status::wachten()->id])
         ->orderBy('status_id', 'DESC')
         ->orderBy('triage_id', 'ASC')
+        ->orderBy('treated_at', 'ASC')
+        ->orderBy('checked_in_at', 'ASC')
         ->get()
         ;
     }
