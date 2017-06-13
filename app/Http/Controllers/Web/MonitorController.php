@@ -18,6 +18,7 @@ class MonitorController extends Controller
 
         // Triage count
         $triage_count = Patient::monitor()
+            ->without('status')
             ->select('triage_id', DB::raw('count(*) as patients_count'))
             ->groupBy('triage_id')
             ->get()

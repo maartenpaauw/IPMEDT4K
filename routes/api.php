@@ -26,3 +26,9 @@ Route::get('nu.nl', 'API\NewsController');
  * Weather
  */
 Route::get('weather', 'API\WeatherController');
+
+/*
+ * Patients
+ */
+Route::get('patients', 'API\PatientController@index');
+Route::get('patients/count', 'API\PatientController@count');
