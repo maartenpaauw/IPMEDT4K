@@ -33,10 +33,10 @@
                         <div class="row">
 
                             <!-- Waiting timers -->
-                            <monitor-patients :patients="{{ $patients }}"></monitor-patients>
+                            <monitor-patients :initial-patients="{{ $patients }}"></monitor-patients>
 
                             <!-- Triage counter -->
-                            <monitor-triage-counter :triages="{{ $triage_count }}"></monitor-triage-counter>
+                            <monitor-triage-counter :initial-triages="{{ $triage_count }}"></monitor-triage-counter>
                         </div>
                     </div>
 

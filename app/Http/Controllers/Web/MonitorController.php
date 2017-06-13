@@ -2,6 +2,7 @@
 
 namespace IPMEDT4K\Http\Controllers\Web;
 
+use \DB;
 use Illuminate\Http\Request;
 use Illuminate\View\View;
 use IPMEDT4K\Http\Controllers\Controller;
@@ -16,10 +17,15 @@ class MonitorController extends Controller
         $triages = Triage::all();
 
         // Triage count
-        $triage_count = Triage::withCount('patients')->get();
+        $triage_count = Patient::monitor()
+            ->without('status')
+            ->select('triage_id', DB::raw('count(*) as patients_count'))
+            ->groupBy('triage_id')
+            ->get()
+        ;
 
         // Patients
-        $patients = Patient::take(5)->get();
+        $patients = Patient::monitor()->get();
 
         // Return the monitor view.
         return view('monitor.monitor')
