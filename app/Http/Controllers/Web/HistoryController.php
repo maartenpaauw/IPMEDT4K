@@ -5,6 +5,7 @@ namespace IPMEDT4K\Http\Controllers\Web;
 use Illuminate\Http\Request;
 use IPMEDT4K\Http\Controllers\Controller;
 use IPMEDT4K\Models\Patient;
+use Alert;
 
 class HistoryController extends Controller
 {
@@ -19,6 +20,7 @@ class HistoryController extends Controller
 
     public function destroy($id) {
         $patient = Patient::findOrFail($id);
+
         $patient->delete();
 
         return redirect('historie');
