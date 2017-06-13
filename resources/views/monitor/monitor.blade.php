@@ -36,7 +36,7 @@
                             <monitor-patients></monitor-patients>
 
                             <!-- Triage counter -->
-                            <monitor-triage-counter></monitor-triage-counter>
+                            <monitor-triage-counter :triages="{{ $triage_count }}"></monitor-triage-counter>
                         </div>
                     </div>
 
