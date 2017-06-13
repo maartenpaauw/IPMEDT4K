@@ -6,8 +6,13 @@ use Illuminate\Database\Eloquent\Model;
 
 class Patient extends Model 
 {
+    protected $with = ['triage', 'status'];
 
-    protected $table = 'patients';
-    public $timestamps = true;
+    public function triage () {
+        return $this->hasOne(Triage::class, 'id', 'triage_id');
+    }
 
+    public function status () {
+        return $this->hasOne(Status::class, 'id', 'status_id');
+    }
 }
