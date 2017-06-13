@@ -5,18 +5,26 @@
 @section('content')
     <div class="patient-create white-bg">
         <div class="row">
-            <div class="col-md-6 col-12">
-                {!! Form::model($patient, ['method' => 'PATCH', 'action' => ['Web\PatientController@update',$patient->id]]) !!}
-                <div class="form-group">
-                    {!! Form::label('number', 'Patiëntnummer', array('for' => 'number', 'class' => 'form-label')) !!}<span class="brand-danger"> *</span>
-                    {!! Form::text('number', null, array('class' => 'form-control form-style', 'required' => 'required')) !!}
-                </div>
+            <div class="col-12">
+                {!! Form::model($patient, ['method' => 'PATCH', 'action' => ['Web\PatientController@update',$patient->id], 'id' => 'editcheckinform']) !!}
                 <div class="form-group mt-4">
                     {!! Form::label('first_name', 'Voornaam', array('for' => 'first_name', 'class' => 'form-label')) !!}<span class="brand-danger"> *</span>
-                    {!! Form::text('first_name', null, array('class' => 'form-control form-style', 'required' => 'required')) !!}
+                    {!! Form::text('first_name', null, array('class' => 'form-control form-style', 'required' => 'required', 'data-parsley-trigger' => 'change', 'minlength' => '2', 'data-parsley-pattern' => '^[A-Za-z ]*$', 'parsley-rangelength' => '2,50]')) !!}
                 </div>
                 <div class="form-group mt-4">
-                    {!! Form::label('triage_id', 'Triage kleur', array('for' => 'triage_id', 'class' => 'form-label')) !!}<span class="brand-danger"> *</span>
+                    {!! Form::label('last_name', 'Achternaam', array('for' => 'last_name', 'class' => 'form-label')) !!}<span class="brand-danger"> *</span>
+                    {!! Form::text('last_name', null, array('class' => 'form-control form-style', 'required' => 'required', 'data-parsley-trigger' => 'change', 'minlength' => '2', 'data-parsley-pattern' => '^[A-Za-z ]*$', 'parsley-rangelength' => '2,50]')) !!}
+                </div>
+                <div class="form-group">
+                    {!! Form::label('number', 'Patiëntnummer', array('for' => 'number', 'class' => 'form-label')) !!}<span class="brand-danger"> *</span>
+                    {!! Form::text('number', null, array('class' => 'form-control form-style', 'required' => 'required', 'data-parsley-trigger' => 'change', 'min' => '10000', 'max' => '99999')) !!}
+                </div>
+                <div class="form-group mt-4">
+                    {!! Form::label('band_number', 'Bandnummer', array('for' => 'band_number', 'class' => 'form-label')) !!}<span class="brand-danger"> *</span>
+                    {!! Form::text('band_number', null, array('class' => 'form-control form-style', 'required' => 'required', 'data-parsley-trigger' => 'change', 'min' => '10000', 'max' => '99999')) !!}
+                </div>
+                <div class="form-group mt-4">
+                    {!! Form::label('triage_id', 'Triage kleur', array('for' => 'triage_id', 'class' => 'form-label', 'required' => 'required', 'data-parsley-trigger' => 'change')) !!}<span class="brand-danger"> *</span>
                     <div class="checkRadioContainer">
                         <label class="brand-danger-bg">
                             {!! Form::radio('triage_id', '1')!!}
@@ -40,18 +48,8 @@
                         </label>
                     </div>
                 </div>
-            </div>
-            <div class="col-md-6 col-12">
-                <div class="form-group">
-                    {!! Form::label('band_number', 'Bandnummer', array('for' => 'band_number', 'class' => 'form-label')) !!}<span class="brand-danger"> *</span>
-                    {!! Form::text('band_number', null, array('class' => 'form-control form-style', 'required' => 'required')) !!}
-                </div>
                 <div class="form-group mt-4">
-                    {!! Form::label('last_name', 'Achternaam', array('for' => 'last_name', 'class' => 'form-label')) !!}<span class="brand-danger"> *</span>
-                    {!! Form::text('last_name', null, array('class' => 'form-control form-style', 'required' => 'required')) !!}
-                </div>
-                <div class="form-group mt-4">
-                    {!! Form::label('status_id', 'Status', array('class' => 'form-label')) !!}<span class="brand-danger"> *</span>
+                    {!! Form::label('status_id', 'Status', array('class' => 'form-label', 'required' => 'required', 'data-parsley-trigger' => 'change')) !!}<span class="brand-danger"> *</span>
                     {!! Form::select('status_id', array(
                     '1' => 'Ingecheckt',
                     '2' => 'Wachten',
@@ -70,4 +68,12 @@
             </div>
         </div>
     </div>
+@endsection
+
+@section('parsley')
+    <script>
+        $(function () {
+            $('#editcheckinform').parsley();
+        })
+    </script>
 @endsection

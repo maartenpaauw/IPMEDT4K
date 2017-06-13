@@ -90,5 +90,6 @@
 </div>
 <script src="{{mix('js/dashboard.js')}}">
 </script>
+@yield('parsley')
 </body>
 </html>
