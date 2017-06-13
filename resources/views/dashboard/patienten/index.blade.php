@@ -88,7 +88,9 @@
                     </div>
                     <div class="item-col item-col-title">
                         <div class="no-overflow">
-                            <a class="btn btn-danger rounded" href="">Uitchecken</a>
+                            {!! Form::model($patient, ['method' => 'PATCH', 'action' => ['Web\PatientController@checkout',$patient->id], 'id' => 'checkoutform']) !!}
+                            {!! Form::submit('Uitchecken', array('class' => 'btn btn-danger rounded')) !!}
+                            {!! Form::close() !!}
                         </div>
                     </div>
                 </div>
