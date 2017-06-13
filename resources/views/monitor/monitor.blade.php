@@ -33,7 +33,7 @@
                         <div class="row">
 
                             <!-- Waiting timers -->
-                            <monitor-patients></monitor-patients>
+                            <monitor-patients :patients="{{ $patients }}"></monitor-patients>
 
                             <!-- Triage counter -->
                             <monitor-triage-counter :triages="{{ $triage_count }}"></monitor-triage-counter>
@@ -62,11 +62,11 @@
                 </div>
 
                 <!-- NU.nl -->
-                <monitor-news logo="{!! asset('images/nu.nl.png') !!}"></monitor-news>
+                <monitor-news logo="{{ asset('images/nu.nl.png') }}"></monitor-news>
             </div>
 
         </div>
 
-        <script type="text/javascript" src="{!! asset('js/monitor.js') !!}"></script>
+        <script type="text/javascript" src="{{ asset('js/monitor.js') }}"></script>
     </body>
 </html>

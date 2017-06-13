@@ -11,7 +11,7 @@ class CreatePatientsTable extends Migration {
 			$table->increments('id')->unique();
 			$table->string('first_name');
 			$table->string('last_name');
-			$table->integer('patient_number')->unique();
+			$table->integer('number')->unique();
 			$table->integer('band_number')->unique();
 			$table->integer('triage_id')->unsigned();
 			$table->integer('status_id')->unsigned();
