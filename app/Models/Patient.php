@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Patient extends Model 
 {
     protected $with = ['triage', 'status'];
-    protected $fillable = ['patient_number', 'first_name', 'band_number', 'last_name', 'triage_id', 'status_id'];
+    protected $fillable = ['number', 'first_name', 'band_number', 'last_name', 'status_id'];
 
     public function triage () {
         return $this->hasOne(Triage::class, 'id', 'triage_id');
