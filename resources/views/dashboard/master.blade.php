@@ -27,7 +27,7 @@
                 </form>
             </div>
             <div class="header-block">
-                <a class="btn btn-primary" href="#"><i class="fa fa-plus"></i> <span>Inchecken</span></a>
+                <a class="btn btn-primary" href="{!! route('patienten.create') !!}"><i class="fa fa-plus"></i> <span>Inchecken</span></a>
             </div>
             <div class="header-block header-block-nav">
                 <ul class="nav-profile">
@@ -88,8 +88,6 @@
         </footer>
     </div>
 </div>
-<script src="{{mix('js/app.js')}}">
-</script>
 <script src="{{mix('js/dashboard.js')}}">
 </script>
 </body>

@@ -1,3 +1,5 @@
+require('./bootstrap');
+
 var config = window.config = {};
 
 config.ResponsiveBootstrapToolkitVisibilityDivs = {
