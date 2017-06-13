@@ -18,7 +18,7 @@
             <div class="form-group mt-5">
                 <input type="text" name="band_number" class="form-control form-style mobile-login-input-bandnumber text-center" id="band_number" placeholder="Typ hier uw code...">
             </div>
-            <button type="button" class="btn btn-login btn-primary mt-5">Login</button>
+            <button type="button" class="btn btn-login btn-primary mt-5 px-5 py-4">Login</button>
         </div>
     </div>
 @endsection
