@@ -4,6 +4,7 @@ namespace IPMEDT4K\Console;
 
 use Illuminate\Console\Scheduling\Schedule;
 use Illuminate\Foundation\Console\Kernel as ConsoleKernel;
+use IPMEDT4K\Console\Commands\FakeDataCommand;
 
 class Kernel extends ConsoleKernel
 {
@@ -13,7 +14,7 @@ class Kernel extends ConsoleKernel
      * @var array
      */
     protected $commands = [
-        //
+        FakeDataCommand::class
     ];
 
     /**

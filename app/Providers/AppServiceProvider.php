@@ -5,6 +5,7 @@ namespace IPMEDT4K\Providers;
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Support\Facades\Schema;
 use Laravel\Dusk\DuskServiceProvider;
+use Barryvdh\LaravelIdeHelper\IdeHelperServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -29,6 +30,7 @@ class AppServiceProvider extends ServiceProvider
         if ($this->app->environment('local', 'testing'))
         {
             $this->app->register(DuskServiceProvider::class);
+            $this->app->register(IdeHelperServiceProvider::class);
         }
     }
 }

@@ -181,9 +181,9 @@ return [
         /*
          * Vendor
          */
-        \willvincent\Feeds\FeedsServiceProvider::class,
-
+        willvincent\Feeds\FeedsServiceProvider::class,
         Collective\Html\HtmlServiceProvider::class,
+        Barryvdh\LaravelIdeHelper\IdeHelperServiceProvider::class,
     ],
 
     /*
