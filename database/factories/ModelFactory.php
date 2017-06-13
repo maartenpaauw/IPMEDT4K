@@ -30,7 +30,7 @@ $factory->define(\IPMEDT4K\Models\Patient::class, function(Faker\Generator $fake
         'number'         => $faker->unique()->numberBetween(10000, 99999),
         'band_number'    => $faker->unique()->numberBetween(10000, 99999),
         'triage_id'      => \IPMEDT4k\Models\Triage::inRandomOrder()->first()->id,
-        'status_id'      => \IPMEDT4k\Models\Status::inRandomOrder()->first()->id,
+        'status_id'      => \IPMEDT4k\Models\Status::ingecheckt()->id,
         'checked_in_at'  => null,
         'treated_at'     => null,
         'checked_out_at' => null,
@@ -42,7 +42,8 @@ $factory->state(\IPMEDT4K\Models\Patient::class, 'patient_checked_in', function(
     $checked_in_at = $faker->dateTimeBetween(\Carbon\Carbon::now()->subWeek(), \Carbon\Carbon::now());
     
     return [
-        'checked_in_at' => $checked_in_at
+        'checked_in_at' => $checked_in_at,
+        'status_id'     => \IPMEDT4k\Models\Status::wachten()->id,
     ];
 });
 
@@ -53,7 +54,8 @@ $factory->state(\IPMEDT4K\Models\Patient::class, 'patient_treated', function(Fak
 
     return [
         'checked_in_at' => $checked_in_at,
-        'treated_at'    => $treated_at
+        'treated_at'    => $treated_at,
+        'status_id'     => \IPMEDT4k\Models\Status::inBehandeling()->id,
     ];   
 });
 
@@ -66,6 +68,7 @@ $factory->state(\IPMEDT4K\Models\Patient::class, 'patient_checked_out', function
     return [
         'checked_in_at'  => $checked_in_at,
         'treated_at'     => $treated_at,
-        'checked_out_at' => $checked_out_at
+        'checked_out_at' => $checked_out_at,
+        'status_id'      => \IPMEDT4k\Models\Status::uitgecheckt()->id,
     ];
 });
