@@ -79,8 +79,9 @@
                             <div class="item-col item-col-title">
                                 <div class="no-overflow">
                                     {!! Form::model($patient, ['method' => 'DELETE', 'action' => ['Web\HistoryController@destroy',$patient->id], 'id' => 'destroyhistory']) !!}
-                                    {!! Form::submit('Verwijderen', array('class' => 'btn btn-danger rounded')) !!}
+                                    {{--{!! Form::submit('Verwijderen', array('class' => 'btn btn-danger rounded')) !!}--}}
                                     {!! Form::close() !!}
+                                    <button class="btn btn-danger rounded delete-from-history">Verwijderen</button>
                                 </div>
                             </div>
                         </div>
