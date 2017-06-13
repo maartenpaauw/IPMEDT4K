@@ -2,19 +2,28 @@
 
 namespace IPMEDT4K\Http\Controllers\Web;
 
+use Carbon\Carbon;
+use Dotenv\Validator;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Input;
+use Illuminate\Support\Facades\Redirect;
 use IPMEDT4K\Http\Controllers\Controller;
+use IPMEDT4K\Models\Patient;
 
 class PatientController extends Controller
 {
     /**
      * Display a listing of the resource.
      *
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
     public function index()
     {
-        return view('dashboard.patienten.index');
+        $patienten = Patient::all();
+
+        return view('dashboard.patienten.index')
+            ->with('patienten', $patienten
+        );
     }
 
     /**
@@ -35,7 +44,18 @@ class PatientController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $patient = new Patient;
+        $patient->patient_number = $request->patient_number;
+        $patient->first_name = $request->first_name;
+        $patient->triage_id = $request->triage_id;
+        $patient->band_number = $request->band_number;
+        $patient->last_name = $request->last_name;
+        $patient->checked_in_at = Carbon::now();
+        $patient->status_id = $request->input('status_id') ? intval($request->input('status_id')) : 1;
+
+        $patient->save();
+
+        return redirect('patienten');
     }
 
     /**
@@ -46,7 +66,9 @@ class PatientController extends Controller
      */
     public function show($id)
     {
-        //
+        $patient = Patient::findOrFail($id);
+
+        return view('dashboard.patienten.show', compact('patient'));
     }
 
     /**
