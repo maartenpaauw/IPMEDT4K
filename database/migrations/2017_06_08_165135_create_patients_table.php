@@ -13,7 +13,7 @@ class CreatePatientsTable extends Migration {
 			$table->string('last_name');
 			$table->integer('number')->unique();
 			$table->integer('band_number')->unique();
-			$table->integer('triage_id')->unsigned();
+			$table->integer('triage_id')->unsigned()->nullable();
 			$table->integer('status_id')->unsigned();
 			$table->timestamp('checked_in_at')->nullable();
 			$table->timestamp('treated_at')->nullable();

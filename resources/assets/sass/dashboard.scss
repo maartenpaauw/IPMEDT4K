@@ -2080,6 +2080,7 @@ pre {
   width: 30px !important;
   padding: 0;
   margin: 0;
+  border-right: 1px solid $light-gray;
 }
 
 .urg-red {
@@ -2243,4 +2244,11 @@ div.checkRadioContainer > label > input:checked + i {
 
 .btn-inchecken {
   cursor: pointer;
+}
+
+.parsley-errors-list {
+  list-style-type: none;
+  padding-left: 0;
+  padding-top: 5px;
+  color: $brand-danger;
 }

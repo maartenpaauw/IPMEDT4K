@@ -14,7 +14,7 @@
                     </div>
                     <div class="item-col item-col-header item-col-title">
                         <div>
-                            <span>Gravatar</span>
+                            <span>Patientnummer</span>
                         </div>
                     </div>
                     <div class="item-col item-col-header item-col-title">
@@ -33,6 +33,11 @@
                         </div>
                     </div>
                     <div class="item-col item-col-header item-col-title">
+                        <div>
+                            <span>Ingecheckt</span>
+                        </div>
+                    </div>
+                    <div class="item-col item-col-header item-col-title">
                         <div class="no-overflow">
                             <span>Urgentie Wijzigen</span>
                         </div>
@@ -42,37 +47,42 @@
                             <span>Uitchecken</span>
                         </div>
                     </div>
-                    <div class="item-col item-col-header item-col-title">
-                        <div>
-                            <span>Datum</span>
-                        </div>
-                    </div>
                 </div>
             </li>
+            @foreach($patienten as $patient)
             <li class="item">
                 <div class="item-row pl-0">
                     <div class="item-col item-col-title p-0">
-                        <div class="urgentie urg-red">
-
-                        </div>
+                        @if(is_null($patient->triage_id))
+                            <div class="urgentie white-bg"></div>
+                        @else()
+                        <div class="urgentie bg-{!! $patient->triage->slug !!}"></div>
+                        @endif
                     </div>
-                    <div class="item-col item-col-title"><img alt="" class="rounded" src="https://avatars3.githubusercontent.com/u/4550875?v=3&s=80"></div>
                     <div class="item-col item-col-title">
-                        <h4 class="item-title">Maarten Paauw</h4>
+                        {!! $patient->number !!}
+                    </div>
+                    <div class="item-col item-col-title">
+                        <h4 class="item-title">{!! $patient->first_name . " " . $patient->last_name !!}</h4>
                     </div>
                     <div class="item-col item-col-title">
                         <div>
-                            In behandeling
+                            <i class="fa fa-clock-o"></i> {!! $patient->status->name !!}
                         </div>
                     </div>
                     <div class="item-col item-col-title">
                         <div>
-                            6969
+                            {!! $patient->band_number !!}
                         </div>
                     </div>
                     <div class="item-col item-col-title">
                         <div class="no-overflow">
-                            <a class="btn btn-success rounded" href="">Wijzigen</a>
+                            {!! $patient->created_at !!}
+                        </div>
+                    </div>
+                    <div class="item-col item-col-title">
+                        <div class="no-overflow">
+                            <a class="btn btn-success rounded" href="{!! route('patienten.edit', $patient->id) !!}">Wijzigen</a>
                         </div>
                     </div>
                     <div class="item-col item-col-title">
@@ -80,13 +90,9 @@
                             <a class="btn btn-danger rounded" href="">Uitchecken</a>
                         </div>
                     </div>
-                    <div class="item-col item-col-title">
-                        <div class="no-overflow">
-                            03-06-2017 - 13:33
-                        </div>
-                    </div>
                 </div>
             </li>
+            @endforeach
         </ul>
     </div>
 @endsection
