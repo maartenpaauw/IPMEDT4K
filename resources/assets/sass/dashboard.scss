@@ -2245,3 +2245,10 @@ div.checkRadioContainer > label > input:checked + i {
 .btn-inchecken {
   cursor: pointer;
 }
+
+.parsley-errors-list {
+  list-style-type: none;
+  padding-left: 0;
+  padding-top: 5px;
+  color: $brand-danger;
+}
