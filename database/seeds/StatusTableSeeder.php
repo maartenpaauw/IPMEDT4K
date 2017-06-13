@@ -12,7 +12,7 @@ class StatusTableSeeder extends Seeder
      */
     public function run()
     {
-        $statusses = [
+        $statuses = [
             [
                 'name' => 'Ingecheckt',
                 'slug' => str_slug('Ingecheckt')
@@ -31,7 +31,7 @@ class StatusTableSeeder extends Seeder
             ]
         ];
 
-        foreach($statusses as $status)
+        foreach($statuses as $status)
         {
             Status::create($status);
         }
