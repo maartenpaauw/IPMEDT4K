@@ -184,6 +184,7 @@ return [
         willvincent\Feeds\FeedsServiceProvider::class,
         Collective\Html\HtmlServiceProvider::class,
         Barryvdh\LaravelIdeHelper\IdeHelperServiceProvider::class,
+        UxWeb\SweetAlert\SweetAlertServiceProvider::class
     ],
 
     /*
@@ -239,7 +240,8 @@ return [
         'Feeds' => \willvincent\Feeds\Facades\FeedsFacade::class,
 
         'Form' => Collective\Html\FormFacade::class,
-        'Html' => Collective\Html\HtmlFacade::class
+        'Html' => Collective\Html\HtmlFacade::class,
+        'Alert' => UxWeb\SweetAlert\SweetAlert::class
     ],
 
 ];

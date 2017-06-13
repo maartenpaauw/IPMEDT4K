@@ -122,4 +122,16 @@ class PatientController extends Controller
 
         return redirect('patienten');
     }
+
+
+    public function checkout($id) {
+        $patient = Patient::findOrFail($id);
+        $patient->status_id = 4;
+        $patient->checked_out_at = Carbon::now();
+
+        $patient->update();
+
+        return redirect('patienten');
+
+    }
 }

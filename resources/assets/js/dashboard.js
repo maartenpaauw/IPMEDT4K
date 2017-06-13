@@ -165,6 +165,29 @@ $(function () {
     Parsley.setLocale('nl');
 });
 
+$(function () {
+   $('.delete-from-history').on('click', function () {
+       swal({
+           title: "Weet u zeker dat u de patiënt wilt verwijderen?",
+           text: "Deze stap kan niet ongedaan gemaakt worden!",
+           type: "warning",
+           showCancelButton: true,
+           confirmButtonColor: "#5cb85c",
+           confirmButtonText: "Verwijderen",
+           closeOnConfirm: false,
+           closeOnCancel: false
+       },
+       function (isConfirm) {
+           if(isConfirm) {
+               swal("Verwijderd!", "De patiënt is verwijderd", "success");
+               $("#destroyhistory").submit();
+           } else {
+               swal("Gecancelled!", "De patiënt is niet verwijderd", "error");
+           }
+       });
+   })
+});
+
 
 /***********************************************
  *        NProgress Settings

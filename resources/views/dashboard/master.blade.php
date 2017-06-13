@@ -57,6 +57,9 @@
                             <a href="{!! route('patienten.index') !!}"><i class="fa fa-users brand-primary"></i> Patiënten </a>
                         </li>
                         <hr class="menu-hr p-0 m-0">
+                        <li {{ (Request::is('historie') ? 'class=active' : '') }}>
+                            <a href="{!! route('historie') !!}"><i class="fa fa-history brand-primary"></i> Historie </a>
+                        </li>
                     </ul>
                 </nav>
             </div>
@@ -91,5 +94,6 @@
 <script src="{{mix('js/dashboard.js')}}">
 </script>
 @yield('parsley')
+@include('sweet::alert')
 </body>
 </html>
