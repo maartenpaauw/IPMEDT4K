@@ -18,6 +18,7 @@ try {
 
 require('animate.css');
 require('metismenu');
+require('parsleyjs');
 window.NProgress = require('nprogress');
 window.ResponsiveBootstrapToolkit = require('responsive-toolkit');
 
