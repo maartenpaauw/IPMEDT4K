@@ -46,10 +46,10 @@ class FakeDataCommand extends Command
             ]);
 
             
-            factory(Patient::class, 50)->create();
-            factory(Patient::class, rand(50, 150))->states(['patient_checked_in'])->create();
-            factory(Patient::class, rand(50, 150))->states(['patient_treated'])->create();
-            factory(Patient::class, rand(50, 150))->states(['patient_checked_out'])->create();
+            factory(Patient::class, 20)->create();
+            factory(Patient::class, rand(20, 30))->states(['patient_checked_in'])->create();
+            factory(Patient::class, rand(20, 30))->states(['patient_treated'])->create();
+            factory(Patient::class, rand(20, 30))->states(['patient_checked_out'])->create();
         }
     }
 }
