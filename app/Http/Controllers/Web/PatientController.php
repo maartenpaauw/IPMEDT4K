@@ -45,9 +45,8 @@ class PatientController extends Controller
     public function store(Request $request)
     {
         $patient = new Patient;
-        $patient->patient_number = $request->patient_number;
+        $patient->number = $request->number;
         $patient->first_name = $request->first_name;
-        $patient->triage_id = $request->triage_id;
         $patient->band_number = $request->band_number;
         $patient->last_name = $request->last_name;
         $patient->checked_in_at = Carbon::now();
@@ -79,7 +78,9 @@ class PatientController extends Controller
      */
     public function edit($id)
     {
-        //
+        $patient = Patient::findOrFail($id);
+
+        return view('dashboard.patienten.edit', compact('patient'));
     }
 
     /**
@@ -91,7 +92,21 @@ class PatientController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $patient = Patient::findOrFail($id);
+
+        $patient->number = $request->number;
+        $patient->first_name = $request->first_name;
+        $patient->triage_id = $request->triage_id;
+        $patient->band_number = $request->band_number;
+        $patient->last_name = $request->last_name;
+        $patient->checked_in_at = Carbon::now();
+        $patient->status_id = $request->input('status_id') ? intval($request->input('status_id')) : 1;
+
+        $patient->update();
+
+        return redirect('patienten');
+
+
     }
 
     /**
@@ -102,6 +117,9 @@ class PatientController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $patient = Patient::findOrFail($id);
+        $patient->delete();
+
+        return redirect('patienten');
     }
 }
