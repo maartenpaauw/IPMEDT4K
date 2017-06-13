@@ -15,9 +15,9 @@ class CreatePatientsTable extends Migration {
 			$table->integer('band_number')->unique();
 			$table->integer('triage_id')->unsigned();
 			$table->integer('status_id')->unsigned();
-			$table->timestamp('checked_in_at')->default(\DB::raw('CURRENT_TIMESTAMP'));
-			$table->timestamp('treated_at')->default(\DB::raw('CURRENT_TIMESTAMP'));;
-			$table->timestamp('checked_out_at')->default(\DB::raw('CURRENT_TIMESTAMP'));;
+			$table->timestamp('checked_in_at')->nullable();
+			$table->timestamp('treated_at')->nullable();
+			$table->timestamp('checked_out_at')->nullable();
 			$table->timestamps();
 		});
 	}
