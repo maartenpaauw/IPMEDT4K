@@ -1,5 +1,5 @@
 <template>
-    <div class="col-12">
+    <div class="col-12" v-if="patients">
         <div class="row py-3">
             <div class="col-1 align-self-center">
                 <p class="mb-1 text-muted">Urg</p>
@@ -34,11 +34,37 @@
 
 <script>
     export default {
-        props: ['patients'],
+        props: ['initial-patients'],
+        data () {
+            return {
+                patients: null
+            }
+        },
+        methods: {
+            getPatients () {
+
+                // Make an API call to get the patients.
+                axios.get('/api/patients')
+                    .then( (response) => {
+                        this.patients = response.data;
+                    })
+                ;
+            }
+        },
         filters: {
             number (value) {
                 return value.toLocaleString('nl-NL');
             }
+        },
+        created () {
+
+            // Set the patients.
+            this.patients = this.initialPatients;
+
+            // Get the new patients every 15 seconds.
+            setInterval(() => {
+                this.getPatients();
+            }, 1000 * 15);
         }
     }
 </script>
