@@ -33,6 +33,11 @@
                         </div>
                     </div>
                     <div class="item-col item-col-header item-col-title">
+                        <div>
+                            <span>Ingecheckt</span>
+                        </div>
+                    </div>
+                    <div class="item-col item-col-header item-col-title">
                         <div class="no-overflow">
                             <span>Urgentie Wijzigen</span>
                         </div>
@@ -42,22 +47,20 @@
                             <span>Uitchecken</span>
                         </div>
                     </div>
-                    <div class="item-col item-col-header item-col-title">
-                        <div>
-                            <span>Datum</span>
-                        </div>
-                    </div>
                 </div>
             </li>
             @foreach($patienten as $patient)
             <li class="item">
                 <div class="item-row pl-0">
                     <div class="item-col item-col-title p-0">
-                        <div class="urgentie bg-{!! $patient->triage->slug  !!}">
-                        </div>
+                        @if(is_null($patient->triage_id))
+                            <div class="urgentie white-bg"></div>
+                        @else()
+                        <div class="urgentie bg-{!! $patient->triage->slug !!}"></div>
+                        @endif
                     </div>
                     <div class="item-col item-col-title">
-                        {!! $patient->patient_number !!}
+                        {!! $patient->number !!}
                     </div>
                     <div class="item-col item-col-title">
                         <h4 class="item-title">{!! $patient->first_name . " " . $patient->last_name !!}</h4>
@@ -74,17 +77,17 @@
                     </div>
                     <div class="item-col item-col-title">
                         <div class="no-overflow">
-                            <a class="btn btn-success rounded" href="">Wijzigen</a>
+                            {!! $patient->created_at !!}
+                        </div>
+                    </div>
+                    <div class="item-col item-col-title">
+                        <div class="no-overflow">
+                            <a class="btn btn-success rounded" href="{!! route('patienten.edit', $patient->id) !!}">Wijzigen</a>
                         </div>
                     </div>
                     <div class="item-col item-col-title">
                         <div class="no-overflow">
                             <a class="btn btn-danger rounded" href="">Uitchecken</a>
-                        </div>
-                    </div>
-                    <div class="item-col item-col-title">
-                        <div class="no-overflow">
-                            03-06-2017 - 13:33
                         </div>
                     </div>
                 </div>
