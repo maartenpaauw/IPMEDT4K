@@ -6,7 +6,7 @@
     <div class="patient-create white-bg">
         <div class="row">
             <div class="col-md-6 col-12">
-                {!! Form::open(array('url' => 'patient/create')) !!}
+                {!! Form::open(array('action' => 'Web\PatientController@store', 'method' => 'POST')) !!}
                 <div class="form-group">
                     {!! Form::label('patient_number', 'Patiëntnummer', array('for' => 'patient_number', 'class' => 'form-label')) !!}
                     {!! Form::text('patient_number', '', array('class' => 'form-control form-style', 'placeholder' => '450299')) !!}
@@ -19,23 +19,23 @@
                     {!! Form::label('triage_id', 'Triage kleur', array('for' => 'triage_id', 'class' => 'form-label')) !!}
                     <div class="checkRadioContainer">
                         <label class="brand-danger-bg">
-                            {!! Form::radio('radioGroup', 'triage_red')!!}
+                            {!! Form::radio('triage_id', '1')!!}
                             <i class="fa fa-check fa-2x"></i>
                         </label>
                         <label class="brand-warning-bg">
-                            {!! Form::radio('radioGroup', 'triage_red')!!}
+                            {!! Form::radio('triage_id', '2')!!}
                             <i class="fa fa-check fa-2x"></i>
                         </label>
                         <label class="brand-watchout-bg">
-                            {!! Form::radio('radioGroup', 'triage_red')!!}
+                            {!! Form::radio('triage_id', '3')!!}
                             <i class="fa fa-check fa-2x"></i>
                         </label>
                         <label class="brand-success-bg">
-                            {!! Form::radio('radioGroup', 'triage_red')!!}
+                            {!! Form::radio('triage_id', '4')!!}
                             <i class="fa fa-check fa-2x"></i>
                         </label>
                         <label class="brand-info-bg">
-                            {!! Form::radio('radioGroup', 'triage_red')!!}
+                            {!! Form::radio('triage_id', '5')!!}
                             <i class="fa fa-check fa-2x"></i>
                         </label>
                     </div>
@@ -52,7 +52,7 @@
                 </div>
                 <div class="form-group mt-4">
                     {!! Form::label('status_id', 'Status', array('class' => 'form-label')) !!}
-                    {!! Form::checkbox('status_toggle', 'status_toggle', false, array('id' => 'checkbox1', 'class' => 'tgl tgl-light', 'style' => 'visibility: hidden')) !!}
+                    {!! Form::checkbox('status_id', 3, false, array('id' => 'checkbox1', 'class' => 'tgl tgl-light', 'style' => 'visibility: hidden')) !!}
                     <label for="checkbox1" class="tgl-btn"></label>
                 </div>
             </div>

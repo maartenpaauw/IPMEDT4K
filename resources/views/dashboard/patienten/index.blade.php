@@ -14,7 +14,7 @@
                     </div>
                     <div class="item-col item-col-header item-col-title">
                         <div>
-                            <span>Gravatar</span>
+                            <span>Patientnummer</span>
                         </div>
                     </div>
                     <div class="item-col item-col-header item-col-title">
@@ -49,25 +49,27 @@
                     </div>
                 </div>
             </li>
+            @foreach($patienten as $patient)
             <li class="item">
                 <div class="item-row pl-0">
                     <div class="item-col item-col-title p-0">
-                        <div class="urgentie urg-red">
-
-                        </div>
-                    </div>
-                    <div class="item-col item-col-title"><img alt="" class="rounded" src="https://avatars3.githubusercontent.com/u/4550875?v=3&s=80"></div>
-                    <div class="item-col item-col-title">
-                        <h4 class="item-title">Maarten Paauw</h4>
-                    </div>
-                    <div class="item-col item-col-title">
-                        <div>
-                            In behandeling
+                        <div class="urgentie bg-{!! $patient->triage->slug  !!}">
                         </div>
                     </div>
                     <div class="item-col item-col-title">
+                        {!! $patient->patient_number !!}
+                    </div>
+                    <div class="item-col item-col-title">
+                        <h4 class="item-title">{!! $patient->first_name . " " . $patient->last_name !!}</h4>
+                    </div>
+                    <div class="item-col item-col-title">
                         <div>
-                            6969
+                            <i class="fa fa-clock-o"></i> {!! $patient->status->name !!}
+                        </div>
+                    </div>
+                    <div class="item-col item-col-title">
+                        <div>
+                            {!! $patient->band_number !!}
                         </div>
                     </div>
                     <div class="item-col item-col-title">
@@ -87,6 +89,7 @@
                     </div>
                 </div>
             </li>
+            @endforeach
         </ul>
     </div>
 @endsection
