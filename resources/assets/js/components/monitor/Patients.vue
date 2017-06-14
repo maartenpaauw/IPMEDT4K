@@ -1,30 +1,14 @@
 <template>
     <div class="col-12" v-if="patients">
-        <div class="row py-3">
-            <div class="col-1 p-0 align-self-center">
-                <p class="mb-1 text-muted">Triage</p>
-            </div>
-            <div class="col ml-3 align-self-center">
-                <p class="mb-1 text-muted">Code</p>
-            </div>
-            <div class="col align-self-center">
-                <p class="mb-1 text-muted">Status</p>
-            </div>
-        </div>
         <div class="row">
             <div class="col-12 patients border-light-gray bg-white">
                 <div class="marquee-span" :style="animation">
                     <div class="row white-bg border-light-gray border-left-0 border-right-0 border-top-0" v-for="(patient, index) in patients" :key="index">
-                        <div class="col-1 py-5" :class="`bg-${patient.triage.slug}`">
-                            <h4 class="text-white text-center m-0 h6">{{ index + 1 | number }}</h4>
+                        <div class="col-2 py-5" :class="`bg-${patient.triage.slug}`">
+                            <h4 class="h1 text-white text-center m-0">{{ index + 1 | number }}</h4>
                         </div>
                         <div class="col align-self-center ml-3">
-                            <h4 class="h1 m-0 dark-blue">{{ patient.number | number }}</h4>
-                        </div>
-                        <div class="col align-self-center">
-                            <p class="m-0 h5" :class="patient.status.slug">
-                                <span class="fa fa-clock-o"></span> {{ patient.status.name }}
-                            </p>
+                            <h4 class="m-0 dark-blue patient-number text-center">{{ patient.number | number }}</h4>
                         </div>
                     </div>
                 </div>
@@ -81,7 +65,11 @@
 
 <style lang="scss">
     .patients {
-        height: 496px;
+        height: 517px;
         overflow-y: hidden;
+
+        .patient-number {
+            font-size: 5rem;
+        }
     }
 </style>

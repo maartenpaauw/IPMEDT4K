@@ -23,9 +23,6 @@
             <!-- Container -->
             <div class="container">
 
-                <!-- Title -->
-                <monitor-title></monitor-title>
-
                 <!-- Main -->
                 <div class="row pt-5">
 
@@ -42,13 +39,6 @@
 
                     <!-- Legenda -->
                     <div class="col">
-
-                        <!-- Margin top -->
-                        <div class="row py-3">
-                            <div class="col">
-                                <p class="mb-1">&nbsp;</p>
-                            </div>
-                        </div>
 
                         <div class="row">
 

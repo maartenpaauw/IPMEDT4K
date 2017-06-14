@@ -38,7 +38,7 @@ class Patient extends Model
     }
 
     public function scopeMonitor ($query, $ordered = false) {
-        $query = $query->whereIn('status_id', [Status::inBehandeling()->id, Status::wachten()->id]);
+        $query = $query->where('status_id', Status::wachten()->id);
 
         if (!$ordered) {
             $query = $query->orderBy('status_id', 'DESC');
