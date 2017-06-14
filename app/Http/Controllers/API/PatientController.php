@@ -14,7 +14,7 @@ class PatientController extends Controller
     }
 
     public function count () {
-        return Patient::monitor()
+        return Patient::monitor(true)
             ->without('status')
             ->select('triage_id', DB::raw('count(*) as patients_count'))
             ->groupBy('triage_id')
