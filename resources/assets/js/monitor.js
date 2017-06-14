@@ -22,6 +22,7 @@ Vue.component('monitor-triage-counter', require('./components/monitor/TriageCoun
 Vue.component('monitor-patients',       require('./components/monitor/Patients.vue'));
 Vue.component('monitor-news',           require('./components/monitor/News.vue'));
 Vue.component('monitor-weather',        require('./components/monitor/Weather.vue'));
+Vue.component('monitor-site',           require('./components/monitor/Site.vue'));
 
 const app = new Vue({
     el: '#app'
