@@ -5,7 +5,7 @@
         </div>
         <div class="col-11 align-self-center">
             <p class="marquee m-0 mr-5 news-item">
-                <span class="marquee-span marquee-horizontal">
+                <span class="marquee-span" :style="animation">
                     <span v-for="item in news">
                         <strong class="text-info pl-5">{{ item.date | date }}</strong><span class="dark-blue">&emsp;&mdash;&emsp;</span>{{ item.title }}.
                     </span>
@@ -20,7 +20,15 @@
         props: ['logo'],
         data () {
             return {
-                news: []
+                news: [],
+                speed: 3
+            }
+        },
+        computed: {
+            animation () {
+                return {
+                    animation: `marqueehorizontal ${this.news.length * this.speed}s linear infinite`
+                }
             }
         },
         methods: {
