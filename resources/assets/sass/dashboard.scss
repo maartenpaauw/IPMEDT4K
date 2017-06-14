@@ -1,5 +1,6 @@
 @import url(http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,800,700,600);
 @import "app";
+@import "../../../node_modules/sweetalert/dist/sweetalert.css";
 
 html,
 body {
@@ -78,7 +79,6 @@ body {
 .app.blank {
   background-color: #667380;
 }
-
 
 /* *******************************************
 *				Button Styles
@@ -898,7 +898,6 @@ textarea {
   }
 }
 
-
 .item-list .item-col.item-col-img {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -964,7 +963,6 @@ textarea {
   line-height: inherit;
   font-weight: 600;
 }
-
 
 /* *******************************************
 *				Adjustments
@@ -1109,7 +1107,7 @@ span a {
 /* Handle */
 ::-webkit-scrollbar-thumb {
   border-radius: 0;
-  background: #78bd2e;
+  background: $blue-dark;
 }
 
 ::-webkit-scrollbar-thumb:window-inactive {
@@ -1372,7 +1370,6 @@ pre {
   background: none;
 }
 
-
 .footer {
   background-color: #fff;
   position: absolute;
@@ -1539,7 +1536,7 @@ pre {
 }
 
 .sidebar .nav {
-  display: block!important;
+  display: block !important;
   font-size: 14px;
 }
 
@@ -2081,9 +2078,10 @@ pre {
 
 .urgentie {
   height: 100%;
-  width: 30px!important;
+  width: 30px !important;
   padding: 0;
   margin: 0;
+  border-right: 1px solid $light-gray;
 }
 
 .urg-red {
@@ -2104,4 +2102,154 @@ pre {
 
 .urg-blue {
   background: $blue-dark;
+}
+
+.form-label {
+  font-size: 18px;
+  font-weight: 700;
+}
+
+.form-style {
+  padding-left: 0;
+  padding-right: 0;
+  -webkit-border-radius: 0;
+  -moz-border-radius: 0;
+  border-radius: 0;
+  border: 0;
+  box-shadow: none;
+  border-bottom: 2px solid $darker-gray;
+}
+
+.patient-create {
+  padding-top: 50px;
+  padding-left: 30px;
+  padding-right: 30px;
+  padding-bottom: 50px;
+}
+
+::-webkit-input-placeholder { /* WebKit, Blink, Edge */
+  color: #a5aec3;
+}
+
+:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+  color: #a5aec3;
+  opacity: 1;
+}
+
+::-moz-placeholder { /* Mozilla Firefox 19+ */
+  color: #a5aec3;
+  opacity: 1;
+}
+
+:-ms-input-placeholder { /* Internet Explorer 10-11 */
+  color: #a5aec3;
+}
+
+.form-style:focus {
+  border-bottom: 2px solid $brand-primary;
+}
+
+div.checkRadioContainer > label > input {
+  visibility: hidden;
+}
+
+div.checkRadioContainer > label {
+  border: 0;
+  margin-bottom: -2px;
+  cursor: pointer;
+  margin-right: 10px;
+  width: 60px;
+  height: 40px;
+}
+
+div.checkRadioContainer > label > span {
+  display: inline-block;
+  vertical-align: top;
+  line-height: 2em;
+}
+
+div.checkRadioContainer > label > input + i {
+  visibility: hidden;
+  color: #fff;
+  margin-top: 0.13em;
+  margin-left: -0.05em;
+}
+
+div.checkRadioContainer > label > input:checked + i {
+  visibility: visible;
+}
+
+.tgl, .tgl:after, .tgl:before, .tgl *, .tgl *:after, .tgl *:before, .tgl + .tgl-btn {
+  box-sizing: border-box;
+}
+
+.tgl::-moz-selection, .tgl:after::-moz-selection, .tgl:before::-moz-selection, .tgl *::-moz-selection, .tgl *:after::-moz-selection, .tgl *:before::-moz-selection, .tgl + .tgl-btn::-moz-selection {
+  background: none;
+}
+
+.tgl::selection, .tgl:after::selection, .tgl:before::selection, .tgl *::selection, .tgl *:after::selection, .tgl *:before::selection, .tgl + .tgl-btn::selection {
+  background: none;
+}
+
+.tgl + .tgl-btn {
+  outline: 0;
+  display: block;
+  width: 5em;
+  height: 2.5em;
+  position: relative;
+  cursor: pointer;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+.tgl + .tgl-btn:after, .tgl + .tgl-btn:before {
+  position: relative;
+  display: block;
+  content: "";
+  width: 50%;
+  height: 100%;
+}
+
+.tgl + .tgl-btn:after {
+  left: 0;
+}
+
+.tgl + .tgl-btn:before {
+  display: none;
+}
+
+.tgl:checked + .tgl-btn:after {
+  left: 50%;
+}
+
+.tgl-light + .tgl-btn {
+  background: #f0f0f0;
+  border-radius: 2em;
+  padding: 2px;
+  -webkit-transition: all .4s ease;
+  transition: all .4s ease;
+}
+
+.tgl-light + .tgl-btn:after {
+  border-radius: 50%;
+  background: #fff;
+  -webkit-transition: all .2s ease;
+  transition: all .2s ease;
+}
+
+.tgl-light:checked + .tgl-btn {
+  background: $brand-success;
+}
+
+.btn-inchecken {
+  cursor: pointer;
+}
+
+.parsley-errors-list {
+  list-style-type: none;
+  padding-left: 0;
+  padding-top: 5px;
+  color: $brand-danger;
 }

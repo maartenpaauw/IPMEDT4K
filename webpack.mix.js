@@ -11,10 +11,15 @@ const { mix } = require('laravel-mix');
  |
  */
 
+// Disable notifications.
+mix.disableNotifications();
+
+// User Browser Sync.
 mix.browserSync({
     proxy: process.env.MIX_BROWSER_SYNC_DOMAIN
 });
 
+// Mix javascript and sass.
 mix
     .js('resources/assets/js/app.js', 'public/js')
     .js('resources/assets/js/dashboard.js', 'public/js')
@@ -22,4 +27,5 @@ mix
     .sass('resources/assets/sass/app.scss', 'public/css')
     .sass('resources/assets/sass/monitor.scss', 'public/css')
     .sass('resources/assets/sass/dashboard.scss', 'public/css')
-    .sass('resources/assets/sass/login.scss', 'public/css');
+    .sass('resources/assets/sass/login.scss', 'public/css')
+    .sass('resources/assets/sass/mobile.scss', 'public/css');

@@ -1,3 +1,60 @@
+.ingecheckt {
+  color: $gray-light;
+}
+
+.wachten {
+  color: $gray-light;
+}
+
+.in-behandeling {
+  color: $brand-success;
+}
+
+.uitgecheckt {
+  color: $gray-light;
+}
+
+.onmiddelijk {
+  color: $brand-danger;
+  color: $brand-danger;
+}
+
+.bg-onmiddelijk {
+  background-color: $brand-danger;
+}
+
+.hoog-urgent {
+  color: $brand-warning;
+}
+
+.bg-hoog-urgent {
+  background-color: $brand-warning;
+}
+
+.urgent {
+  color: $brand-watchout;
+}
+
+.bg-urgent {
+  background-color: $brand-watchout;
+}
+
+.standaard {
+  color: $brand-success;
+}
+
+.bg-standaard {
+  background-color: $brand-success;
+}
+
+.niet-urgent {
+  color: $brand-info;
+}
+
+.bg-niet-urgent {
+  background-color: $brand-info;
+}
+
 .brand-watchout {
   color: $brand-watchout;
 }
@@ -46,6 +103,6 @@
   background: $light-blue;
 }
 
-.white-bg {
+.white-bg, .bg-white {
   background: $white;
 }

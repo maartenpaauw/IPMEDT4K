@@ -12,7 +12,7 @@
 */
 
 /** @var \Illuminate\Database\Eloquent\Factory $factory */
-$factory->define(IPMEDT4K\User::class, function (Faker\Generator $faker) {
+$factory->define(\IPMEDT4K\Models\User::class, function (Faker\Generator $faker) {
     static $password;
 
     return [
@@ -20,5 +20,55 @@ $factory->define(IPMEDT4K\User::class, function (Faker\Generator $faker) {
         'email' => $faker->unique()->safeEmail,
         'password' => $password ?: $password = bcrypt('secret'),
         'remember_token' => str_random(10),
+    ];
+});
+
+$factory->define(\IPMEDT4K\Models\Patient::class, function(Faker\Generator $faker) {
+    return [
+        'first_name'     => $faker->firstName,
+        'last_name'      => $faker->lastName,
+        'number'         => $faker->unique()->numberBetween(10000, 99999),
+        'band_number'    => $faker->unique()->numberBetween(10000, 99999),
+        'triage_id'      => \IPMEDT4k\Models\Triage::inRandomOrder()->first()->id,
+        'status_id'      => \IPMEDT4k\Models\Status::ingecheckt()->id,
+        'checked_in_at'  => null,
+        'treated_at'     => null,
+        'checked_out_at' => null,
+    ];
+});
+
+$factory->state(\IPMEDT4K\Models\Patient::class, 'patient_checked_in', function(Faker\Generator $faker) {
+    
+    $checked_in_at = $faker->dateTimeBetween(\Carbon\Carbon::now()->subWeek(), \Carbon\Carbon::now());
+    
+    return [
+        'checked_in_at' => $checked_in_at,
+        'status_id'     => \IPMEDT4k\Models\Status::wachten()->id,
+    ];
+});
+
+$factory->state(\IPMEDT4K\Models\Patient::class, 'patient_treated', function(Faker\Generator $faker) {
+    
+    $checked_in_at = $faker->dateTimeBetween(\Carbon\Carbon::now()->subWeek(), \Carbon\Carbon::now());
+    $treated_at    = $faker->dateTimeBetween($checked_in_at, \Carbon\Carbon::now());
+
+    return [
+        'checked_in_at' => $checked_in_at,
+        'treated_at'    => $treated_at,
+        'status_id'     => \IPMEDT4k\Models\Status::inBehandeling()->id,
+    ];   
+});
+
+$factory->state(\IPMEDT4K\Models\Patient::class, 'patient_checked_out', function(Faker\Generator $faker) {
+    
+    $checked_in_at  = $faker->dateTimeBetween(\Carbon\Carbon::now()->subWeek(), \Carbon\Carbon::now());
+    $treated_at     = $faker->dateTimeBetween($checked_in_at, \Carbon\Carbon::now());
+    $checked_out_at = $faker->dateTimeBetween($treated_at, \Carbon\Carbon::now());
+    
+    return [
+        'checked_in_at'  => $checked_in_at,
+        'treated_at'     => $treated_at,
+        'checked_out_at' => $checked_out_at,
+        'status_id'      => \IPMEDT4k\Models\Status::uitgecheckt()->id,
     ];
 });

@@ -27,7 +27,7 @@
                 </form>
             </div>
             <div class="header-block">
-                <a class="btn btn-primary" href="#"><i class="fa fa-plus"></i> <span>Inchecken</span></a>
+                <a class="btn btn-primary" href="{!! route('patienten.create') !!}"><i class="fa fa-plus"></i> <span>Inchecken</span></a>
             </div>
             <div class="header-block header-block-nav">
                 <ul class="nav-profile">
@@ -57,6 +57,9 @@
                             <a href="{!! route('patienten.index') !!}"><i class="fa fa-users brand-primary"></i> Patiënten </a>
                         </li>
                         <hr class="menu-hr p-0 m-0">
+                        <li {{ (Request::is('historie') ? 'class=active' : '') }}>
+                            <a href="{!! route('historie') !!}"><i class="fa fa-history brand-primary"></i> Historie </a>
+                        </li>
                     </ul>
                 </nav>
             </div>
@@ -88,9 +91,9 @@
         </footer>
     </div>
 </div>
-<script src="{{mix('js/app.js')}}">
-</script>
 <script src="{{mix('js/dashboard.js')}}">
 </script>
+@yield('parsley')
+@include('sweet::alert')
 </body>
 </html>

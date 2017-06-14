@@ -1,3 +1,5 @@
+require('./bootstrap');
+
 var config = window.config = {};
 
 config.ResponsiveBootstrapToolkitVisibilityDivs = {
@@ -132,6 +134,58 @@ $(function() {
 
     $("body").addClass("loaded");
 
+});
+
+$(function () {
+    // Validation errors messages for Parsley
+// Load this after Parsley
+
+    Parsley.addMessages('nl', {
+        defaultMessage: "Deze waarde lijkt onjuist.",
+        type: {
+            email:        "Dit lijkt geen geldig e-mail adres te zijn.",
+            url:          "Dit lijkt geen geldige URL te zijn.",
+            number:       "Deze waarde moet een nummer zijn.",
+            integer:      "Deze waarde moet een nummer zijn.",
+            digits:       "Deze waarde moet numeriek zijn.",
+            alphanum:     "Deze waarde moet alfanumeriek zijn."
+        },
+        notblank:       "Deze waarde mag niet leeg zijn.",
+        required:       "Dit veld is verplicht.",
+        pattern:        "Deze waarde is onjuist.",
+        min:            "Deze waarde mag niet lager zijn dan %s.",
+        max:            "Deze waarde mag niet groter zijn dan %s.",
+        range:          "Deze waarde moet tussen %s en %s liggen.",
+        minlength:      "Deze tekst is te kort. Deze moet uit minimaal %s karakters bestaan.",
+        maxlength:      "Deze waarde is te lang. Deze mag maximaal %s karakters lang zijn.",
+        length:         "Deze waarde moet tussen %s en %s karakters lang zijn.",
+        equalto:        "Deze waardes moeten identiek zijn."
+    });
+
+    Parsley.setLocale('nl');
+});
+
+$(function () {
+   $('.delete-from-history').on('click', function () {
+       swal({
+           title: "Weet u zeker dat u de patiënt wilt verwijderen?",
+           text: "Deze stap kan niet ongedaan gemaakt worden!",
+           type: "warning",
+           showCancelButton: true,
+           confirmButtonColor: "#5cb85c",
+           confirmButtonText: "Verwijderen",
+           closeOnConfirm: false,
+           closeOnCancel: false
+       },
+       function (isConfirm) {
+           if(isConfirm) {
+               swal("Verwijderd!", "De patiënt is verwijderd", "success");
+               $("#destroyhistory").submit();
+           } else {
+               swal("Gecancelled!", "De patiënt is niet verwijderd", "error");
+           }
+       });
+   })
 });
 
 

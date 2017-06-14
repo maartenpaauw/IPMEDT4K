@@ -1,20 +1,20 @@
 <?php
 
 use Illuminate\Database\Seeder;
-use IPMEDT4K\User;
+use IPMEDT4K\Models\User;
 
 class UsersTableSeeder extends Seeder
 {
 
     public function run()
     {
-        DB::table('users')->delete();
-        User::create(array(
-            'name'     => 'Zowie van Geest',
-            'username' => 's1097398',
-            'email'    => 's1097398@student.hsleiden.nl',
+        User::create([
+            'employee_number' => '450125',
+            'first_name' => 'Zowie',
+            'last_name' => 'van Geest',
+            'email' => 's1097398@student.hsleiden.nl',
             'password' => Hash::make('spinnenpoep'),
-        ));
+        ]);
     }
 
 }

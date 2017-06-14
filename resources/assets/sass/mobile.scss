@@ -1,0 +1,79 @@
+@import "app";
+
+
+#header-mobile-login {
+  height: 180px;
+}
+
+.blue-dark-bg {
+  background: $blue-dark;
+}
+
+#mobile-login-title {
+  font-size: 60px;
+}
+
+.brand {
+  width: 230px;
+  height: 100%;
+  padding: 30px 20px;
+}
+
+.form-style {
+  padding-left: 0;
+  padding-right: 0;
+  -webkit-border-radius:0;
+  -moz-border-radius:0;
+  border-radius:0;
+  border: 0;
+  box-shadow: none;
+  /* TODO:: $light-gray to $darker-gray */
+  border-bottom: 2px solid $light-gray;
+}
+
+.patient-create {
+  padding-top: 50px;
+  padding-left: 30px;
+  padding-right: 30px;
+  padding-bottom: 50px;
+}
+
+::-webkit-input-placeholder { /* WebKit, Blink, Edge */
+  color:    #a5aec3;
+}
+:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+  color:    #a5aec3;
+  opacity:  1;
+}
+::-moz-placeholder { /* Mozilla Firefox 19+ */
+  color:    #a5aec3;
+  opacity:  1;
+}
+:-ms-input-placeholder { /* Internet Explorer 10-11 */
+  color:    #a5aec3;
+}
+
+.form-style:focus {
+  border-bottom: 2px solid $brand-primary;
+}
+
+.mobile-login-title {
+  font-size: 40px;
+}
+
+.mobile-login-desc {
+  font-size: 28px;
+}
+
+.mobile-login-input-bandnumber {
+  font-size: 22px;
+  color: #a5aec3;
+}
+
+.mobile-login-input-bandnumber:focus {
+  color: #a5aec3;
+}
+
+.btn-login {
+  padding: 15px 50px;
+}
