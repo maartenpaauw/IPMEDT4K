@@ -57,6 +57,9 @@
 
                             <!-- Weather -->
                             <monitor-weather></monitor-weather>
+
+                            <!-- Go to site bar -->
+                            <monitor-site></monitor-site>
                         </div>
                     </div>
                 </div>
