@@ -20,6 +20,7 @@ require('animate.css');
 require('metismenu');
 require('parsleyjs');
 require('sweetalert');
+require('tablesorter');
 window.NProgress = require('nprogress');
 window.ResponsiveBootstrapToolkit = require('responsive-toolkit');
 
