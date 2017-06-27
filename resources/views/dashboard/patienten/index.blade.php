@@ -52,100 +52,56 @@
 @section('title', 'Patiënten')
 
 @section('content')
-    <div class="card items">
-        <ul class="item-list striped">
-            <li class="item item-list-header hidden-sm-down">
-                <div class="item-row pl-0">
-                    <div class="item-col item-col-header item-col-title">
-                        <div>
-                            <span class="pl-1">Urg</span>
-                        </div>
-                    </div>
-                    <div class="item-col item-col-header item-col-title">
-                        <div>
-                            <span>Patientnummer</span>
-                        </div>
-                    </div>
-                    <div class="item-col item-col-header item-col-title">
-                        <div>
-                            <span>Naam</span>
-                        </div>
-                    </div>
-                    <div class="item-col item-col-header item-col-title">
-                        <div>
-                            <span>Status</span>
-                        </div>
-                    </div>
-                    <div class="item-col item-col-header item-col-title">
-                        <div>
-                            <span>Code</span>
-                        </div>
-                    </div>
-                    <div class="item-col item-col-header item-col-title">
-                        <div>
-                            <span>Ingecheckt</span>
-                        </div>
-                    </div>
-                    <div class="item-col item-col-header item-col-title">
-                        <div class="no-overflow">
-                            <span>Urgentie Wijzigen</span>
-                        </div>
-                    </div>
-                    <div class="item-col item-col-header item-col-title">
-                        <div class="no-overflow">
-                            <span>Uitchecken</span>
-                        </div>
-                    </div>
-                </div>
-            </li>
-            @foreach($patienten as $patient)
-                @if($patient->status_id === 1 || $patient->status_id === 2 || $patient->status_id === 3)
-                    <li class="item">
-                <div class="item-row pl-0">
-                    <div class="item-col item-col-title p-0">
+    <table class="table bg-white">
+        <thead>
+        <tr>
+            <th>Urg</th>
+            <th>Patientnummer</th>
+            <th>Naam</th>
+            <th>Status</th>
+            <th>Code</th>
+            <th>Ingecheckt</th>
+            <th>Urgentie Wijzigen</th>
+            <th>Uitchecken</th>
+        </tr>
+        </thead>
+        <tbody>
+        @foreach($patienten as $patient)
+            @if($patient->status_id === 1 || $patient->status_id === 2 || $patient->status_id === 3)
+                <tr>
+                    <td class="p-0">
                         @if(is_null($patient->triage_id))
                             <div class="urgentie white-bg"></div>
                         @else()
-                        <div class="urgentie bg-{!! $patient->triage->slug !!}"></div>
+                            <div class="urgentie bg-{!! $patient->triage->slug !!}"></div>
                         @endif
-                    </div>
-                    <div class="item-col item-col-title">
+                    </td>
+                    <td class="pt-4">
                         {!! $patient->number !!}
-                    </div>
-                    <div class="item-col item-col-title">
-                        <h4 class="item-title">{!! $patient->first_name . " " . $patient->last_name !!}</h4>
-                    </div>
-                    <div class="item-col item-col-title">
-                        <div>
-                            <i class="fa fa-clock-o"></i> {!! $patient->status->name !!}
-                        </div>
-                    </div>
-                    <div class="item-col item-col-title">
-                        <div>
-                            {!! $patient->band_number !!}
-                        </div>
-                    </div>
-                    <div class="item-col item-col-title">
-                        <div class="no-overflow">
-                            {!! $patient->created_at !!}
-                        </div>
-                    </div>
-                    <div class="item-col item-col-title">
-                        <div class="no-overflow">
-                            <a class="btn btn-success rounded" href="{!! route('patienten.edit', $patient->id) !!}">Wijzigen</a>
-                        </div>
-                    </div>
-                    <div class="item-col item-col-title">
-                        <div class="no-overflow">
-                            {!! Form::model($patient, ['method' => 'PATCH', 'action' => ['Web\PatientController@checkout',$patient->id], 'id' => 'checkoutform']) !!}
-                            {!! Form::submit('Uitchecken', array('class' => 'btn btn-danger rounded')) !!}
-                            {!! Form::close() !!}
-                        </div>
-                    </div>
-                </div>
-            </li>
-                @endif
-            @endforeach
-        </ul>
-    </div>
+                    </td>
+                    <td class="pt-4">
+                        <b>{!! $patient->first_name . " " . $patient->last_name !!}</b>
+                    </td>
+                    <td class="pt-4">
+                        <i class="fa fa-clock-o"></i> {!! $patient->status->name !!}
+                    </td>
+                    <td class="pt-4">
+                        {!! $patient->band_number !!}
+                    </td>
+                    <td class="pt-4">
+                        {!! $patient->created_at !!}
+                    </td>
+                    <td>
+                        <a class="btn btn-success rounded" href="{!! route('patienten.edit', $patient->id) !!}">Wijzigen</a>
+                    </td>
+                    <td>
+                        {!! Form::model($patient, ['method' => 'PATCH', 'action' => ['Web\PatientController@checkout',$patient->id], 'id' => 'checkoutform']) !!}
+                        {!! Form::submit('Uitchecken', array('class' => 'btn btn-danger rounded')) !!}
+                        {!! Form::close() !!}
+                    </td>
+                </tr>
+            @endif
+        @endforeach
+        </tbody>
+    </table>
 @endsection
