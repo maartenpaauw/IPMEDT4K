@@ -4,5 +4,7 @@
   "/css/dashboard.css": "/css/dashboard.css",
   "/js/monitor.js": "/js/monitor.js",
   "/js/dashboard.js": "/js/dashboard.js",
-  "/css/monitor.css": "/css/monitor.css"
+  "/css/monitor.css": "/css/monitor.css",
+  "/css/login.css": "/css/login.css",
+  "/css/mobile.css": "/css/mobile.css"
 }
