@@ -2252,3 +2252,17 @@ div.checkRadioContainer > label > input:checked + i {
   padding-top: 5px;
   color: $brand-danger;
 }
+
+.displaynone {
+  display: none!important;
+}
+
+.th-clickable, .tablesorter-header-inner {
+  cursor: pointer!important;
+  outline: 0!important;
+}
+
+.btn {
+  cursor: pointer!important;
+}
+
