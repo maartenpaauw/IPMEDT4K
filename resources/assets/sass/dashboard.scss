@@ -37,7 +37,6 @@ body {
 
 .app .content {
   padding: 95px 20px 75px 20px;
-  min-height: 100vh;
 }
 
 @media (min-width: 1200px) {
@@ -2077,8 +2076,8 @@ pre {
 }
 
 .urgentie {
-  height: 100%;
-  width: 30px !important;
+  height: 65px;
+  width: 50px !important;
   padding: 0;
   margin: 0;
   border-right: 1px solid $light-gray;
@@ -2253,3 +2252,17 @@ div.checkRadioContainer > label > input:checked + i {
   padding-top: 5px;
   color: $brand-danger;
 }
+
+.displaynone {
+  display: none!important;
+}
+
+.th-clickable, .tablesorter-header-inner {
+  cursor: pointer!important;
+  outline: 0!important;
+}
+
+.btn {
+  cursor: pointer!important;
+}
+
