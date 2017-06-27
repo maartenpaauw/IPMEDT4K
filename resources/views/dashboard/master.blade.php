@@ -66,6 +66,20 @@
             <footer class="sidebar-footer"></footer>
         </aside>
         <div class="sidebar-overlay" id="sidebar-overlay"></div>
+        @if (View::hasSection('titleExtra'))
+            <article class="content items-list-page pb-0">
+                <div class="title-search-block">
+                    <div class="title-block">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <h3 class="title">@yield('titleExtra')</h3>
+                            </div>
+                        </div>
+                    </div>
+                    @yield('contentExtra')
+                </div>
+            </article>
+        @endif
         <article class="content items-list-page">
             <div class="title-search-block">
                 <div class="title-block">
