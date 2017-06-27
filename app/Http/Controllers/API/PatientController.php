@@ -14,11 +14,12 @@ class PatientController extends Controller
     }
 
     public function count () {
-        return Patient::monitor(true)
-            ->without('status')
-            ->select('triage_id', DB::raw('count(*) as patients_count'))
-            ->groupBy('triage_id')
-            ->get()
-        ;
+        return [
+            'onmiddelijk' => Patient::onmiddelijk()->wachten()->count(),
+            'hoog-urgent' => Patient::hoogUrgent()->wachten()->count(),
+            'urgent'      => Patient::urgent()->wachten()->count(),
+            'standaard'   => Patient::standaard()->wachten()->count(),
+            'niet-urgent' => Patient::nietUrgent()->wachten()->count()
+        ];
     }
 }
