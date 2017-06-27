@@ -52,7 +52,7 @@
 @section('title', 'Patiënten')
 
 @section('content')
-    <table id="patientsTable" class="table tablesorter bg-white">
+    <table id="patientsTable" class="table tablesorter table-striped bg-white">
         <thead>
         <tr>
             <th class="th-clickable">Urg <i class="fa fa-sort fa-pull-right pt-1" aria-hidden="true"></i></th>
