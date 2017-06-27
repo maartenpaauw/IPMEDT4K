@@ -37,12 +37,10 @@
             // Set the triages.
             this.triages = this.initialTriages;
 
-            console.log(this.triages);
-
-//            // Get the new counts every 15 seconds.
-//            setInterval(() => {
-//                this.getTriages();
-//            }, 1000 * 15);
+            // Get the new counts every 15 seconds.
+            setInterval(() => {
+                this.getTriages();
+            }, 1000 * 15);
         }
     }
 </script>
