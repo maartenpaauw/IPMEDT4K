@@ -3,91 +3,59 @@
 @section('title', 'Historie')
 
 @section('content')
-    <div class="card items">
-        <ul class="item-list striped">
-            <li class="item item-list-header hidden-sm-down">
-                <div class="item-row pl-0">
-                    <div class="item-col item-col-header item-col-title">
-                        <div>
-                            <span class="pl-1">Urg</span>
-                        </div>
-                    </div>
-                    <div class="item-col item-col-header item-col-title">
-                        <div>
-                            <span>Patientnummer</span>
-                        </div>
-                    </div>
-                    <div class="item-col item-col-header item-col-title">
-                        <div>
-                            <span>Naam</span>
-                        </div>
-                    </div>
-                    <div class="item-col item-col-header item-col-title">
-                        <div>
-                            <span>Status</span>
-                        </div>
-                    </div>
-                    <div class="item-col item-col-header item-col-title">
-                        <div>
-                            <span>Code</span>
-                        </div>
-                    </div>
-                    <div class="item-col item-col-header item-col-title">
-                        <div>
-                            <span>Uitgecheckt</span>
-                        </div>
-                    </div>
-                    <div class="item-col item-col-header item-col-title">
-                        <div class="no-overflow">
-                            <span>Verwijderen</span>
-                        </div>
-                    </div>
-                </div>
-            </li>
-            @foreach($patienten as $patient)
-                @if($patient->status_id === 4)
-                    <li class="item">
-                        <div class="item-row pl-0">
-                            <div class="item-col item-col-title p-0">
-                                @if(is_null($patient->triage_id))
-                                    <div class="urgentie white-bg"></div>
-                                @else()
-                                    <div class="urgentie bg-{!! $patient->triage->slug !!}"></div>
-                                @endif
+    <table id="historyTable" class="table tablesorter table-striped bg-white">
+        <thead>
+        <tr>
+            <th class="th-clickable">Urg <i class="fa fa-sort fa-pull-right pt-1" aria-hidden="true"></i></th>
+            <th class="th-clickable">Patientnummer <i class="fa fa-sort fa-pull-right pt-1" aria-hidden="true"></i></th>
+            <th class="th-clickable">Naam <i class="fa fa-sort fa-pull-right pt-1" aria-hidden="true"></i></th>
+            <th class="th-clickable">Status <i class="fa fa-sort fa-pull-right pt-1" aria-hidden="true"></i></th>
+            <th class="th-clickable">Code <i class="fa fa-sort fa-pull-right pt-1" aria-hidden="true"></i></th>
+            <th class="th-clickable">Uitgecheckt <i class="fa fa-sort fa-pull-right pt-1" aria-hidden="true"></i></th>
+            <th>Verwijderen</th>
+        </tr>
+        </thead>
+        <tbody>
+        @foreach($patienten as $patient)
+            @if($patient->status_id === 4)
+                <tr>
+                    <td class="p-0">
+                        @if(is_null($patient->triage_id))
+                            <div class="urgentie white-bg"></div>
+                            <div class="invisible displaynone">
+                                0
                             </div>
-                            <div class="item-col item-col-title">
-                                {!! $patient->number !!}
+                        @else()
+                            <div class="urgentie bg-{!! $patient->triage->slug !!}"></div>
+                            <div class="invisible displaynone">
+                                {!! $patient->triage_id !!}
                             </div>
-                            <div class="item-col item-col-title">
-                                <h4 class="item-title">{!! $patient->first_name . " " . $patient->last_name !!}</h4>
-                            </div>
-                            <div class="item-col item-col-title">
-                                <div>
-                                    <i class="fa fa-clock-o"></i> {!! $patient->status->name !!}
-                                </div>
-                            </div>
-                            <div class="item-col item-col-title">
-                                <div>
-                                    {!! $patient->band_number !!}
-                                </div>
-                            </div>
-                            <div class="item-col item-col-title">
-                                <div class="no-overflow">
-                                    {!! $patient->checked_out_at !!}
-                                </div>
-                            </div>
-                            <div class="item-col item-col-title">
-                                <div class="no-overflow">
-                                    {!! Form::model($patient, ['method' => 'DELETE', 'action' => ['Web\HistoryController@destroy',$patient->id], 'id' => 'destroyhistory']) !!}
-                                    {{--{!! Form::submit('Verwijderen', array('class' => 'btn btn-danger rounded')) !!}--}}
-                                    {!! Form::close() !!}
-                                    <button class="btn btn-danger rounded delete-from-history">Verwijderen</button>
-                                </div>
-                            </div>
-                        </div>
-                    </li>
-                @endif
-            @endforeach
-        </ul>
-    </div>
+                        @endif
+                    </td>
+                    <td class="pt-4">
+                        {!! $patient->number !!}
+                    </td>
+                    <td class="pt-4">
+                        <b>{!! $patient->first_name . " " . $patient->last_name !!}</b>
+                    </td>
+                    <td class="pt-4">
+                        <i class="fa fa-clock-o"></i> {!! $patient->status->name !!}
+                    </td>
+                    <td class="pt-4">
+                        {!! $patient->band_number !!}
+                    </td>
+                    <td class="pt-4">
+                        <div class="date">{!! $patient->checked_out_at !!}</div>
+                    </td>
+                    <td>
+                        {!! Form::model($patient, ['method' => 'DELETE', 'action' => ['Web\HistoryController@destroy',$patient->id], 'id' => 'destroyhistory']) !!}
+                        {{--{!! Form::submit('Verwijderen', array('class' => 'btn btn-danger rounded')) !!}--}}
+                        {!! Form::close() !!}
+                        <button class="btn btn-danger rounded delete-from-history">Verwijderen</button>
+                    </td>
+                </tr>
+            @endif
+        @endforeach
+        </tbody>
+    </table>
 @endsection
