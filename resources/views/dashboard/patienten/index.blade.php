@@ -52,15 +52,15 @@
 @section('title', 'Patiënten')
 
 @section('content')
-    <table class="table bg-white">
+    <table id="patientsTable" class="table tablesorter bg-white">
         <thead>
         <tr>
-            <th>Urg</th>
-            <th>Patientnummer</th>
-            <th>Naam</th>
-            <th>Status</th>
-            <th>Code</th>
-            <th>Ingecheckt</th>
+            <th class="th-clickable">Urg <i class="fa fa-sort fa-pull-right pt-1" aria-hidden="true"></i></th>
+            <th class="th-clickable">Patientnummer <i class="fa fa-sort fa-pull-right pt-1" aria-hidden="true"></i></th>
+            <th class="th-clickable">Naam <i class="fa fa-sort fa-pull-right pt-1" aria-hidden="true"></i></th>
+            <th class="th-clickable">Status <i class="fa fa-sort fa-pull-right pt-1" aria-hidden="true"></i></th>
+            <th class="th-clickable">Code <i class="fa fa-sort fa-pull-right pt-1" aria-hidden="true"></i></th>
+            <th class="th-clickable">Ingecheckt <i class="fa fa-sort fa-pull-right pt-1" aria-hidden="true"></i></th>
             <th>Urgentie Wijzigen</th>
             <th>Uitchecken</th>
         </tr>
@@ -72,8 +72,14 @@
                     <td class="p-0">
                         @if(is_null($patient->triage_id))
                             <div class="urgentie white-bg"></div>
+                            <div class="invisible displaynone">
+                                0
+                            </div>
                         @else()
                             <div class="urgentie bg-{!! $patient->triage->slug !!}"></div>
+                            <div class="invisible displaynone">
+                                {!! $patient->triage_id !!}
+                            </div>
                         @endif
                     </td>
                     <td class="pt-4">
@@ -89,7 +95,7 @@
                         {!! $patient->band_number !!}
                     </td>
                     <td class="pt-4">
-                        {!! $patient->created_at !!}
+                        <div class="date">{!! $patient->created_at !!}</div>
                     </td>
                     <td>
                         <a class="btn btn-success rounded" href="{!! route('patienten.edit', $patient->id) !!}">Wijzigen</a>
