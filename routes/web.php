@@ -24,7 +24,7 @@ Route::get('login', array('uses' => 'Web\LoginController@showLogin'));
 
 Route::post('login', array('uses' => 'Web\LoginController@doLogin'));
 
-Route::get('personal/login', array('uses' => 'Web\PersonalController@login'));
+Route::get('inloggen', array('uses' => 'Web\PersonalController@login'))->name('patient.login');
 
 Route::get('historie', array('uses' => 'Web\HistoryController@index'))->name('historie');
 
