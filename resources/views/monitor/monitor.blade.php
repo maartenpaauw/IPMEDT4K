@@ -48,7 +48,7 @@
                         <div class="row">
 
                             <!-- Waiting timers -->
-                            <monitor-patients :initial-patients="{{ $patients }}"></monitor-patients>
+                            <monitor-patients :initial-patients="{{ $patients }}" track="{{ asset('sounds/sound_2.mp3') }}"></monitor-patients>
 
                             <!-- Triage counter -->
                             <monitor-triage-counter :initial-triages="{{ $triage_count }}"></monitor-triage-counter>

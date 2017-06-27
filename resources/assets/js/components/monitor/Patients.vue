@@ -14,17 +14,17 @@
                 </div>
             </div>
         </div>
-        
     </div>
 </template>
 
 <script>
     export default {
-        props: ['initial-patients'],
+        props: ['initial-patients', 'track'],
         data () {
             return {
                 patients: null,
-                speed: 3
+                speed: 3,
+                audio: new Audio(this.track)
             }
         },
         computed: {
@@ -40,13 +40,27 @@
                 // Make an API call to get the patients.
                 axios.get('/api/patients')
                     .then( (response) => {
+
+                        // Check if there are new patients.
+                        if(!_.isEqual(response.data, this.patients)) {
+
+                            // Play the audio file.
+                            this.play();
+                        }
+
+                        // Update the new patients.
                         this.patients = response.data;
                     })
                 ;
+            },
+            play () {
+                // Play the audio file.
+                this.audio.play()
             }
         },
         filters: {
             number (value) {
+                // Convert the value to a local number string.
                 return value.toLocaleString('nl-NL');
             }
         },
@@ -55,10 +69,14 @@
             // Set the patients.
             this.patients = this.initialPatients;
 
-            // Get the new patients every 15 seconds.
+            // Set an interval.
             setInterval(() => {
+
+                // Get the new patients every 15 seconds.
                 this.getPatients();
-            }, 1000 * 15);
+
+            // Every 3 seconds.
+            }, 1000 * 3);
         }
     }
 </script>
