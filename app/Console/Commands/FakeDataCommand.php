@@ -41,10 +41,12 @@ class FakeDataCommand extends Command
     {
         if ($this->confirm('Do you wish to continue?'))
         {
-            Artisan::call('migrate:refresh', [
-                '--seed' => true
-            ]);
-            
+            if (app()->environment() == "local") {
+                Artisan::call('migrate:refresh', [
+                    '--seed' => true
+                ]);
+            }
+
             factory(Patient::class, 20)->create();
             factory(Patient::class, rand(20, 30))->states(['patient_checked_in'])->create();
             factory(Patient::class, rand(20, 30))->states(['patient_treated'])->create();
