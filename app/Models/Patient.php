@@ -37,14 +37,13 @@ class Patient extends Model
         return $query->where('triage_id', Triage::nietUrgent()->id);
     }
 
-    public function scopeMonitor ($query, $ordered = false) {
-        $query = $query->where('status_id', Status::wachten()->id);
+    public function scopeWachten ($query) {
+        return $query->where('status_id', Status::wachten()->id);
+    }
 
-        if (!$ordered) {
-            $query = $query->orderBy('status_id', 'DESC');
-        }
-
-        $query
+    public function scopeMonitor ($query) {
+        return $query
+            ->wachten()
             ->orderBy('triage_id', 'ASC')
             ->orderBy('treated_at', 'ASC')
             ->orderBy('checked_in_at', 'ASC')
