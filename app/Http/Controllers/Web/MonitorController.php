@@ -17,12 +17,13 @@ class MonitorController extends Controller
         $triages = Triage::all();
 
         // Triage count
-        $triage_count = Patient::monitor(true)
-            ->without('status')
-            ->select('triage_id', DB::raw('count(*) as patients_count'))
-            ->groupBy('triage_id')
-            ->get()
-        ;
+        $triage_count = [
+            'onmiddelijk' => Patient::onmiddelijk()->wachten()->count(),
+            'hoog-urgent' => Patient::hoogUrgent()->wachten()->count(),
+            'urgent'      => Patient::urgent()->wachten()->count(),
+            'standaard'   => Patient::standaard()->wachten()->count(),
+            'niet-urgent' => Patient::nietUrgent()->wachten()->count()
+        ];
 
         // Patients
         $patients = Patient::monitor()->get();
@@ -30,7 +31,7 @@ class MonitorController extends Controller
         // Return the monitor view.
         return view('monitor.monitor')
             ->with('triages', $triages)
-            ->with('triage_count', $triage_count)
+            ->with('triage_count', json_encode($triage_count))
             ->with('patients', $patients)
         ;
     }
