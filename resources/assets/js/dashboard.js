@@ -198,6 +198,13 @@ $(function () {
                 }
             );
 
+            $("#historyTable").tablesorter(
+                {
+                    dateFormat: 'pt',
+                    sortList: [[0,0]]
+                }
+            );
+
             $(".date").each(function (index, dateElem) {
                 var $dateElement = $(dateElem);
                 var formatted = moment($dateElement.text(), 'YYYY-MM-DD HH-mm-ss').format('DD-MM-YYYY - HH:mm:ss');
