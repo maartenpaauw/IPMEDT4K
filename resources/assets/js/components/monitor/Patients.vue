@@ -92,7 +92,7 @@
 
 <style lang="scss">
     .patients {
-        height: 525px;
+        height: 519px;
         overflow-y: hidden;
 
         .patient {
