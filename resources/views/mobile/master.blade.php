@@ -1,10 +1,11 @@
 <!DOCTYPE html>
-<html class="no-js" lang="en">
+<html lang="nl">
     <head>
         <meta charset="utf-8">
         <meta content="ie=edge" http-equiv="x-ua-compatible">
-        <title>Krankenhaus Krak - @yield('title')</title>
-        <meta content="" name="description">
+        <title>Krankenhaus Krak&emsp;&mdash;&emsp;@yield('title')</title>
+
+        <meta content="Persoonlijke pagina voor Krankenhaus Krak" name="description">
         <meta content="width=device-width, initial-scale=1" name="viewport">
 
         <link rel="apple-touch-icon" sizes="57x57" href="{{ asset('favicon/apple-icon-57x57.png') }}">
@@ -27,6 +28,7 @@
 
         <link href="{{ mix('css/app.css') }}" rel="stylesheet">
         <link href="{{ mix('css/mobile.css') }}" rel="stylesheet">
+
         <meta content="{{ csrf_token() }}" name="csrf-token">
     </head>
 

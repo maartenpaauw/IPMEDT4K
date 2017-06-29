@@ -14,6 +14,9 @@
     <!-- Button -->
     <mobile-button :patient="{{ $patient }}" href="{{ $compare }}">
         <strong class="text-white">Meer informatie</strong>
-        <i class="fa fa-chevron-right fa-pull-right text-white pt-1" />
+        <i class="fa fa-chevron-right fa-pull-right text-white pt-1"></i>
     </mobile-button>
+
+    <!-- Logout -->
+    <mobile-logout href="{{ route('patient.login') }}"></mobile-logout>
 @endsection
