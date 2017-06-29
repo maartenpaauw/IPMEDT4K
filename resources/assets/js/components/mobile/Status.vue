@@ -12,14 +12,14 @@
         name: 'mobile-status',
         data () {
             return {
-                waitingPatients: null
+                waitingPatients: 0
             }
         },
         props: {
             patient: {
                 required: true
             },
-            initialWaitingTime: {
+            initialWaitingPatients: {
                 default: 0
             }
         },
@@ -49,7 +49,9 @@
             }
         },
         created () {
+
             this.waitingPatients = this.initialWaitingPatients;
+
             this.getWaiting();
             setInterval(() => {
                 this.getWaiting();
