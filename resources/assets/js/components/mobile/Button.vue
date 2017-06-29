@@ -16,7 +16,7 @@
                 required: true
             },
             href: {
-                default: document.referrer
+                required: true
             }
         },
         computed: {

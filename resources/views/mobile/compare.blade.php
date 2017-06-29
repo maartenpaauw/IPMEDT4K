@@ -15,7 +15,7 @@
     <mobile-compare v-for="compare in {{ $patient->triage->comparisons }}" :compare="compare" :key="compare.id"></mobile-compare>
 
     <!-- Button -->
-    <mobile-button :patient="{{ $patient }}">
+    <mobile-button :patient="{{ $patient }}" href="{{ $status }}">
         <strong class="text-white">Ga terug</strong>
         <i class="fa fa-chevron-left fa-pull-left text-white pt-1" />
     </mobile-button>

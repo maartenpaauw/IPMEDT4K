@@ -14,7 +14,7 @@
             <h5 :class="color">Wat betekend <strong>{{ compare.b.name }}</strong> voor mij?</h5>
         </div>
         <div class="col-12">
-            <p class="text-muted">{{ compare.description }}</p>
+            <p class="text-muted text-center">{{ compare.description }}</p>
         </div>
     </div>
 </template>

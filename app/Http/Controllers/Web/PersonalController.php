@@ -58,6 +58,12 @@ class PersonalController extends Controller
         // Check if patient exists.
         if ($patient)
         {
+            // Compare
+            $status = route('patient.status', [
+                'patient_number' => $patient->band_number
+            ]);
+
+
             // Waiting patients
             $waiting_patients = array_search($patient->band_number, array_map(function($patient) {
                 return $patient['band_number'];
@@ -66,6 +72,7 @@ class PersonalController extends Controller
             // Return view.
             return view('mobile.compare')
                 ->with('patient', $patient)
+                ->with('status', $status)
                 ->with('waiting_patients', $waiting_patients)
             ;
         }
