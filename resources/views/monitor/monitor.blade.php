@@ -67,7 +67,7 @@
                             <monitor-weather></monitor-weather>
 
                             <!-- Go to site bar -->
-                            <monitor-site url="{{ route('patient.login') }}"></monitor-site>
+                            <monitor-site url="{{ str_replace("http://", "", route('patient.login')) }}"></monitor-site>
                         </div>
                     </div>
                 </div>
