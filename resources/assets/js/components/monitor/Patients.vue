@@ -8,7 +8,7 @@
                             <h4 class="h1 text-white text-center triage m-0">{{ position(index) | number }}</h4>
                         </div>
                         <div class="col align-self-center ml-3">
-                            <h4 class="m-0 dark-blue patient-number text-center">{{ patient.number | number }}</h4>
+                            <h4 class="m-0 dark-blue patient-number text-center">{{ patient.band_number | number }}</h4>
                         </div>
                     </div>
                 </div>

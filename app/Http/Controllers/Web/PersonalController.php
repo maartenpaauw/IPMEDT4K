@@ -24,21 +24,27 @@ class PersonalController extends Controller
     public function status($band_number)
     {
         // Patient
-        $patient = Patient::where('band_number', $band_number)->first();
+        $patient = Patient::monitor()->where('band_number', $band_number)->first();
+        $patients = Patient::monitor()->get();
 
         // Check if patient exists.
         if($patient)
         {
             // Compare
             $compare = route('patient.compare', [
-                'patient_number' => $patient->band_number,
-                'triage' => $patient->triage->slug
+                'patient_number' => $patient->band_number
             ]);
+
+            // Waiting patients
+            $waiting_patients = array_search($patient->band_number, array_map(function($patient) {
+                return $patient['band_number'];
+            }, $patients->toArray()));
 
             // Return the status view.
             return view('mobile.status')
                 ->with('patient', $patient)
                 ->with('compare', $compare)
+                ->with('waiting_patients', $waiting_patients)
             ;
         }
     }
@@ -46,14 +52,21 @@ class PersonalController extends Controller
     public function compare($band_number)
     {
         // Patient
-        $patient = Patient::where('band_number', $band_number)->first();
+        $patient = Patient::monitor()->where('band_number', $band_number)->first();
+        $patients = Patient::monitor()->get();
 
         // Check if patient exists.
         if ($patient)
         {
+            // Waiting patients
+            $waiting_patients = array_search($patient->band_number, array_map(function($patient) {
+                return $patient['band_number'];
+            }, $patients->toArray()));
+
             // Return view.
             return view('mobile.compare')
                 ->with('patient', $patient)
+                ->with('waiting_patients', $waiting_patients)
             ;
         }
     }

@@ -11,7 +11,14 @@
 <script>
     export default {
         name: 'mobile-button',
-        props: ['patient', 'href'],
+        props: {
+            patient: {
+                required: true
+            },
+            href: {
+                default: document.referrer
+            }
+        },
         computed: {
             background () {
                 return `bg-${this.patient.triage.slug}`;

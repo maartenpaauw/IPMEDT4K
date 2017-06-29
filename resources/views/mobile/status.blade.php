@@ -4,7 +4,7 @@
 
 @section('header')
     <!-- Status bar -->
-    <mobile-status :patient="{{ $patient }}"></mobile-status>
+    <mobile-status :patient="{{ $patient }}" :waiting_patients="{{ $waiting_patients }}"></mobile-status>
 @endsection
 
 @section('content')

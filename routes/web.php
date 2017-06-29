@@ -32,7 +32,7 @@ Route::delete('historie/{patienten}/delete', array('uses' => 'Web\HistoryControl
 
 Route::resource('patienten', 'Web\PatientController');
 
-Route::get('inloggen',                           array('uses' => 'Web\PersonalController@login'))->name('patient.login');
-Route::get('{band_number}/status/',              array('uses' => 'Web\PersonalController@status'))->name('patient.status');
-Route::get('{band_number}/vergelijken/{triage}', array('uses' => 'Web\PersonalController@compare'))->name('patient.compare');
+Route::get('inloggen',                   array('uses' => 'Web\PersonalController@login'))->name('patient.login');
+Route::get('{band_number}/status/',      array('uses' => 'Web\PersonalController@status'))->name('patient.status');
+Route::get('{band_number}/vergelijken/', array('uses' => 'Web\PersonalController@compare'))->name('patient.compare');
 
