@@ -5,10 +5,10 @@
                 <div class="marquee-span" :style="animation">
                     <div class="row white-bg border-light-gray border-left-0 border-right-0 border-top-0 patient" v-for="(patient, index) in patients" :key="index">
                         <div class="col-3" :class="`bg-${patient.triage.slug}`">
-                            <h4 class="h1 text-white text-center triage m-0">{{ (index + 1) | number }}</h4>
+                            <h4 class="h1 text-white text-center triage m-0">{{ position(index) | number }}</h4>
                         </div>
                         <div class="col align-self-center ml-3">
-                            <h4 class="m-0 dark-blue patient-number text-center">{{ patient.number | number }}</h4>
+                            <h4 class="m-0 dark-blue patient-number text-center">{{ patient.band_number | number }}</h4>
                         </div>
                     </div>
                 </div>
@@ -41,21 +41,30 @@
                 axios.get('/api/patients')
                     .then( (response) => {
 
+                        // Store the new patients.
+                        const newPatients = this.fakePatients(response.data);
+
                         // Check if there are new patients.
-                        if(!_.isEqual(response.data, this.patients)) {
+                        if(!_.isEqual(newPatients, this.patients)) {
 
                             // Play the audio file.
                             this.play();
                         }
 
                         // Update the new patients.
-                        this.patients = response.data;
+                        this.patients = newPatients;
                     })
                 ;
             },
             play () {
                 // Play the audio file.
                 this.audio.play()
+            },
+            fakePatients (patients) {
+                return _.flatten(Array(10).fill(patients));
+            },
+            position (index) {
+                return (index % (this.patients.length / 10) + 1)
             }
         },
         filters: {
@@ -67,7 +76,7 @@
         created () {
 
             // Set the patients.
-            this.patients = this.initialPatients;
+            this.patients = this.fakePatients(this.initialPatients);
 
             // Set an interval.
             setInterval(() => {
@@ -75,8 +84,8 @@
                 // Get the new patients every 15 seconds.
                 this.getPatients();
 
-            // Every 3 seconds.
-            }, 1000 * 3);
+                // Every 15 seconds.
+            }, 1000 * 15);
         }
     }
 </script>

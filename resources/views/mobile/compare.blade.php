@@ -1,28 +1,25 @@
 @extends('mobile.master')
 
-@section('title', 'Compare Mobile')
+@section('title', 'Triages vergelijken')
 
 @section('header')
-    <div class="row blue-dark-bg">
-        <div class="col-12">
-            <img class="brand d-block mx-auto" src="{{asset('images/logo.png')}}" alt="Krankenhaus Krak - logo">
-        </div>
-    </div>
+    <!-- Status bar -->
+    <mobile-status :patient="{{ $patient }}" :initial-waiting-patients="{{ $waiting_patients }}"></mobile-status>
 @endsection
 
 @section('content')
-    <div class="row text-center">
-        <div class="col-10 offset-1">
-            <h1 class="brand-primary mobile-login-title mt-5">Welkom!</h1>
-            <h4 class="text-gray mobile-login-desc mt-5">Vul het code van uw bandje in</h4>
-            <div class="form-group mt-5">
-                <input type="text" name="band_number" class="form-control form-style mobile-login-input-bandnumber text-center" id="band_number" placeholder="Typ hier uw code...">
-            </div>
-            <button type="button" class="btn btn-login btn-primary mt-5 px-5 py-4">Login</button>
-        </div>
-    </div>
-@endsection
+    <!-- Introduction -->
+    <mobile-introduction :patient="{{ $patient }}"></mobile-introduction>
 
-@section('footer')
-    <p>footer</p>
+    <!-- Compare -->
+    <mobile-compare v-for="compare in {{ $patient->triage->comparisons }}" :compare="compare" :key="compare.id"></mobile-compare>
+
+    <!-- Button -->
+    <mobile-button :patient="{{ $patient }}" href="{{ $status }}">
+        <strong class="text-white">Ga terug</strong>
+        <i class="fa fa-chevron-left fa-pull-left text-white pt-1"></i>
+    </mobile-button>
+
+    <!-- Logout -->
+    <mobile-logout href="{{ route('patient.login') }}"></mobile-logout>
 @endsection
