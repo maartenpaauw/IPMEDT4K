@@ -1,24 +1,45 @@
 <!DOCTYPE html>
 <html class="no-js" lang="en">
-<head>
-    <meta charset="utf-8">
-    <meta content="ie=edge" http-equiv="x-ua-compatible">
-    <title>Krankenhaus Krak - @yield('title')</title>
-    <meta content="" name="description">
-    <meta content="width=device-width, initial-scale=1" name="viewport">
-    <link href="apple-touch-icon.png" rel="apple-touch-icon">
-    <link href="{{ mix('css/app.css') }}" rel="stylesheet">
-    <link href="{{ mix('css/mobile.css') }}" rel="stylesheet">
-    <meta content="{{ csrf_token() }}" name="csrf-token">
-</head>
+    <head>
+        <meta charset="utf-8">
+        <meta content="ie=edge" http-equiv="x-ua-compatible">
+        <title>Krankenhaus Krak - @yield('title')</title>
+        <meta content="" name="description">
+        <meta content="width=device-width, initial-scale=1" name="viewport">
 
-<body>
-<div class="container-fluid">
-    @yield('header')
-    @yield('content')
-    @yield('footer')
-</div>
-<script src="{{mix('js/app.js')}}">
-</script>
-</body>
+        <link rel="apple-touch-icon" sizes="57x57" href="{{ asset('favicon/apple-icon-57x57.png') }}">
+        <link rel="apple-touch-icon" sizes="60x60" href="{{ asset('favicon/apple-icon-60x60.png') }}">
+        <link rel="apple-touch-icon" sizes="72x72" href="{{ asset('favicon/apple-icon-72x72.png') }}">
+        <link rel="apple-touch-icon" sizes="76x76" href="{{ asset('favicon/apple-icon-76x76.png') }}">
+        <link rel="apple-touch-icon" sizes="114x114" href="{{ asset('favicon/apple-icon-114x114.png') }}">
+        <link rel="apple-touch-icon" sizes="120x120" href="{{ asset('favicon/apple-icon-120x120.png') }}">
+        <link rel="apple-touch-icon" sizes="144x144" href="{{ asset('favicon/apple-icon-144x144.png') }}">
+        <link rel="apple-touch-icon" sizes="152x152" href="{{ asset('favicon/apple-icon-152x152.png') }}">
+        <link rel="apple-touch-icon" sizes="180x180" href="{{ asset('favicon/apple-icon-180x180.png') }}">
+        <link rel="icon" type="image/png" sizes="192x192"  href="{{ asset('favicon/android-icon-192x192.png') }}">
+        <link rel="icon" type="image/png" sizes="32x32" href="{{ asset('favicon/favicon-32x32.png') }}">
+        <link rel="icon" type="image/png" sizes="96x96" href="{{ asset('favicon/favicon-96x96.png') }}">
+        <link rel="icon" type="image/png" sizes="16x16" href="{{ asset('favicon/favicon-16x16.png') }}">
+        <link rel="manifest" href="{{ asset('favicon/manifest.json') }}">
+        <meta name="msapplication-TileColor" content="#ffffff">
+        <meta name="msapplication-TileImage" content="{{ asset('faviconms-icon-144x144.png') }}">
+        <meta name="theme-color" content="#ffffff">
+
+        <link href="{{ mix('css/app.css') }}" rel="stylesheet">
+        <link href="{{ mix('css/mobile.css') }}" rel="stylesheet">
+        <meta content="{{ csrf_token() }}" name="csrf-token">
+    </head>
+
+    <body>
+        <div id="app">
+            <div class="container-fluid">
+                @yield('header')
+            </div>
+            <div class="container">
+                @yield('content')
+                @yield('footer')
+            </div>
+        </div>
+        <script src="{{mix('js/mobile.js')}}"></script>
+    </body>
 </html>

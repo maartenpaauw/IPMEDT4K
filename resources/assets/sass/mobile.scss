@@ -1,6 +1,5 @@
 @import "app";
 
-
 #header-mobile-login {
   height: 180px;
 }
@@ -27,7 +26,6 @@
   border-radius:0;
   border: 0;
   box-shadow: none;
-  /* TODO:: $light-gray to $darker-gray */
   border-bottom: 2px solid $light-gray;
 }
 
@@ -63,17 +61,33 @@
 
 .mobile-login-desc {
   font-size: 28px;
+  color: #a5aec3;
+  font-weight: 200;
+}
+
+.input-group-addon {
+  background-color: transparent;
+  border: none;
+  border-bottom: 2px solid $light-gray;
+  color: $brand-primary;
+  font-size: 25px;
 }
 
 .mobile-login-input-bandnumber {
   font-size: 22px;
   color: #a5aec3;
+  font-weight: 200;
 }
 
-.mobile-login-input-bandnumber:focus {
+.mobile-login-input-bandnumber::placeholder {
   color: #a5aec3;
 }
 
 .btn-login {
-  padding: 15px 50px;
+  border-radius: 25px;
+
+  i {
+    color: $blue-dark;
+    font-size: 10px;
+  }
 }
