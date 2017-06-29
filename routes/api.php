@@ -32,3 +32,4 @@ Route::get('weather', 'API\WeatherController');
  */
 Route::get('patients', 'API\PatientController@index');
 Route::get('patients/count', 'API\PatientController@count');
+Route::get('patients/waiting/{band_number}', 'API\PatientController@waitingPatients');

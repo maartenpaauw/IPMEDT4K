@@ -10,11 +10,16 @@
 <script>
     export default {
         name: 'mobile-status',
+        data () {
+            return {
+                waitingPatients: null
+            }
+        },
         props: {
             patient: {
                 required: true
             },
-            'waiting_patients': {
+            initialWaitingTime: {
                 default: 0
             }
         },
@@ -23,7 +28,7 @@
                 return `bg-${this.patient.triage.slug}`;
             },
             sentence () {
-                const number = this.waiting_patients;
+                const number = this.waitingPatients;
                 const word   = number === 1 ? 'is' : 'zijn';
 
                 if (number !== 0) {
@@ -33,6 +38,22 @@
                 }
 
             }
+        },
+        methods: {
+            getWaiting() {
+                axios.get(`/api/patients/waiting/${this.patient.band_number}`)
+                    .then((response) => {
+                        this.waitingPatients = response.data.waiting
+                    })
+                ;
+            }
+        },
+        created () {
+            this.waitingPatients = this.initialWaitingPatients;
+            this.getWaiting();
+            setInterval(() => {
+                this.getWaiting();
+            }, 1000 * 15)
         },
         filters: {
             number (value) {

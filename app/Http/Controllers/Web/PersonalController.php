@@ -24,7 +24,7 @@ class PersonalController extends Controller
     public function status($band_number)
     {
         // Patient
-        $patient = Patient::monitor()->where('band_number', $band_number)->first();
+        $patient  = Patient::monitor()->where('band_number', $band_number)->first();
         $patients = Patient::monitor()->get();
 
         // Check if patient exists.
@@ -52,7 +52,7 @@ class PersonalController extends Controller
     public function compare($band_number)
     {
         // Patient
-        $patient = Patient::monitor()->where('band_number', $band_number)->first();
+        $patient  = Patient::monitor()->where('band_number', $band_number)->first();
         $patients = Patient::monitor()->get();
 
         // Check if patient exists.
