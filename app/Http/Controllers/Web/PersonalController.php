@@ -47,6 +47,13 @@ class PersonalController extends Controller
                 ->with('waiting_patients', $waiting_patients)
             ;
         }
+
+        // If is not found.
+        else {
+
+            // Return to login.
+            return redirect()->route('patient.login')->with('not_found', true);
+        }
     }
 
     public function compare($band_number)
@@ -75,6 +82,13 @@ class PersonalController extends Controller
                 ->with('status', $status)
                 ->with('waiting_patients', $waiting_patients)
             ;
+        }
+
+        // If is not found.
+        else {
+
+            // Return to login.
+            return redirect()->route('patient.login')->with('not_found', true);
         }
     }
 }
