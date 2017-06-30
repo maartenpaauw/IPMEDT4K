@@ -105,3 +105,15 @@
 .white-bg, .bg-white {
   background: $white;
 }
+
+.border-light-gray {
+  border: 1px solid #e9edf0;
+}
+
+.circle {
+  width: 59px;
+  height: 59px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
