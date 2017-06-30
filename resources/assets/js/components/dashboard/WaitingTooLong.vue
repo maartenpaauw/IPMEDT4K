@@ -103,8 +103,8 @@
                 // Get the new patients every 15 seconds.
                 this.getPatients();
 
-                // Every 15 seconds.
-            }, 1000 * 15);
+                // Every 1 minute.
+            }, 1000 * 60);
         },
         filters: {
             number (value) {
