@@ -21,7 +21,7 @@
         data () {
             return {
                 news: [],
-                speed: 3
+                speed: 6
             }
         },
         computed: {
@@ -34,16 +34,23 @@
         methods: {
             getNews () {
                 axios.get('/api/nu.nl')
-                    .then( (response) => {
-                        this.news = response.data;
+                    .then((response) => {
+                        this.news = this.fakeNews(response.data);
                     })
                 ;
+            },
+            fakeNews (news) {
+                return _.flatten(Array(10).fill(news));
             }
         },
         created () {
+
             this.getNews();
+
             setInterval(() => {
+
                 this.getNews();
+
             }, 1000 * 60 * 5);
         },
         filters: {
