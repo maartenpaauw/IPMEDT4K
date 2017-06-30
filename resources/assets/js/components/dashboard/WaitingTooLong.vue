@@ -13,13 +13,13 @@
                     <thead>
                         <tr>
                             <th width="10%">Urgentie</th>
-                            <th class="pl-5">Patientnummer</th>
+                            <th class="pl-5">Patiëntnummer</th>
                             <th class="pl-5">Tijd</th>
                         </tr>
                     </thead>
                     <tbody>
                         <tr v-for="(patient, index) in tooLate">
-                            <td class="text-white text-center" :class="background(patient.triage.slug)">{{ index + 1 }}</td>
+                            <td class="text-white text-center" :class="background(patient.triage.slug)"><strong>{{ index + 1 }}</strong></td>
                             <td class="pl-5"><strong>{{ patient.band_number | number }}</strong></td>
                             <td class="pl-5">{{ waiting(patient.created_at) }} minuten</td>
                         </tr>
