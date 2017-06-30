@@ -3,7 +3,6 @@
 @import "../../../node_modules/animate.css/animate.min.css";
 
 .news {
-
   .news-item {
     display: inline-block;
   }
@@ -15,18 +14,6 @@
 
 .border-radius-0 {
   border-radius: 0 !important;
-}
-
-.border-light-gray {
-  border: 1px solid #e9edf0;
-}
-
-.circle {
-  width: 59px;
-  height: 59px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
 }
 
 .marquee {

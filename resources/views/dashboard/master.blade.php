@@ -126,6 +126,7 @@
 <script src="{{mix('js/dashboard.js')}}">
 </script>
 @yield('parsley')
+@yield('scripts')
 @include('sweet::alert')
 </body>
 </html>
