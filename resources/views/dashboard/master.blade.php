@@ -18,14 +18,7 @@
             <div class="header-block header-block-collapse hidden-lg-up">
                 <button class="collapse-btn" id="sidebar-collapse-btn"><i class="fa fa-bars"></i></button>
             </div>
-            <div class="header-block header-block-search hidden-sm-down">
-                <form role="search">
-                    <div class="input-container">
-                        <i class="fa fa-search"></i> <input placeholder="Zoeken" type="zoek">
-                        <div class="underline"></div>
-                    </div>
-                </form>
-            </div>
+            <div class="header-block header-block-search hidden-sm-down"></div>
             <div class="header-block">
                 <a class="btn btn-primary" href="{!! route('patienten.create') !!}"><i class="fa fa-plus"></i> <span>Inchecken</span></a>
             </div>
