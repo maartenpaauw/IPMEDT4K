@@ -15,7 +15,7 @@
                     {!! Form::label('last_name', 'Achternaam', array('for' => 'last_name', 'class' => 'form-label')) !!}<span class="brand-danger"> *</span>
                     {!! Form::text('last_name', '', array('class' => 'form-control form-style', 'required' => 'required', 'data-parsley-trigger' => 'change', 'minlength' => '2', 'data-parsley-pattern' => '^[A-Za-z ]*$', 'parsley-rangelength' => '2,50]')) !!}
                 </div>
-                <div class="form-group">
+                <div class="form-group mt-4">
                     {!! Form::label('number', 'Patiëntnummer', array('for' => 'number', 'class' => 'form-label')) !!}<span class="brand-danger"> *</span>
                     {!! Form::number('number', '', array('class' => 'form-control form-style', 'required' => 'required', 'data-parsley-trigger' => 'change', 'min' => '10000', 'max' => '99999')) !!}
                 </div>
