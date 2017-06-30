@@ -12,28 +12,24 @@
 */
 
 Route::get('/', function () {
-    return view('dashboard');
+    return redirect()->route('logingit ');
 });
 
+Route::group(['middleware' => 'auth'], function() {
+    Route::get('dashboard', 'Web\DashboardController')->name('dashboard');
+    Route::get('historie', array('uses' => 'Web\HistoryController@index'))->name('historie');
+    Route::match(['put', 'patch'], 'patienten/{patienten}/checkout', array('uses' => 'Web\PatientController@checkout'))->name('patienten.checkout');
+    Route::delete('historie/{patienten}/delete', array('uses' => 'Web\HistoryController@destroy'))->name('historie.destroy');
+    Route::get('/home', 'HomeController@index')->name('home');
+    Route::get('/logout', 'Auth\LoginController@logout');
+    Route::resource('patienten', 'Web\PatientController');
+});
 
 Route::get('monitor', 'Web\MonitorController')->name('monitor');
-
-Route::get('dashboard', 'Web\DashboardController')->name('dashboard');
-
-Route::get('historie', array('uses' => 'Web\HistoryController@index'))->name('historie');
-
-Route::match(['put', 'patch'], 'patienten/{patienten}/checkout', array('uses' => 'Web\PatientController@checkout'))->name('patienten.checkout');
-
-Route::delete('historie/{patienten}/delete', array('uses' => 'Web\HistoryController@destroy'))->name('historie.destroy');
-
-Route::resource('patienten', 'Web\PatientController');
 
 Route::get('inloggen',                   array('uses' => 'Web\PersonalController@login'))->name('patient.login');
 Route::get('{band_number}/status/',      array('uses' => 'Web\PersonalController@status'))->name('patient.status');
 Route::get('{band_number}/vergelijken/', array('uses' => 'Web\PersonalController@compare'))->name('patient.compare');
 
-Route::get('/home', 'HomeController@index')->name('home');
-
-Route::get('/logout', 'Auth\LoginController@logout');
 
 Auth::routes();
