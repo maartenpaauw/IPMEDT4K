@@ -2,7 +2,7 @@
 
 namespace IPMEDT4K\Http\Controllers\Auth;
 
-use IPMEDT4K\User;
+use IPMEDT4K\Models\User;
 use IPMEDT4K\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
@@ -27,7 +27,7 @@ class RegisterController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/home';
+    protected $redirectTo = '/dashboard';
 
     /**
      * Create a new controller instance.

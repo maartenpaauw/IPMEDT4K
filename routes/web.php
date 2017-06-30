@@ -12,17 +12,13 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('dashboard');
 });
 
 
 Route::get('monitor', 'Web\MonitorController')->name('monitor');
 
 Route::get('dashboard', 'Web\DashboardController')->name('dashboard');
-
-Route::get('login', array('uses' => 'Web\LoginController@showLogin'));
-
-Route::post('login', array('uses' => 'Web\LoginController@doLogin'));
 
 Route::get('historie', array('uses' => 'Web\HistoryController@index'))->name('historie');
 
@@ -36,3 +32,8 @@ Route::get('inloggen',                   array('uses' => 'Web\PersonalController
 Route::get('{band_number}/status/',      array('uses' => 'Web\PersonalController@status'))->name('patient.status');
 Route::get('{band_number}/vergelijken/', array('uses' => 'Web\PersonalController@compare'))->name('patient.compare');
 
+Route::get('/home', 'HomeController@index')->name('home');
+
+Route::get('/logout', 'Auth\LoginController@logout');
+
+Auth::routes();
