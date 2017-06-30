@@ -30,7 +30,7 @@ return [
     ],
 
     'stripe' => [
-        'model' => IPMEDT4K\User::class,
+        'model' => IPMEDT4K\Models\User::class,
         'key' => env('STRIPE_KEY'),
         'secret' => env('STRIPE_SECRET'),
     ],
