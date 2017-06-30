@@ -2,17 +2,17 @@
     <div class="col p-4 white-bg border-light-gray">
         <div class="row">
             <div class="col-12">
-                <h3 class="h4 dark-blue m-0 p-0 mb-5">
+                <h3 class="h4 dark-blue m-0 p-0 mb-4">
                     <strong>Wacht te lang</strong>
                 </h3>
             </div>
         </div>
         <div class="row">
             <div class="col-12">
-                <table class="table table-striped border-light-gray">
+                <table class="table table-striped border-light-gray mb-0">
                     <thead>
                         <tr>
-                            <th>Urgentie</th>
+                            <th width="10%">Urgentie</th>
                             <th class="pl-5">Patientnummer</th>
                             <th class="pl-5">Tijd</th>
                         </tr>
