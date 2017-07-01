@@ -18,6 +18,7 @@ Route::get('/', function () {
 Route::group(['middleware' => 'auth'], function() {
     Route::get('dashboard', 'Web\DashboardController')->name('dashboard');
     Route::get('historie', array('uses' => 'Web\HistoryController@index'))->name('historie');
+    Route::get('profiel', array('uses' => 'Web\ProfileController@index'))->name('profiel');
     Route::match(['put', 'patch'], 'patienten/{patienten}/checkout', array('uses' => 'Web\PatientController@checkout'))->name('patienten.checkout');
     Route::delete('historie/{patienten}/delete', array('uses' => 'Web\HistoryController@destroy'))->name('historie.destroy');
     Route::get('/home', 'HomeController@index')->name('home');
