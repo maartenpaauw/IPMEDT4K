@@ -77,6 +77,20 @@
             <footer class="sidebar-footer"></footer>
         </aside>
         <div class="sidebar-overlay" id="sidebar-overlay"></div>
+        @if ($errors->any())
+            <div class="row mt-5" style="margin-top: 5rem !important;">
+                <div class="col-6 offset-6">
+                    <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                        @foreach ($errors->all() as $error)
+                            <strong>Oeps!</strong> {{ $error }}
+                        @endforeach
+                    </div>
+                </div>
+            </div>
+        @endif
         @if (View::hasSection('titleExtra'))
             <article class="content items-list-page pb-0">
                 <div class="title-search-block">
