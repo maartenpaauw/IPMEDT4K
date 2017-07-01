@@ -24,7 +24,7 @@
                         <td class="pl-5"><strong>{{ patient.band_number | number }}</strong></td>
                         <td class="pl-5">{{ patient.first_name }} {{ patient.last_name }}</td>
                         <td class="pl-5">
-                            <a class="btn btn-success rounded text-white" :href="`/patienten/${patient.id}/edit`">wijzigen</a>
+                            <a class="btn btn-success btn-sm rounded text-white" :href="`/patienten/${patient.id}/edit`">wijzigen</a>
                         </td>
                     </tr>
                     </tbody>
@@ -65,14 +65,14 @@
                 ;
             }
         },
-        created () {
-            this.patients = this.initialPatients;
+                created () {
+                    this.patients = this.initialPatients;
 
-            // Set an interval.
-            setInterval(() => {
+                    // Set an interval.
+                    setInterval(() => {
 
-                // Get the new patients every 15 seconds.
-                this.getPatients();
+                        // Get the new patients every 15 seconds.
+                        this.getPatients();
 
                 // Every 1 minute.
             }, 1000 * 60);
