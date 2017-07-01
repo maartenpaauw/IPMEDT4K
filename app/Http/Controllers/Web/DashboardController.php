@@ -29,10 +29,14 @@ class DashboardController extends Controller
         // Patients
         $patients = Patient::monitor()->get();
 
+        // Latest patients
+        $latest_patients = Patient::orderBy('created_at', 'DESC')->take(10)->get();
+
         // Return the monitor view.
         return view('dashboard.dashboard.index')
             ->with('triage_count', json_encode($triage_count))
             ->with('patients', $patients)
+            ->with('latest_patients', $latest_patients)
         ;
     }
 }

@@ -7,6 +7,7 @@
         <div class="col">
             <div class="row">
                 <dashboard-patients :initial-triages="{{ $triage_count }}"></dashboard-patients>
+                <dashboard-last-ten-patients :initial-patients="{{ $latest_patients }}"></dashboard-last-ten-patients>
             </div>
         </div>
         <div class="pl-5"></div>

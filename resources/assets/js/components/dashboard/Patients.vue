@@ -1,5 +1,5 @@
 <template>
-    <div class="col p-4 white-bg border-light-gray" v-if="triages">
+    <div class="col-12 p-4 white-bg border-light-gray" v-if="triages">
         <div class="row">
             <div class="col-3 align-self-center">
                 <h3 class="h4 m-0 dark-blue">

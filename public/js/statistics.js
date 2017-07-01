@@ -71507,6 +71507,7 @@ window.Vue = __webpack_require__(172);
 
 Vue.component('dashboard-patients', __webpack_require__(204));
 Vue.component('dashboard-waiting-too-long', __webpack_require__(205));
+Vue.component('dashboard-last-ten-patients', __webpack_require__(262));
 
 var app = new Vue({
   el: '#app'
@@ -71580,6 +71581,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+//
+//
 //
 //
 //
@@ -71809,7 +71812,7 @@ module.exports = Component.exports
 
 module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
   return (_vm.triages) ? _c('div', {
-    staticClass: "col p-4 white-bg border-light-gray"
+    staticClass: "col-12 p-4 white-bg border-light-gray"
   }, [_c('div', {
     staticClass: "row"
   }, [_vm._m(0), _vm._v(" "), _c('div', {
@@ -71849,7 +71852,7 @@ if (false) {
 
 module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
   return _c('div', {
-    staticClass: "col p-4 white-bg border-light-gray"
+    staticClass: "col-12 p-4 white-bg border-light-gray"
   }, [_vm._m(0), _vm._v(" "), _c('div', {
     staticClass: "row"
   }, [_c('div', {
@@ -71860,9 +71863,11 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     return _c('tr', [_c('td', {
       staticClass: "text-white text-center",
       class: _vm.background(patient.triage.slug)
-    }, [_c('strong', [_vm._v(_vm._s(index + 1))])]), _vm._v(" "), _c('td', {
+    }), _vm._v(" "), _c('td', {
       staticClass: "pl-5"
     }, [_c('strong', [_vm._v(_vm._s(_vm._f("number")(patient.band_number)))])]), _vm._v(" "), _c('td', {
+      staticClass: "pl-5"
+    }, [_vm._v(_vm._s(patient.first_name) + " " + _vm._s(patient.last_name))]), _vm._v(" "), _c('td', {
       staticClass: "pl-5"
     }, [_vm._v(_vm._s(_vm.waiting(patient.created_at)) + " minuten")])])
   }))])])])])
@@ -71882,7 +71887,9 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     }
   }, [_vm._v("Urgentie")]), _vm._v(" "), _c('th', {
     staticClass: "border-bottom-0 pl-5"
-  }, [_vm._v("Patiëntnummer")]), _vm._v(" "), _c('th', {
+  }, [_vm._v("Code")]), _vm._v(" "), _c('th', {
+    staticClass: "border-bottom-0 pl-5"
+  }, [_vm._v("Naam")]), _vm._v(" "), _c('th', {
     staticClass: "border-bottom-0 pl-5"
   }, [_vm._v("Tijd")])])])
 }]}
@@ -71910,6 +71917,191 @@ if (false) {
 
 module.exports = __webpack_require__(179);
 
+
+/***/ }),
+/* 244 */,
+/* 245 */,
+/* 246 */,
+/* 247 */,
+/* 248 */,
+/* 249 */,
+/* 250 */,
+/* 251 */,
+/* 252 */,
+/* 253 */,
+/* 254 */,
+/* 255 */,
+/* 256 */,
+/* 257 */,
+/* 258 */,
+/* 259 */,
+/* 260 */,
+/* 261 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+    name: 'dashboard-last-ten-patients',
+    props: {
+        initialPatients: {
+            required: true
+        }
+    },
+    data: function data() {
+        return {
+            patients: []
+        };
+    },
+    created: function created() {
+        this.patients = this.initialPatients;
+    },
+
+    methods: {
+        background: function background(triage) {
+
+            // Return the background color class.
+            return 'bg-' + triage;
+        }
+    },
+    filters: {
+        number: function number(value) {
+            // Convert the value to a local number string.
+            return value.toLocaleString('nl-NL');
+        }
+    }
+});
+
+/***/ }),
+/* 262 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var Component = __webpack_require__(8)(
+  /* script */
+  __webpack_require__(261),
+  /* template */
+  __webpack_require__(263),
+  /* scopeId */
+  null,
+  /* cssModules */
+  null
+)
+Component.options.__file = "/Users/maartenpaauw/Code/School/IPMEDT4K/resources/assets/js/components/dashboard/LastTenPatients.vue"
+if (Component.esModule && Object.keys(Component.esModule).some(function (key) {return key !== "default" && key !== "__esModule"})) {console.error("named exports are not supported in *.vue files.")}
+if (Component.options.functional) {console.error("[vue-loader] LastTenPatients.vue: functional components are not supported with templates, they should use render functions.")}
+
+/* hot reload */
+if (false) {(function () {
+  var hotAPI = require("vue-hot-reload-api")
+  hotAPI.install(require("vue"), false)
+  if (!hotAPI.compatible) return
+  module.hot.accept()
+  if (!module.hot.data) {
+    hotAPI.createRecord("data-v-b9ee3060", Component.options)
+  } else {
+    hotAPI.reload("data-v-b9ee3060", Component.options)
+  }
+})()}
+
+module.exports = Component.exports
+
+
+/***/ }),
+/* 263 */
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
+  return _c('div', {
+    staticClass: "col-12 p-4 mt-5 white-bg border-light-gray"
+  }, [_vm._m(0), _vm._v(" "), _c('div', {
+    staticClass: "row"
+  }, [_c('div', {
+    staticClass: "col-12"
+  }, [_c('table', {
+    staticClass: "table table-striped border-light-gray mb-0"
+  }, [_vm._m(1), _vm._v(" "), _c('tbody', _vm._l((_vm.patients), function(patient, index) {
+    return _c('tr', [_c('td', {
+      staticClass: "text-white text-center",
+      class: _vm.background(patient.triage.slug)
+    }), _vm._v(" "), _c('td', {
+      staticClass: "pl-5"
+    }, [_c('strong', [_vm._v(_vm._s(_vm._f("number")(patient.band_number)))])]), _vm._v(" "), _c('td', {
+      staticClass: "pl-5"
+    }, [_vm._v(_vm._s(patient.first_name) + " " + _vm._s(patient.last_name))]), _vm._v(" "), _c('td', {
+      staticClass: "pl-5"
+    }, [_c('a', {
+      staticClass: "btn btn-success rounded text-white",
+      attrs: {
+        "href": ("/patienten/" + (patient.id) + "/edit")
+      }
+    }, [_vm._v("wijzigen")])])])
+  }))])])])])
+},staticRenderFns: [function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
+  return _c('div', {
+    staticClass: "row"
+  }, [_c('div', {
+    staticClass: "col-12"
+  }, [_c('h3', {
+    staticClass: "h4 dark-blue m-0 p-0 mb-4"
+  }, [_c('strong', [_vm._v("Laatste 10 patiënten")])])])])
+},function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
+  return _c('thead', [_c('tr', [_c('th', {
+    staticClass: "border-bottom-0",
+    attrs: {
+      "width": "10%"
+    }
+  }, [_vm._v("Urgentie")]), _vm._v(" "), _c('th', {
+    staticClass: "border-bottom-0 pl-5"
+  }, [_vm._v("Code")]), _vm._v(" "), _c('th', {
+    staticClass: "border-bottom-0 pl-5"
+  }, [_vm._v("Naam")]), _vm._v(" "), _c('th', {
+    staticClass: "border-bottom-0 pl-5"
+  })])])
+}]}
+module.exports.render._withStripped = true
+if (false) {
+  module.hot.accept()
+  if (module.hot.data) {
+     require("vue-hot-reload-api").rerender("data-v-b9ee3060", module.exports)
+  }
+}
 
 /***/ })
 /******/ ]);

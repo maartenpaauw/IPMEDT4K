@@ -17,6 +17,7 @@ window.Vue = require('vue');
 
 Vue.component('dashboard-patients',         require('./components/dashboard/Patients.vue'));
 Vue.component('dashboard-waiting-too-long', require('./components/dashboard/WaitingTooLong.vue'));
+Vue.component('dashboard-last-ten-patients', require('./components/dashboard/LastTenPatients.vue'));
 
 const app = new Vue({
     el: '#app'
