@@ -45,6 +45,7 @@ class Patient extends Model
         return $query
             ->wachten()
             ->orderBy('triage_id', 'ASC')
+            ->orderBy('created_at', 'ASC')
             ->orderBy('treated_at', 'ASC')
             ->orderBy('checked_in_at', 'ASC')
         ;

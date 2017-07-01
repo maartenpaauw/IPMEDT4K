@@ -38,4 +38,11 @@ class PatientController extends Controller
             return $patient['band_number'];
         }, $patients->toArray()))]);
     }
+
+    /**
+     * @return mixed
+     */
+    public function lastTenPatients () {
+        return Patient::orderBy('created_at', 'DESC')->take(10)->get();
+    }
 }
