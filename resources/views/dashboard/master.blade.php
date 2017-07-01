@@ -41,16 +41,18 @@
                 <a class="btn btn-primary" href="{!! route('patienten.create') !!}"><i class="fa fa-plus"></i> <span>Inchecken</span></a>
             </div>
             <div class="header-block header-block-nav">
+                @if(Auth::user())
                 <ul class="nav-profile">
                     <li class="profile dropdown">
                         <a aria-expanded="false" aria-haspopup="true" class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button">
-                            <div class="img" style="background-image: url('https://avatars3.githubusercontent.com/u/4550875?v=3&s=40')"></div><span class="name">@if(Auth::user()) {!! Auth::user()->name !!} @else Undefined @endif</span></a>
+                            <div class="img" style="background-image: url('{!! "https://www.gravatar.com/avatar/" . md5(strtolower(trim(Auth::user()->email))) !!}')"></div><span class="name"> {!! Auth::user()->name !!}</span></a>
                         <div aria-labelledby="dropdownMenu1" class="dropdown-menu profile-dropdown-menu">
                             <a class="dropdown-item" href="{{ url('/profiel') }}"><i class="fa fa-user icon"></i> Profiel</a> <a class="dropdown-item" href="{{ url('/profiel') }}"><i class="fa fa-gear icon"></i> instellingen</a>
                             <div class="dropdown-divider"></div><a class="dropdown-item" href="{{ url('/logout') }}"><i class="fa fa-power-off icon"></i> Loguit</a>
                         </div>
                     </li>
                 </ul>
+                @endif
             </div>
         </header>
         <aside class="sidebar">
