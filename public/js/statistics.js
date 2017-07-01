@@ -72016,13 +72016,17 @@ module.exports = Component.exports
 /* 205 */
 /***/ (function(module, exports, __webpack_require__) {
 
+
+/* styles */
+__webpack_require__(273)
+
 var Component = __webpack_require__(8)(
   /* script */
   __webpack_require__(186),
   /* template */
   __webpack_require__(232),
   /* scopeId */
-  null,
+  "data-v-777c5690",
   /* cssModules */
   null
 )
@@ -72086,7 +72090,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
   }))])]) : _vm._e()
 },staticRenderFns: [function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
   return _c('div', {
-    staticClass: "col-3 align-self-center"
+    staticClass: "col-sm-12 col-md-3 mb-3 align-self-center"
   }, [_c('h3', {
     staticClass: "h4 m-0 dark-blue"
   }, [_c('strong', [_vm._v("\n                    Wachtend\n                ")])])])
@@ -72115,7 +72119,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
   }, [_vm._m(0), _vm._v(" "), _c('div', {
     staticClass: "row"
   }, [_c('div', {
-    staticClass: "col-12"
+    staticClass: "col-12 overflow-x-scroll"
   }, [_c('table', {
     staticClass: "table table-striped border-light-gray mb-0"
   }, [_vm._m(1), _vm._v(" "), _c('tbody', _vm._l((_vm.tooLate), function(patient, index) {
@@ -72125,7 +72129,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     }), _vm._v(" "), _c('td', {
       staticClass: "pl-5"
     }, [_c('strong', [_vm._v(_vm._s(_vm._f("number")(patient.band_number)))])]), _vm._v(" "), _c('td', {
-      staticClass: "pl-5"
+      staticClass: "pl-5 hidden-md-down"
     }, [_vm._v(_vm._s(patient.first_name) + " " + _vm._s(patient.last_name))]), _vm._v(" "), _c('td', {
       staticClass: "pl-5"
     }, [_c('i', {
@@ -72133,7 +72137,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     }), _vm._v(" "), _c('span', {
       staticClass: "ml-2"
     }, [_vm._v(_vm._s(_vm.waiting(patient.created_at)) + " minuten")])]), _vm._v(" "), _c('td', {
-      staticClass: "pl-5"
+      staticClass: "pl-5 hidden-md-down"
     }, [_c('a', {
       staticClass: "btn btn-success btn-sm rounded text-white",
       attrs: {
@@ -72158,11 +72162,11 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
   }, [_vm._v("Urgentie")]), _vm._v(" "), _c('th', {
     staticClass: "border-bottom-0 pl-5"
   }, [_vm._v("Code")]), _vm._v(" "), _c('th', {
-    staticClass: "border-bottom-0 pl-5"
+    staticClass: "border-bottom-0 pl-5 hidden-md-down"
   }, [_vm._v("Naam")]), _vm._v(" "), _c('th', {
     staticClass: "border-bottom-0 pl-5"
   }, [_vm._v("Tijd")]), _vm._v(" "), _c('th', {
-    staticClass: "border-bottom-0 pl-5"
+    staticClass: "border-bottom-0 pl-5 hidden-md-down"
   }, [_vm._v("Wijzigen")])])])
 }]}
 module.exports.render._withStripped = true
@@ -72307,13 +72311,17 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* 262 */
 /***/ (function(module, exports, __webpack_require__) {
 
+
+/* styles */
+__webpack_require__(274)
+
 var Component = __webpack_require__(8)(
   /* script */
   __webpack_require__(261),
   /* template */
   __webpack_require__(263),
   /* scopeId */
-  null,
+  "data-v-b9ee3060",
   /* cssModules */
   null
 )
@@ -72347,7 +72355,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
   }, [_vm._m(0), _vm._v(" "), _c('div', {
     staticClass: "row"
   }, [_c('div', {
-    staticClass: "col-12"
+    staticClass: "col-12 overflow-x-scroll"
   }, [_c('table', {
     staticClass: "table table-striped border-light-gray mb-0"
   }, [_vm._m(1), _vm._v(" "), _c('tbody', _vm._l((_vm.patients), function(patient, index) {
@@ -72357,7 +72365,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     }), _vm._v(" "), _c('td', {
       staticClass: "pl-5"
     }, [_c('strong', [_vm._v(_vm._s(_vm._f("number")(patient.band_number)))])]), _vm._v(" "), _c('td', {
-      staticClass: "pl-5"
+      staticClass: "pl-5 hidden-md-down"
     }, [_vm._v(_vm._s(patient.first_name) + " " + _vm._s(patient.last_name))]), _vm._v(" "), _c('td', {
       staticClass: "pl-5"
     }, [_c('a', {
@@ -72384,7 +72392,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
   }, [_vm._v("Urgentie")]), _vm._v(" "), _c('th', {
     staticClass: "border-bottom-0 pl-5"
   }, [_vm._v("Code")]), _vm._v(" "), _c('th', {
-    staticClass: "border-bottom-0 pl-5"
+    staticClass: "border-bottom-0 pl-5 hidden-md-down"
   }, [_vm._v("Naam")]), _vm._v(" "), _c('th', {
     staticClass: "border-bottom-0 pl-5"
   }, [_vm._v("Wijzigen")])])])
@@ -72506,6 +72514,74 @@ if(false) {
  if(!content.locals) {
    module.hot.accept("!!../../../../../node_modules/css-loader/index.js!../../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"id\":\"data-v-18af76cc\",\"scoped\":true,\"hasInlineConfig\":true}!../../../../../node_modules/sass-loader/lib/loader.js!../../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./FastCheckIn.vue", function() {
      var newContent = require("!!../../../../../node_modules/css-loader/index.js!../../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"id\":\"data-v-18af76cc\",\"scoped\":true,\"hasInlineConfig\":true}!../../../../../node_modules/sass-loader/lib/loader.js!../../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./FastCheckIn.vue");
+     if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+     update(newContent);
+   });
+ }
+ // When the module is disposed, remove the <style> tags
+ module.hot.dispose(function() { update(); });
+}
+
+/***/ }),
+/* 269 */,
+/* 270 */,
+/* 271 */
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__(131)();
+exports.push([module.i, "\n.overflow-x-scroll[data-v-777c5690] {\n  overflow-x: scroll;\n}\n", ""]);
+
+/***/ }),
+/* 272 */
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__(131)();
+exports.push([module.i, "\n.overflow-x-scroll[data-v-b9ee3060] {\n  overflow-x: scroll;\n}\n", ""]);
+
+/***/ }),
+/* 273 */
+/***/ (function(module, exports, __webpack_require__) {
+
+// style-loader: Adds some css to the DOM by adding a <style> tag
+
+// load the styles
+var content = __webpack_require__(271);
+if(typeof content === 'string') content = [[module.i, content, '']];
+if(content.locals) module.exports = content.locals;
+// add the styles to the DOM
+var update = __webpack_require__(173)("3c1ccf1a", content, false);
+// Hot Module Replacement
+if(false) {
+ // When the styles change, update the <style> tags
+ if(!content.locals) {
+   module.hot.accept("!!../../../../../node_modules/css-loader/index.js!../../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"id\":\"data-v-777c5690\",\"scoped\":true,\"hasInlineConfig\":true}!../../../../../node_modules/sass-loader/lib/loader.js!../../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./WaitingTooLong.vue", function() {
+     var newContent = require("!!../../../../../node_modules/css-loader/index.js!../../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"id\":\"data-v-777c5690\",\"scoped\":true,\"hasInlineConfig\":true}!../../../../../node_modules/sass-loader/lib/loader.js!../../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./WaitingTooLong.vue");
+     if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+     update(newContent);
+   });
+ }
+ // When the module is disposed, remove the <style> tags
+ module.hot.dispose(function() { update(); });
+}
+
+/***/ }),
+/* 274 */
+/***/ (function(module, exports, __webpack_require__) {
+
+// style-loader: Adds some css to the DOM by adding a <style> tag
+
+// load the styles
+var content = __webpack_require__(272);
+if(typeof content === 'string') content = [[module.i, content, '']];
+if(content.locals) module.exports = content.locals;
+// add the styles to the DOM
+var update = __webpack_require__(173)("f273b75a", content, false);
+// Hot Module Replacement
+if(false) {
+ // When the styles change, update the <style> tags
+ if(!content.locals) {
+   module.hot.accept("!!../../../../../node_modules/css-loader/index.js!../../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"id\":\"data-v-b9ee3060\",\"scoped\":true,\"hasInlineConfig\":true}!../../../../../node_modules/sass-loader/lib/loader.js!../../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./LastTenPatients.vue", function() {
+     var newContent = require("!!../../../../../node_modules/css-loader/index.js!../../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"id\":\"data-v-b9ee3060\",\"scoped\":true,\"hasInlineConfig\":true}!../../../../../node_modules/sass-loader/lib/loader.js!../../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./LastTenPatients.vue");
      if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
      update(newContent);
    });

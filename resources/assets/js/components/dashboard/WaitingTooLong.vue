@@ -8,26 +8,26 @@
             </div>
         </div>
         <div class="row">
-            <div class="col-12">
+            <div class="col-12 overflow-x-scroll">
                 <table class="table table-striped border-light-gray mb-0">
                     <thead>
                         <tr>
                             <th class="border-bottom-0" width="10%">Urgentie</th>
                             <th class="border-bottom-0 pl-5">Code</th>
-                            <th class="border-bottom-0 pl-5">Naam</th>
+                            <th class="border-bottom-0 pl-5 hidden-md-down">Naam</th>
                             <th class="border-bottom-0 pl-5">Tijd</th>
-                            <th class="border-bottom-0 pl-5">Wijzigen</th>
+                            <th class="border-bottom-0 pl-5 hidden-md-down">Wijzigen</th>
                         </tr>
                     </thead>
                     <tbody>
                         <tr v-for="(patient, index) in tooLate">
                             <td class="text-white text-center" :class="background(patient.triage.slug)" />
                             <td class="pl-5"><strong>{{ patient.band_number | number }}</strong></td>
-                            <td class="pl-5">{{ patient.first_name }} {{ patient.last_name }}</td>
+                            <td class="pl-5 hidden-md-down">{{ patient.first_name }} {{ patient.last_name }}</td>
                             <td class="pl-5">
                                 <i class="fa fa-clock-o"></i> <span class="ml-2">{{ waiting(patient.created_at) }} minuten</span>
                             </td>
-                            <td class="pl-5">
+                            <td class="pl-5 hidden-md-down">
                                 <a class="btn btn-success btn-sm rounded text-white" :href="`/patienten/${patient.id}/edit`">wijzigen</a>
                             </td>
                         </tr>
@@ -122,3 +122,9 @@
         }
     }
 </script>
+
+<style lang="scss" scoped="scoped">
+    .overflow-x-scroll {
+        overflow-x: scroll;
+    }
+</style>

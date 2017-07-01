@@ -1,7 +1,7 @@
 <template>
     <div class="col-12 p-4 mb-5 white-bg border-light-gray" v-if="triages">
         <div class="row">
-            <div class="col-3 align-self-center">
+            <div class="col-sm-12 col-md-3 mb-3 align-self-center">
                 <h3 class="h4 m-0 dark-blue">
                     <strong>
                         Wachtend
