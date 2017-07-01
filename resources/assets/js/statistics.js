@@ -15,8 +15,9 @@ window.Vue = require('vue');
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
 
-Vue.component('dashboard-patients',         require('./components/dashboard/Patients.vue'));
-Vue.component('dashboard-waiting-too-long', require('./components/dashboard/WaitingTooLong.vue'));
+Vue.component('dashboard-fast-check-in',     require('./components/dashboard/FastCheckIn.vue'));
+Vue.component('dashboard-patients',          require('./components/dashboard/Patients.vue'));
+Vue.component('dashboard-waiting-too-long',  require('./components/dashboard/WaitingTooLong.vue'));
 Vue.component('dashboard-last-ten-patients', require('./components/dashboard/LastTenPatients.vue'));
 
 const app = new Vue({

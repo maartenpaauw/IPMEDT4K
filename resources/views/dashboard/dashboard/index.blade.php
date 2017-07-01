@@ -6,6 +6,7 @@
     <div class="row">
         <div class="col">
             <div class="row">
+                <dashboard-fast-check-in href="{{ route('patienten.create', [], true) }}"></dashboard-fast-check-in>
                 <dashboard-patients :initial-triages="{{ $triage_count }}"></dashboard-patients>
                 <dashboard-last-ten-patients :initial-patients="{{ $latest_patients }}"></dashboard-last-ten-patients>
             </div>
