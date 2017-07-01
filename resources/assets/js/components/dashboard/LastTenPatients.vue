@@ -1,5 +1,5 @@
 <template>
-    <div class="col-12 p-4 mt-5 white-bg border-light-gray">
+    <div class="col-12 p-4 mb-5 white-bg border-light-gray">
         <div class="row">
             <div class="col-12">
                 <h3 class="h4 dark-blue m-0 p-0 mb-4">
@@ -8,21 +8,21 @@
             </div>
         </div>
         <div class="row">
-            <div class="col-12">
+            <div class="col-12 overflow-x-scroll">
                 <table class="table table-striped border-light-gray mb-0">
                     <thead>
                     <tr>
                         <th class="border-bottom-0" width="10%">Urgentie</th>
                         <th class="border-bottom-0 pl-5">Code</th>
-                        <th class="border-bottom-0 pl-5">Naam</th>
-                        <th class="border-bottom-0 pl-5">Urgentie Wijzigen</th>
+                        <th class="border-bottom-0 pl-5 hidden-md-down">Naam</th>
+                        <th class="border-bottom-0 pl-5">Wijzigen</th>
                     </tr>
                     </thead>
                     <tbody>
                     <tr v-for="(patient, index) in patients">
                         <td class="text-white text-center" :class="background(patient.triage.slug)" />
                         <td class="pl-5"><strong>{{ patient.band_number | number }}</strong></td>
-                        <td class="pl-5">{{ patient.first_name }} {{ patient.last_name }}</td>
+                        <td class="pl-5 hidden-md-down">{{ patient.first_name }} {{ patient.last_name }}</td>
                         <td class="pl-5">
                             <a class="btn btn-success btn-sm rounded text-white" :href="`/patienten/${patient.id}/edit`">wijzigen</a>
                         </td>
@@ -85,3 +85,9 @@
         }
     }
 </script>
+
+<style lang="scss" scoped="scoped">
+    .overflow-x-scroll {
+        overflow-x: scroll;
+    }
+</style>

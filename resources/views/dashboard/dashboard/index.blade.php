@@ -4,15 +4,14 @@
 
 @section('content')
     <div class="row">
-        <div class="col">
-            <div class="row">
+        <div class="col-12 col-lg-6">
+            <div class="row mr-4">
                 <dashboard-fast-check-in href="{{ route('patienten.create', [], true) }}"></dashboard-fast-check-in>
                 <dashboard-patients :initial-triages="{{ $triage_count }}"></dashboard-patients>
                 <dashboard-last-ten-patients :initial-patients="{{ $latest_patients }}"></dashboard-last-ten-patients>
             </div>
         </div>
-        <div class="pl-5"></div>
-        <div class="col">
+        <div class="col-12 col-lg-6">
             <div class="row">
                 <dashboard-waiting-too-long :initial-patients="{{ $patients }}"></dashboard-waiting-too-long>
             </div>
