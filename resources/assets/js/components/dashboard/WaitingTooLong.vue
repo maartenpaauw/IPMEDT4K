@@ -12,9 +12,9 @@
                 <table class="table table-striped border-light-gray mb-0">
                     <thead>
                         <tr>
-                            <th width="10%">Urgentie</th>
-                            <th class="pl-5">Patiëntnummer</th>
-                            <th class="pl-5">Tijd</th>
+                            <th class="border-bottom-0" width="10%">Urgentie</th>
+                            <th class="border-bottom-0 pl-5">Patiëntnummer</th>
+                            <th class="border-bottom-0 pl-5">Tijd</th>
                         </tr>
                     </thead>
                     <tbody>

@@ -7,5 +7,6 @@
   "/css/monitor.css": "/css/monitor.css",
   "/css/login.css": "/css/login.css",
   "/css/mobile.css": "/css/mobile.css",
-  "/js/mobile.js": "/js/mobile.js"
+  "/js/mobile.js": "/js/mobile.js",
+  "/js/statistics.js": "/js/statistics.js"
 }

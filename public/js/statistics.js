@@ -63,7 +63,7 @@
 /******/ 	__webpack_require__.p = "";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 239);
+/******/ 	return __webpack_require__(__webpack_require__.s = 243);
 /******/ })
 /************************************************************************/
 /******/ ([
@@ -15693,7 +15693,63 @@ return jQuery;
 
 
 /***/ }),
-/* 8 */,
+/* 8 */
+/***/ (function(module, exports) {
+
+// this module is a runtime utility for cleaner component module output and will
+// be included in the final webpack user bundle
+
+module.exports = function normalizeComponent (
+  rawScriptExports,
+  compiledTemplate,
+  scopeId,
+  cssModules
+) {
+  var esModule
+  var scriptExports = rawScriptExports = rawScriptExports || {}
+
+  // ES6 modules interop
+  var type = typeof rawScriptExports.default
+  if (type === 'object' || type === 'function') {
+    esModule = rawScriptExports
+    scriptExports = rawScriptExports.default
+  }
+
+  // Vue.extend constructor export interop
+  var options = typeof scriptExports === 'function'
+    ? scriptExports.options
+    : scriptExports
+
+  // render functions
+  if (compiledTemplate) {
+    options.render = compiledTemplate.render
+    options.staticRenderFns = compiledTemplate.staticRenderFns
+  }
+
+  // scopedId
+  if (scopeId) {
+    options._scopeId = scopeId
+  }
+
+  // inject cssModules
+  if (cssModules) {
+    var computed = Object.create(options.computed || null)
+    Object.keys(cssModules).forEach(function (key) {
+      var module = cssModules[key]
+      computed[key] = function () { return module }
+    })
+    options.computed = computed
+  }
+
+  return {
+    esModule: esModule,
+    exports: scriptExports,
+    options: options
+  }
+}
+
+
+/***/ }),
 /* 9 */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -71425,7 +71481,11 @@ module.exports = Vue$3;
 /***/ }),
 /* 173 */,
 /* 174 */,
-/* 175 */
+/* 175 */,
+/* 176 */,
+/* 177 */,
+/* 178 */,
+/* 179 */
 /***/ (function(module, exports, __webpack_require__) {
 
 
@@ -71445,47 +71505,201 @@ window.Vue = __webpack_require__(172);
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
 
+Vue.component('dashboard-patients', __webpack_require__(204));
+Vue.component('dashboard-waiting-too-long', __webpack_require__(205));
+
 var app = new Vue({
   el: '#app'
 });
 
 /***/ }),
-/* 176 */,
-/* 177 */,
-/* 178 */,
-/* 179 */,
-/* 180 */
-/***/ (function(module, exports) {
+/* 180 */,
+/* 181 */,
+/* 182 */,
+/* 183 */,
+/* 184 */,
+/* 185 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
-// removed by extract-text-webpack-plugin
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+    props: ['initial-triages'],
+    data: function data() {
+        return {
+            triages: []
+        };
+    },
+
+    methods: {
+        getTriages: function getTriages() {
+            var _this = this;
+
+            // Make an API call to get the new count.
+            axios.get('/api/patients/count').then(function (response) {
+                _this.triages = response.data;
+            });
+        }
+    },
+    created: function created() {
+        var _this2 = this;
+
+        // Set the triages.
+        this.triages = this.initialTriages;
+
+        // Get the new counts every 15 seconds.
+        setInterval(function () {
+            _this2.getTriages();
+        }, 1000 * 15);
+    }
+});
 
 /***/ }),
-/* 181 */
-/***/ (function(module, exports) {
+/* 186 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
-// removed by extract-text-webpack-plugin
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+    name: 'dashboard-waiting-too-long',
+    props: {
+        initialPatients: {
+            required: true
+        }
+    },
+    data: function data() {
+        return {
+            patients: []
+        };
+    },
+
+    computed: {
+        tooLate: function tooLate() {
+            return this.patients.filter(function (patient) {
+
+                // Patient created at.
+                var created_at = moment(patient.created_at, "YYYY-MM-DD HH:mm:ss");
+
+                // Now.
+                var now = moment();
+
+                // Starting time.
+                var starting_time = moment("00:00:00", "HH:mm:ss");
+
+                // Maximum waiting time.
+                var max_waiting_time = moment(patient.triage.maximum_waiting_time, "HH:mm:ss");
+
+                // Return if maximum waiting time is passed.
+                return now.diff(created_at, 'minutes') >= max_waiting_time.diff(starting_time, 'minutes');
+            });
+        }
+    },
+    methods: {
+        waiting: function waiting(timestamp) {
+
+            // Patient created at.
+            var created_at = moment(timestamp, "YYYY-MM-DD HH:mm:ss");
+
+            // Now.
+            var now = moment();
+
+            // Return the difference in minutes.
+            return now.diff(created_at, 'minutes');
+        },
+        background: function background(triage) {
+
+            // Return the background color class.
+            return "bg-" + triage;
+        },
+        getPatients: function getPatients() {
+            var _this = this;
+
+            // Make an API call to get the patients.
+            axios.get('/api/patients').then(function (response) {
+
+                // Update the new patients.
+                _this.patients = response.data;
+            });
+        }
+    },
+    created: function created() {
+        var _this2 = this;
+
+        // Set the patients.
+        this.patients = this.initialPatients;
+
+        // Set an interval.
+        setInterval(function () {
+
+            // Get the new patients every 15 seconds.
+            _this2.getPatients();
+
+            // Every 1 minute.
+        }, 1000 * 60);
+    },
+
+    filters: {
+        number: function number(value) {
+            // Convert the value to a local number string.
+            return value.toLocaleString('nl-NL');
+        }
+    }
+});
 
 /***/ }),
-/* 182 */
-/***/ (function(module, exports) {
-
-// removed by extract-text-webpack-plugin
-
-/***/ }),
-/* 183 */
-/***/ (function(module, exports) {
-
-// removed by extract-text-webpack-plugin
-
-/***/ }),
-/* 184 */
-/***/ (function(module, exports) {
-
-// removed by extract-text-webpack-plugin
-
-/***/ }),
-/* 185 */,
-/* 186 */,
 /* 187 */,
 /* 188 */,
 /* 189 */,
@@ -71503,8 +71717,74 @@ var app = new Vue({
 /* 201 */,
 /* 202 */,
 /* 203 */,
-/* 204 */,
-/* 205 */,
+/* 204 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var Component = __webpack_require__(8)(
+  /* script */
+  __webpack_require__(185),
+  /* template */
+  __webpack_require__(225),
+  /* scopeId */
+  null,
+  /* cssModules */
+  null
+)
+Component.options.__file = "/Users/maartenpaauw/Code/School/IPMEDT4K/resources/assets/js/components/dashboard/Patients.vue"
+if (Component.esModule && Object.keys(Component.esModule).some(function (key) {return key !== "default" && key !== "__esModule"})) {console.error("named exports are not supported in *.vue files.")}
+if (Component.options.functional) {console.error("[vue-loader] Patients.vue: functional components are not supported with templates, they should use render functions.")}
+
+/* hot reload */
+if (false) {(function () {
+  var hotAPI = require("vue-hot-reload-api")
+  hotAPI.install(require("vue"), false)
+  if (!hotAPI.compatible) return
+  module.hot.accept()
+  if (!module.hot.data) {
+    hotAPI.createRecord("data-v-13ea5c23", Component.options)
+  } else {
+    hotAPI.reload("data-v-13ea5c23", Component.options)
+  }
+})()}
+
+module.exports = Component.exports
+
+
+/***/ }),
+/* 205 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var Component = __webpack_require__(8)(
+  /* script */
+  __webpack_require__(186),
+  /* template */
+  __webpack_require__(232),
+  /* scopeId */
+  null,
+  /* cssModules */
+  null
+)
+Component.options.__file = "/Users/maartenpaauw/Code/School/IPMEDT4K/resources/assets/js/components/dashboard/WaitingTooLong.vue"
+if (Component.esModule && Object.keys(Component.esModule).some(function (key) {return key !== "default" && key !== "__esModule"})) {console.error("named exports are not supported in *.vue files.")}
+if (Component.options.functional) {console.error("[vue-loader] WaitingTooLong.vue: functional components are not supported with templates, they should use render functions.")}
+
+/* hot reload */
+if (false) {(function () {
+  var hotAPI = require("vue-hot-reload-api")
+  hotAPI.install(require("vue"), false)
+  if (!hotAPI.compatible) return
+  module.hot.accept()
+  if (!module.hot.data) {
+    hotAPI.createRecord("data-v-777c5690", Component.options)
+  } else {
+    hotAPI.reload("data-v-777c5690", Component.options)
+  }
+})()}
+
+module.exports = Component.exports
+
+
+/***/ }),
 /* 206 */,
 /* 207 */,
 /* 208 */,
@@ -71524,29 +71804,111 @@ var app = new Vue({
 /* 222 */,
 /* 223 */,
 /* 224 */,
-/* 225 */,
+/* 225 */
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
+  return (_vm.triages) ? _c('div', {
+    staticClass: "col p-4 white-bg border-light-gray"
+  }, [_c('div', {
+    staticClass: "row"
+  }, [_vm._m(0), _vm._v(" "), _c('div', {
+    staticClass: "col align-self-center pl-4"
+  }, _vm._l((_vm.triages), function(count, slug) {
+    return _c('div', {
+      staticClass: "rounded-circle text-center text-white circle float-left mr-2",
+      class: ("bg-" + slug)
+    }, [_c('span', {
+      staticClass: "m-auto h4"
+    }, [_vm._v(_vm._s(count))])])
+  }))])]) : _vm._e()
+},staticRenderFns: [function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
+  return _c('div', {
+    staticClass: "col-3 align-self-center"
+  }, [_c('h3', {
+    staticClass: "h4 m-0 dark-blue"
+  }, [_c('strong', [_vm._v("\n                    Wachtend\n                ")])])])
+}]}
+module.exports.render._withStripped = true
+if (false) {
+  module.hot.accept()
+  if (module.hot.data) {
+     require("vue-hot-reload-api").rerender("data-v-13ea5c23", module.exports)
+  }
+}
+
+/***/ }),
 /* 226 */,
 /* 227 */,
 /* 228 */,
 /* 229 */,
 /* 230 */,
 /* 231 */,
-/* 232 */,
+/* 232 */
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
+  return _c('div', {
+    staticClass: "col p-4 white-bg border-light-gray"
+  }, [_vm._m(0), _vm._v(" "), _c('div', {
+    staticClass: "row"
+  }, [_c('div', {
+    staticClass: "col-12"
+  }, [_c('table', {
+    staticClass: "table table-striped border-light-gray mb-0"
+  }, [_vm._m(1), _vm._v(" "), _c('tbody', _vm._l((_vm.tooLate), function(patient, index) {
+    return _c('tr', [_c('td', {
+      staticClass: "text-white text-center",
+      class: _vm.background(patient.triage.slug)
+    }, [_c('strong', [_vm._v(_vm._s(index + 1))])]), _vm._v(" "), _c('td', {
+      staticClass: "pl-5"
+    }, [_c('strong', [_vm._v(_vm._s(_vm._f("number")(patient.band_number)))])]), _vm._v(" "), _c('td', {
+      staticClass: "pl-5"
+    }, [_vm._v(_vm._s(_vm.waiting(patient.created_at)) + " minuten")])])
+  }))])])])])
+},staticRenderFns: [function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
+  return _c('div', {
+    staticClass: "row"
+  }, [_c('div', {
+    staticClass: "col-12"
+  }, [_c('h3', {
+    staticClass: "h4 dark-blue m-0 p-0 mb-4"
+  }, [_c('strong', [_vm._v("Wacht te lang")])])])])
+},function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
+  return _c('thead', [_c('tr', [_c('th', {
+    staticClass: "border-bottom-0",
+    attrs: {
+      "width": "10%"
+    }
+  }, [_vm._v("Urgentie")]), _vm._v(" "), _c('th', {
+    staticClass: "border-bottom-0 pl-5"
+  }, [_vm._v("Patiëntnummer")]), _vm._v(" "), _c('th', {
+    staticClass: "border-bottom-0 pl-5"
+  }, [_vm._v("Tijd")])])])
+}]}
+module.exports.render._withStripped = true
+if (false) {
+  module.hot.accept()
+  if (module.hot.data) {
+     require("vue-hot-reload-api").rerender("data-v-777c5690", module.exports)
+  }
+}
+
+/***/ }),
 /* 233 */,
 /* 234 */,
 /* 235 */,
 /* 236 */,
 /* 237 */,
 /* 238 */,
-/* 239 */
+/* 239 */,
+/* 240 */,
+/* 241 */,
+/* 242 */,
+/* 243 */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(175);
-__webpack_require__(183);
-__webpack_require__(184);
-__webpack_require__(180);
-__webpack_require__(181);
-module.exports = __webpack_require__(182);
+module.exports = __webpack_require__(179);
 
 
 /***/ })
