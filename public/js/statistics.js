@@ -71990,17 +71990,39 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             patients: []
         };
     },
-    created: function created() {
-        this.patients = this.initialPatients;
-    },
 
     methods: {
         background: function background(triage) {
 
             // Return the background color class.
             return 'bg-' + triage;
+        },
+        getPatients: function getPatients() {
+            var _this = this;
+
+            // Make an API call to get the patients.
+            axios.get('/api/patients/last-10').then(function (response) {
+
+                // Update the new patients.
+                _this.patients = response.data;
+            });
         }
     },
+    created: function created() {
+        var _this2 = this;
+
+        this.patients = this.initialPatients;
+
+        // Set an interval.
+        setInterval(function () {
+
+            // Get the new patients every 15 seconds.
+            _this2.getPatients();
+
+            // Every 1 minute.
+        }, 1000 * 60);
+    },
+
     filters: {
         number: function number(value) {
             // Convert the value to a local number string.
@@ -72093,7 +72115,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     staticClass: "border-bottom-0 pl-5"
   }, [_vm._v("Naam")]), _vm._v(" "), _c('th', {
     staticClass: "border-bottom-0 pl-5"
-  })])])
+  }, [_vm._v("Urgentie Wijzigen")])])])
 }]}
 module.exports.render._withStripped = true
 if (false) {

@@ -15,7 +15,7 @@
                         <th class="border-bottom-0" width="10%">Urgentie</th>
                         <th class="border-bottom-0 pl-5">Code</th>
                         <th class="border-bottom-0 pl-5">Naam</th>
-                        <th class="border-bottom-0 pl-5"></th>
+                        <th class="border-bottom-0 pl-5">Urgentie Wijzigen</th>
                     </tr>
                     </thead>
                     <tbody>
@@ -47,15 +47,35 @@
                 patients: []
             }
         },
-        created () {
-            this.patients = this.initialPatients;
-        },
         methods: {
             background (triage) {
 
                 // Return the background color class.
                 return `bg-${triage}`;
+            },
+            getPatients () {
+
+                // Make an API call to get the patients.
+                axios.get('/api/patients/last-10')
+                    .then( (response) => {
+
+                        // Update the new patients.
+                        this.patients = response.data;
+                    })
+                ;
             }
+        },
+        created () {
+            this.patients = this.initialPatients;
+
+            // Set an interval.
+            setInterval(() => {
+
+                // Get the new patients every 15 seconds.
+                this.getPatients();
+
+                // Every 1 minute.
+            }, 1000 * 60);
         },
         filters: {
             number (value) {
