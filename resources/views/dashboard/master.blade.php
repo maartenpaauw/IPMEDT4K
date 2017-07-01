@@ -32,6 +32,7 @@
 <body>
 <div class="main-wrapper">
     <div class="app" id="app">
+        @if(Request::url() !== route('dashboard'))
         <header class="header">
             <div class="header-block header-block-collapse hidden-lg-up">
                 <button class="collapse-btn" id="sidebar-collapse-btn"><i class="fa fa-bars"></i></button>
@@ -55,6 +56,7 @@
                 @endif
             </div>
         </header>
+        @endif
         <aside class="sidebar">
             <div class="sidebar-container">
                 <div class="sidebar-header">
@@ -93,7 +95,7 @@
                 </div>
             </article>
         @endif
-        <article class="content items-list-page">
+        <article class="content items-list-page @if(Request::url() === route('dashboard')){{ "pt-5" }}@endif">
             <div class="title-search-block">
                 <div class="title-block">
                     <div class="row">
