@@ -11,7 +11,7 @@
                 <dashboard-last-ten-patients :initial-patients="{{ $latest_patients }}"></dashboard-last-ten-patients>
             </div>
         </div>
-        <div class="pl-5"></div>
+        <span class="pl-5 hidden-lg-down"></span>
         <div class="col">
             <div class="row">
                 <dashboard-waiting-too-long :initial-patients="{{ $patients }}"></dashboard-waiting-too-long>
