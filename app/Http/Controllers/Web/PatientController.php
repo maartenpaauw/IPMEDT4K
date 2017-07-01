@@ -3,10 +3,7 @@
 namespace IPMEDT4K\Http\Controllers\Web;
 
 use Carbon\Carbon;
-use Dotenv\Validator;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Input;
-use Illuminate\Support\Facades\Redirect;
 use IPMEDT4K\Http\Controllers\Controller;
 use IPMEDT4K\Models\Patient;
 
@@ -44,6 +41,14 @@ class PatientController extends Controller
      */
     public function store(Request $request)
     {
+        $this->validate($request, [
+            'number' => 'required|unique:patients',
+            'first_name' => 'required',
+            'band_number' => 'required|unique:patients',
+            'last_name' => 'required',
+        ]);
+
+
         $patient = new Patient;
         $patient->number = $request->number;
         $patient->first_name = $request->first_name;
@@ -93,6 +98,14 @@ class PatientController extends Controller
     public function update(Request $request, $id)
     {
         $patient = Patient::findOrFail($id);
+
+        // TODO:: Dit werkt nog niet #aids
+        $this->validate($request, [
+            'number' => 'required|unique:patients,number,'.$patient->number.'number',
+            'first_name' => 'required',
+            'band_number' => 'required|unique:patients,band_number,'.$patient->band_number.'band_number',
+            'last_name' => 'required',
+        ]);
 
         $patient->number = $request->number;
         $patient->first_name = $request->first_name;
