@@ -15,7 +15,7 @@
                         <th class="border-bottom-0" width="10%">Urgentie</th>
                         <th class="border-bottom-0 pl-5">Code</th>
                         <th class="border-bottom-0 pl-5">Naam</th>
-                        <th class="border-bottom-0 pl-5">Urgentie Wijzigen</th>
+                        <th class="border-bottom-0 pl-5">Wijzigen</th>
                     </tr>
                     </thead>
                     <tbody>

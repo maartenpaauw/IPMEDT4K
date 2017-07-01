@@ -16,6 +16,7 @@
                             <th class="border-bottom-0 pl-5">Code</th>
                             <th class="border-bottom-0 pl-5">Naam</th>
                             <th class="border-bottom-0 pl-5">Tijd</th>
+                            <th class="border-bottom-0 pl-5">Wijzigen</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -24,6 +25,9 @@
                             <td class="pl-5"><strong>{{ patient.band_number | number }}</strong></td>
                             <td class="pl-5">{{ patient.first_name }} {{ patient.last_name }}</td>
                             <td class="pl-5"><i class="fa fa-clock-o"></i> <span class="ml-2">{{ waiting(patient.created_at) }} minuten</span></td>
+                            <td class="pl-5">
+                                <a class="btn btn-success btn-sm rounded text-white" :href="`/patienten/${patient.id}/edit`">wijzigen</a>
+                            </td>
                         </tr>
                     </tbody>
                 </table>

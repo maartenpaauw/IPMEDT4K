@@ -71868,6 +71868,10 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
     name: 'dashboard-waiting-too-long',
@@ -72126,7 +72130,14 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
       staticClass: "fa fa-clock-o"
     }), _vm._v(" "), _c('span', {
       staticClass: "ml-2"
-    }, [_vm._v(_vm._s(_vm.waiting(patient.created_at)) + " minuten")])])])
+    }, [_vm._v(_vm._s(_vm.waiting(patient.created_at)) + " minuten")])]), _vm._v(" "), _c('td', {
+      staticClass: "pl-5"
+    }, [_c('a', {
+      staticClass: "btn btn-success btn-sm rounded text-white",
+      attrs: {
+        "href": ("/patienten/" + (patient.id) + "/edit")
+      }
+    }, [_vm._v("wijzigen")])])])
   }))])])])])
 },staticRenderFns: [function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
   return _c('div', {
@@ -72148,7 +72159,9 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     staticClass: "border-bottom-0 pl-5"
   }, [_vm._v("Naam")]), _vm._v(" "), _c('th', {
     staticClass: "border-bottom-0 pl-5"
-  }, [_vm._v("Tijd")])])])
+  }, [_vm._v("Tijd")]), _vm._v(" "), _c('th', {
+    staticClass: "border-bottom-0 pl-5"
+  }, [_vm._v("Wijzigen")])])])
 }]}
 module.exports.render._withStripped = true
 if (false) {
@@ -72372,7 +72385,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     staticClass: "border-bottom-0 pl-5"
   }, [_vm._v("Naam")]), _vm._v(" "), _c('th', {
     staticClass: "border-bottom-0 pl-5"
-  }, [_vm._v("Urgentie Wijzigen")])])])
+  }, [_vm._v("Wijzigen")])])])
 }]}
 module.exports.render._withStripped = true
 if (false) {
