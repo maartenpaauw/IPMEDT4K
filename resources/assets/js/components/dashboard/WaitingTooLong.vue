@@ -23,7 +23,7 @@
                             <td class="text-white text-center" :class="background(patient.triage.slug)" />
                             <td class="pl-5"><strong>{{ patient.band_number | number }}</strong></td>
                             <td class="pl-5">{{ patient.first_name }} {{ patient.last_name }}</td>
-                            <td class="pl-5">{{ waiting(patient.created_at) }} minuten</td>
+                            <td class="pl-5"><i class="fa fa-clock-o"></i> <span class="ml-2">{{ waiting(patient.created_at) }} minuten</span></td>
                         </tr>
                     </tbody>
                 </table>

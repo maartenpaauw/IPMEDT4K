@@ -72122,7 +72122,11 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
       staticClass: "pl-5"
     }, [_vm._v(_vm._s(patient.first_name) + " " + _vm._s(patient.last_name))]), _vm._v(" "), _c('td', {
       staticClass: "pl-5"
-    }, [_vm._v(_vm._s(_vm.waiting(patient.created_at)) + " minuten")])])
+    }, [_c('i', {
+      staticClass: "fa fa-clock-o"
+    }), _vm._v(" "), _c('span', {
+      staticClass: "ml-2"
+    }, [_vm._v(_vm._s(_vm.waiting(patient.created_at)) + " minuten")])])])
   }))])])])])
 },staticRenderFns: [function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
   return _c('div', {
