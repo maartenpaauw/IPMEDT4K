@@ -15,7 +15,7 @@
 @section('titleExtra', 'Historie')
 
 @section('contentExtra')
-    <table id="historyTable" class="table tablesorter table-striped bg-white">
+    <table id="historyTable" class="table tablesorter table-striped bg-white border-light-gray">
         <thead>
         <tr>
             <th class="th-clickable border-right-1">Urg <i class="fa fa-sort fa-pull-right pt-1" aria-hidden="true"></i></th>
