@@ -55,7 +55,7 @@
     <div class="patient-search white-bg">
         <div class="row">
             <div class="col-12">
-                <input type="search" name="searchPatient" id="searchPatient"/>
+                <input type="search" class="form-control form-style pl-2" name="searchPatient" id="searchPatient" placeholder="Type hier uw zoekterm..." />
             </div>
         </div>
     </div>
@@ -88,7 +88,7 @@
         <tbody>
         @foreach($patienten as $patient)
             @if($patient->status_id === 1 || $patient->status_id === 2 || $patient->status_id === 3)
-                <tr>
+                <tr class="tableResults">
                     <td class="p-0">
                         @if(is_null($patient->triage_id))
                             <div class="urgentie white-bg"></div>
