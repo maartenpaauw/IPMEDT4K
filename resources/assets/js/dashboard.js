@@ -233,6 +233,11 @@ $(function () {
 
             filterTable("#patientsTable tr.tableResults", "#searchPatient");
             filterTable("#historyTable tr.tableResults", "#searchPatient");
+
+            setTimeout(function(){
+                $('body').addClass('loaded');
+                $('h1').css('color','#222222');
+            }, 3000);
         }
     );
 });
