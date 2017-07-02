@@ -213,9 +213,12 @@ $(function () {
 
             toggleButton("#hideIncheck", ".patient-create");
             toggleButton("#hideSearch", ".patient-search");
+            toggleButton("#hideSearchHistory", ".patient-search");
             toggleButton("#hidePatients", ".table");
+            toggleButton("#hideHistory", "#historyTable");
 
             filterTable("#patientsTable tr.tableResults", "#searchPatient");
+            filterTable("#historyTable tr.tableResults", "#searchPatient");
         }
     );
 });
