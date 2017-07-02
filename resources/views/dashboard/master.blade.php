@@ -48,7 +48,7 @@
                         <a aria-expanded="false" aria-haspopup="true" class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button">
                             <div class="img" style="background-image: url('{!! "https://www.gravatar.com/avatar/" . md5(strtolower(trim(Auth::user()->email))) !!}')"></div><span class="name"> {!! Auth::user()->name !!}</span></a>
                         <div aria-labelledby="dropdownMenu1" class="dropdown-menu profile-dropdown-menu">
-                            <a class="dropdown-item" href="{{ url('/profiel') }}"><i class="fa fa-user icon"></i> Profiel</a> <a class="dropdown-item" href="{{ url('/profiel') }}"><i class="fa fa-gear icon"></i> instellingen</a>
+                            <a class="dropdown-item" href="{{ url('/profiel') }}"><i class="fa fa-user icon"></i> Profiel</a>
                             <div class="dropdown-divider"></div><a class="dropdown-item" href="{{ url('/logout') }}"><i class="fa fa-power-off icon"></i> Loguit</a>
                         </div>
                     </li>
