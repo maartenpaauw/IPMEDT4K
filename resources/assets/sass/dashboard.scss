@@ -43,11 +43,19 @@ body {
   .app .content {
     padding: 105px 40px 85px 40px;
   }
+
+  .app .contentExtra {
+    padding: 60px 40px 85px 40px;
+  }
 }
 
 @media (min-width: 992px) and (max-width: 1199px) {
   .app .content {
     padding: 100px 35px 80px 35px;
+  }
+
+  .app .contentExtra {
+    padding: 80px 35px 80px 35px;
   }
 }
 
@@ -55,11 +63,20 @@ body {
   .app .content {
     padding: 95px 20px 75px 20px;
   }
+
+  .app .contentExtra {
+    padding: 75px 20px 75px 20px;
+  }
+
 }
 
 @media (max-width: 767px) {
   .app .content {
     padding: 70px 20px 70px 20px;
+  }
+
+  .app .contentExtra {
+    padding: 65px 20px 70px 20px;
   }
 }
 
@@ -2272,4 +2289,8 @@ div.checkRadioContainer > label > input:checked + i {
 
 .border-right-1 {
   border-right: 1px solid #d7dde4;
+}
+
+#searchPatient {
+  height: 60px;
 }
