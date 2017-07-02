@@ -33,7 +33,7 @@
                 <tr class="tableResults">
                     <td class="p-0">
                         @if(is_null($patient->triage_id))
-                            <div class="urgentie white-bg"></div>
+                            <div class="urgentie bg-gray"></div>
                             <div class="invisible displaynone">
                                 0
                             </div>
