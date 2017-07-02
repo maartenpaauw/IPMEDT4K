@@ -20,8 +20,8 @@
                     </thead>
                     <tbody>
                     <tr v-for="(patient, index) in patients">
-                        <td class="text-white text-center" :class="background(patient.triage.slug)" />
-                        <td class="pl-5"><strong>{{ patient.band_number | number }}</strong></td>
+                        <td class="text-white text-center" :class="background(patient)" />
+                        <td class="pl-5"><strong>{{ patient.band_number }}</strong></td>
                         <td class="pl-5 hidden-md-down">{{ patient.first_name }} {{ patient.last_name }}</td>
                         <td class="pl-5">
                             <a class="btn btn-success btn-sm rounded text-white" :href="`/patienten/${patient.id}/edit`">wijzigen</a>
@@ -48,10 +48,20 @@
             }
         },
         methods: {
-            background (triage) {
+            background (patient) {
 
-                // Return the background color class.
-                return `bg-${triage}`;
+                // Controleer of er geen triage is.
+                if (patient.triage === null) {
+
+                    // Geef de standaard achtergrond terug.
+                    return 'bg-white';
+
+                    // Wel een triage?
+                } else {
+
+                    // Geef de triage kleur als achtergrond terug.
+                    return `bg-${patient.triage.slug}`;
+                }
             },
             getPatients () {
 
@@ -65,23 +75,17 @@
                 ;
             }
         },
-                created () {
-                    this.patients = this.initialPatients;
+        created () {
+            this.patients = this.initialPatients;
 
-                    // Set an interval.
-                    setInterval(() => {
+            // Set an interval.
+            setInterval(() => {
 
-                        // Get the new patients every 15 seconds.
-                        this.getPatients();
+                // Get the new patients every 15 seconds.
+                this.getPatients();
 
                 // Every 1 minute.
             }, 1000 * 60);
-        },
-        filters: {
-            number (value) {
-                // Convert the value to a local number string.
-                return value.toLocaleString('nl-NL');
-            }
         }
     }
 </script>

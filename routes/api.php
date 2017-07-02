@@ -34,3 +34,4 @@ Route::get('patients', 'API\PatientController@index');
 Route::get('patients/last-10', 'API\PatientController@lastTenPatients');
 Route::get('patients/count', 'API\PatientController@count');
 Route::get('patients/waiting/{band_number}', 'API\PatientController@waitingPatients');
+Route::get('patients/{band_number}', 'API\PatientController@getPatient');

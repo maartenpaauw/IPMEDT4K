@@ -12,17 +12,50 @@
     export default {
         name: 'mobile-button',
         props: {
-            patient: {
+            initialPatient: {
                 required: true
             },
             href: {
                 required: true
             }
         },
+        data () {
+            return {
+                patient: []
+            }
+        },
         computed: {
             background () {
-                return `bg-${this.patient.triage.slug}`;
+
+                // Controleer of er geen triage is.
+                if (this.patient.triage === null) {
+
+                    // Geef de standaard achtergrond terug.
+                    return 'blue-dark-bg';
+
+                    // Wel een triage?
+                } else {
+
+                    // Geef de triage kleur als achtergrond terug.
+                    return `bg-${this.patient.triage.slug}`;
+                }
             }
+        },
+        methods: {
+            getPatient () {
+                axios.get(`/api/patients/${this.initialPatient.band_number}`)
+                    .then((response) => {
+                        this.patient = response.data
+                    })
+                ;
+            }
+        },
+        created () {
+            this.patient = this.initialPatient;
+            this.getPatient();
+            setInterval(() => {
+                this.getPatient();
+            }, 1000 * 15);
         }
     }
 </script>

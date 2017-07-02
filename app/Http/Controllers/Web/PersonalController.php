@@ -2,10 +2,8 @@
 
 namespace IPMEDT4K\Http\Controllers\Web;
 
-use Illuminate\Http\Request;
 use IPMEDT4K\Http\Controllers\Controller;
 use IPMEDT4K\Models\Patient;
-use IPMEDT4K\Models\Triage;
 
 class PersonalController extends Controller
 {
@@ -24,12 +22,14 @@ class PersonalController extends Controller
     public function status($band_number)
     {
         // Patient
-        $patient  = Patient::monitor()->where('band_number', $band_number)->first();
-        $patients = Patient::monitor()->get();
+        $patient  = Patient::where('band_number', $band_number)->first();
 
         // Check if patient exists.
         if($patient)
         {
+            // Get the patients.
+            $patients = Patient::monitor()->get();
+
             // Compare
             $compare = route('patient.compare', [
                 'patient_number' => $patient->band_number
@@ -56,15 +56,21 @@ class PersonalController extends Controller
         }
     }
 
+    /**
+     * @param $band_number
+     * @return \Illuminate\View\View
+     */
     public function compare($band_number)
     {
         // Patient
-        $patient  = Patient::monitor()->where('band_number', $band_number)->first();
-        $patients = Patient::monitor()->get();
+        $patient  = Patient::where('band_number', $band_number)->first();
 
         // Check if patient exists.
         if ($patient)
         {
+            // Get the patients
+            $patients = Patient::monitor()->get();
+
             // Compare
             $status = route('patient.status', [
                 'patient_number' => $patient->band_number

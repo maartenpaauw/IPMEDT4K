@@ -14,7 +14,7 @@ class TriagesTableSeeder extends Seeder
     {
         // The triages.
         $triages = [
-            [
+             [
                 'slug'                 => str_slug('Onmiddelijk'),
                 'name'                 => 'Onmiddelijk',
                 'description'          => 'Patiënten met een rood (urgent) triage worden gelijk in behandeling genomen.',

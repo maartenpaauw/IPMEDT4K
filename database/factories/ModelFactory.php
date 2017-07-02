@@ -16,9 +16,9 @@ $factory->define(\IPMEDT4K\Models\User::class, function (Faker\Generator $faker)
     static $password;
 
     return [
-        'name' => $faker->name,
-        'email' => $faker->unique()->safeEmail,
-        'password' => $password ?: $password = bcrypt('secret'),
+        'name'           => $faker->name,
+        'email'          => $faker->unique()->safeEmail,
+        'password'       => $password ?: $password = bcrypt('secret'),
         'remember_token' => str_random(10),
     ];
 });
@@ -29,21 +29,19 @@ $factory->define(\IPMEDT4K\Models\Patient::class, function(Faker\Generator $fake
         'last_name'      => $faker->lastName,
         'number'         => $faker->unique()->numberBetween(10000, 99999),
         'band_number'    => $faker->unique()->numberBetween(10000, 99999),
-        'triage_id'      => \IPMEDT4K\Models\Triage::inRandomOrder()->first()->id,
+        'triage_id'      => null,
         'status_id'      => \IPMEDT4K\Models\Status::ingecheckt()->id,
-        'checked_in_at'  => null,
+        'checked_in_at'  => $faker->dateTimeBetween(\Carbon\Carbon::now()->subWeek(), \Carbon\Carbon::now()),
         'treated_at'     => null,
         'checked_out_at' => null,
     ];
 });
 
 $factory->state(\IPMEDT4K\Models\Patient::class, 'patient_checked_in', function(Faker\Generator $faker) {
-    
-    $checked_in_at = $faker->dateTimeBetween(\Carbon\Carbon::now()->subWeek(), \Carbon\Carbon::now());
-    
+
     return [
-        'checked_in_at' => $checked_in_at,
-        'status_id'     => \IPMEDT4K\Models\Status::wachten()->id,
+        'triage_id' => \IPMEDT4K\Models\Triage::inRandomOrder()->first()->id,
+        'status_id' => \IPMEDT4K\Models\Status::wachten()->id,
     ];
 });
 
@@ -55,6 +53,7 @@ $factory->state(\IPMEDT4K\Models\Patient::class, 'patient_treated', function(Fak
     return [
         'checked_in_at' => $checked_in_at,
         'treated_at'    => $treated_at,
+        'triage_id'     => \IPMEDT4K\Models\Triage::inRandomOrder()->first()->id,
         'status_id'     => \IPMEDT4K\Models\Status::inBehandeling()->id,
     ];   
 });
@@ -69,6 +68,7 @@ $factory->state(\IPMEDT4K\Models\Patient::class, 'patient_checked_out', function
         'checked_in_at'  => $checked_in_at,
         'treated_at'     => $treated_at,
         'checked_out_at' => $checked_out_at,
+        'triage_id'      => \IPMEDT4K\Models\Triage::inRandomOrder()->first()->id,
         'status_id'      => \IPMEDT4K\Models\Status::uitgecheckt()->id,
     ];
 });
