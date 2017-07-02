@@ -160,6 +160,7 @@
                 @yield('contentExtra2')
             </div>
         </article>
+        @endif
         <footer class="footer">
             <div class="footer-block author">
                 <ul>
@@ -172,7 +173,6 @@
             </div>
         </footer>
     </div>
-    @endif
 </div>
 <script src="{{mix('js/dashboard.js')}}">
 </script>
