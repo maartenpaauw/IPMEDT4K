@@ -1,24 +1,36 @@
 @extends('dashboard.master')
 
-@section('title', 'Historie')
+@section('title', 'Zoeken')
 
 @section('content')
+    <div class="patient-search white-bg">
+        <div class="row">
+            <div class="col-12">
+                <input type="search" class="form-control form-style pl-2" name="searchPatient" id="searchPatient" placeholder="Type hier uw zoekterm..." />
+            </div>
+        </div>
+    </div>
+@endsection
+
+@section('titleExtra', 'Historie')
+
+@section('contentExtra')
     <table id="historyTable" class="table tablesorter table-striped bg-white">
         <thead>
         <tr>
-            <th class="th-clickable">Urg <i class="fa fa-sort fa-pull-right pt-1" aria-hidden="true"></i></th>
-            <th class="th-clickable">Patientnummer <i class="fa fa-sort fa-pull-right pt-1" aria-hidden="true"></i></th>
-            <th class="th-clickable">Naam <i class="fa fa-sort fa-pull-right pt-1" aria-hidden="true"></i></th>
-            <th class="th-clickable">Status <i class="fa fa-sort fa-pull-right pt-1" aria-hidden="true"></i></th>
-            <th class="th-clickable">Code <i class="fa fa-sort fa-pull-right pt-1" aria-hidden="true"></i></th>
-            <th class="th-clickable">Uitgecheckt <i class="fa fa-sort fa-pull-right pt-1" aria-hidden="true"></i></th>
+            <th class="th-clickable border-right-1">Urg <i class="fa fa-sort fa-pull-right pt-1" aria-hidden="true"></i></th>
+            <th class="th-clickable border-right-1">Patientnummer <i class="fa fa-sort fa-pull-right pt-1" aria-hidden="true"></i></th>
+            <th class="th-clickable border-right-1">Naam <i class="fa fa-sort fa-pull-right pt-1" aria-hidden="true"></i></th>
+            <th class="th-clickable border-right-1">Status <i class="fa fa-sort fa-pull-right pt-1" aria-hidden="true"></i></th>
+            <th class="th-clickable border-right-1">Code <i class="fa fa-sort fa-pull-right pt-1" aria-hidden="true"></i></th>
+            <th class="th-clickable border-right-1">Uitgecheckt <i class="fa fa-sort fa-pull-right pt-1" aria-hidden="true"></i></th>
             <th>Verwijderen</th>
         </tr>
         </thead>
         <tbody>
         @foreach($patienten as $patient)
             @if($patient->status_id === 4)
-                <tr>
+                <tr class="tableResults">
                     <td class="p-0">
                         @if(is_null($patient->triage_id))
                             <div class="urgentie white-bg"></div>
@@ -49,7 +61,6 @@
                     </td>
                     <td>
                         {!! Form::model($patient, ['method' => 'DELETE', 'action' => ['Web\HistoryController@destroy',$patient->id], 'id' => 'destroyhistory']) !!}
-                        {{--{!! Form::submit('Verwijderen', array('class' => 'btn btn-danger rounded')) !!}--}}
                         {!! Form::close() !!}
                         <button class="btn btn-danger rounded delete-from-history">Verwijderen</button>
                     </td>
