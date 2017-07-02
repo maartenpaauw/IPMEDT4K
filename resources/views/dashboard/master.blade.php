@@ -97,17 +97,48 @@
                 </div>
             </div>
         @endif
-        @if (View::hasSection('titleExtra'))
+        @if (View::hasSection('title'))
             <article class="content items-list-page pb-0">
+                <div class="title-search-block">
+                    <div class="title-block">
+                        <div class="row">
+                            <div class="col-6">
+                                <h3 class="title">@yield('title')</h3>
+                            </div>
+                            @if(Request::url() === route('historie'))
+                                <div class="col-6">
+                                    <button class="btn btn-primary pull-right" id="hideSearchHistory">Verberg</button>
+                                </div>
+                            @endif
+                            @if(Request::url() === route('patienten.index'))
+                                <div class="col-6">
+                                    <button class="btn btn-primary pull-right" id="hideIncheck">Verberg</button>
+                                </div>
+                            @endif
+                        </div>
+                    </div>
+                    @yield('content')
+                </div>
+            </article>
+        @endif
+        @if(View::hasSection('titleExtra'))
+            <article class="contentExtra items-list-page pb-0">
                 <div class="title-search-block">
                     <div class="title-block">
                         <div class="row">
                             <div class="col-6">
                                 <h3 class="title">@yield('titleExtra')</h3>
                             </div>
-                            <div class="col-6">
-                                <button class="btn btn-primary pull-right" id="hideIncheck">Verberg</button>
-                            </div>
+                            @if(Request::url() === route('patienten.index'))
+                                <div class="col-6">
+                                    <button class="btn btn-primary pull-right" id="hideSearch">Verberg</button>
+                                </div>
+                            @endif
+                            @if(Request::url() === route('historie'))
+                                <div class="col-6">
+                                    <button class="btn btn-primary pull-right" id="hideHistory">Verberg</button>
+                                </div>
+                            @endif
                         </div>
                     </div>
                     @yield('contentExtra')
@@ -115,35 +146,19 @@
             </article>
         @endif
         @if(View::hasSection('titleExtra2'))
-            <article class="contentExtra items-list-page pb-0">
-                <div class="title-search-block">
-                    <div class="title-block">
-                        <div class="row">
-                            <div class="col-6">
-                                <h3 class="title">@yield('titleExtra2')</h3>
-                            </div>
-                            <div class="col-6">
-                                <button class="btn btn-primary pull-right" id="hideSearch">Verberg</button>
-                            </div>
-                        </div>
-                    </div>
-                    @yield('contentExtra2')
-                </div>
-            </article>
-        @endif
         <article class="contentExtra items-list-page @if(Request::url() === route('dashboard')){{ "pt-5" }}@endif">
             <div class="title-search-block">
                 <div class="title-block">
                     <div class="row">
                         <div class="col-6">
-                            <h3 class="title">@yield('title')</h3>
+                            <h3 class="title">@yield('titleExtra2')</h3>
                         </div>
                         <div class="col-6">
                             <button class="btn btn-primary pull-right" id="hidePatients">Verberg</button>
                         </div>
                     </div>
                 </div>
-                @yield('content')
+                @yield('contentExtra2')
             </div>
         </article>
         <footer class="footer">
@@ -158,6 +173,7 @@
             </div>
         </footer>
     </div>
+    @endif
 </div>
 <script src="{{mix('js/dashboard.js')}}">
 </script>

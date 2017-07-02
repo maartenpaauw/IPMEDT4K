@@ -1,77 +1,8 @@
 @extends('dashboard.master')
 
-@section('titleExtra', 'Inchecken')
-
-@section('contentExtra')
-    <div class="patient-create white-bg">
-        <div class="row">
-            <div class="col-6">
-                {!! Form::open(array('action' => 'Web\PatientController@store', 'method' => 'POST', 'id' => 'checkinform')) !!}
-                <div class="form-group mt-4">
-                    {!! Form::label('first_name', 'Voornaam', array('for' => 'first_name', 'class' => 'form-label')) !!}<span class="brand-danger"> *</span>
-                    {!! Form::text('first_name', '', array('class' => 'form-control form-style', 'required' => 'required', 'data-parsley-trigger' => 'change', 'minlength' => '2', 'data-parsley-pattern' => '^[A-Za-z ]*$', 'parsley-rangelength' => '2,50]')) !!}
-                </div>
-            </div>
-            <div class="col-6">
-                <div class="form-group mt-4">
-                    {!! Form::label('last_name', 'Achternaam', array('for' => 'last_name', 'class' => 'form-label')) !!}<span class="brand-danger"> *</span>
-                    {!! Form::text('last_name', '', array('class' => 'form-control form-style', 'required' => 'required', 'data-parsley-trigger' => 'change', 'minlength' => '2', 'data-parsley-pattern' => '^[A-Za-z ]*$', 'parsley-rangelength' => '2,50]')) !!}
-                </div>
-            </div>
-            <div class="col-6">
-                <div class="form-group mt-4">
-                    {!! Form::label('number', 'Patiëntnummer', array('for' => 'number', 'class' => 'form-label')) !!}<span class="brand-danger"> *</span>
-                    {!! Form::number('number', '', array('class' => 'form-control form-style', 'required' => 'required', 'data-parsley-trigger' => 'change', 'min' => '10000', 'max' => '99999')) !!}
-                </div>
-            </div>
-            <div class="col-6">
-                <div class="form-group mt-4">
-                    {!! Form::label('band_number', 'Bandnummer', array('for' => 'band_number', 'class' => 'form-label')) !!}<span class="brand-danger"> *</span>
-                    {!! Form::number('band_number', '', array('class' => 'form-control form-style', 'required' => 'required', 'data-parsley-trigger' => 'change', 'min' => '10000', 'max' => '99999')) !!}
-                </div>
-            </div>
-            <div class="col-6">
-                <div class="form-group mt-4">
-                    {!! Form::label('status_id', 'In behandeling (spoed)', array('class' => 'form-label')) !!}
-                    {!! Form::checkbox('status_id', 3, false, array('id' => 'checkbox1', 'class' => 'tgl tgl-light', 'style' => 'visibility: hidden')) !!}
-                    <label for="checkbox1" class="tgl-btn"></label>
-                </div>
-            </div>
-        </div>
-        <div class="row mt-5">
-            <div class="col">
-                <div class="form-group">
-                    {!! Form::submit('Inchecken', array('class' => 'btn btn-success btn-inchecken')) !!}
-                </div>
-                {!! Form::close() !!}
-            </div>
-        </div>
-    </div>
-@endsection
-
-@section('titleExtra2', 'Zoeken')
+@section('titleExtra2', 'Patiënten')
 
 @section('contentExtra2')
-    <div class="patient-search white-bg">
-        <div class="row">
-            <div class="col-12">
-                <input type="search" class="form-control form-style pl-2" name="searchPatient" id="searchPatient" placeholder="Type hier uw zoekterm..." />
-            </div>
-        </div>
-    </div>
-@endsection
-
-@section('parsley')
-    <script>
-        $(function () {
-            $('#checkinform').parsley();
-        })
-    </script>
-@endsection
-
-@section('title', 'Patiënten')
-
-@section('content')
     <table id="patientsTable" class="table tablesorter table-striped bg-white">
         <thead>
         <tr>
@@ -130,4 +61,73 @@
         @endforeach
         </tbody>
     </table>
+@endsection
+
+@section('title', 'Inchecken')
+
+@section('content')
+    <div class="patient-create white-bg">
+        <div class="row">
+            <div class="col-6">
+                {!! Form::open(array('action' => 'Web\PatientController@store', 'method' => 'POST', 'id' => 'checkinform')) !!}
+                <div class="form-group mt-4">
+                    {!! Form::label('first_name', 'Voornaam', array('for' => 'first_name', 'class' => 'form-label')) !!}<span class="brand-danger"> *</span>
+                    {!! Form::text('first_name', '', array('class' => 'form-control form-style', 'required' => 'required', 'data-parsley-trigger' => 'change', 'minlength' => '2', 'data-parsley-pattern' => '^[A-Za-z ]*$', 'parsley-rangelength' => '2,50]')) !!}
+                </div>
+            </div>
+            <div class="col-6">
+                <div class="form-group mt-4">
+                    {!! Form::label('last_name', 'Achternaam', array('for' => 'last_name', 'class' => 'form-label')) !!}<span class="brand-danger"> *</span>
+                    {!! Form::text('last_name', '', array('class' => 'form-control form-style', 'required' => 'required', 'data-parsley-trigger' => 'change', 'minlength' => '2', 'data-parsley-pattern' => '^[A-Za-z ]*$', 'parsley-rangelength' => '2,50]')) !!}
+                </div>
+            </div>
+            <div class="col-6">
+                <div class="form-group mt-4">
+                    {!! Form::label('number', 'Patiëntnummer', array('for' => 'number', 'class' => 'form-label')) !!}<span class="brand-danger"> *</span>
+                    {!! Form::number('number', '', array('class' => 'form-control form-style', 'required' => 'required', 'data-parsley-trigger' => 'change', 'min' => '10000', 'max' => '99999')) !!}
+                </div>
+            </div>
+            <div class="col-6">
+                <div class="form-group mt-4">
+                    {!! Form::label('band_number', 'Bandnummer', array('for' => 'band_number', 'class' => 'form-label')) !!}<span class="brand-danger"> *</span>
+                    {!! Form::number('band_number', '', array('class' => 'form-control form-style', 'required' => 'required', 'data-parsley-trigger' => 'change', 'min' => '10000', 'max' => '99999')) !!}
+                </div>
+            </div>
+            <div class="col-6">
+                <div class="form-group mt-4">
+                    {!! Form::label('status_id', 'In behandeling (spoed)', array('class' => 'form-label')) !!}
+                    {!! Form::checkbox('status_id', 3, false, array('id' => 'checkbox1', 'class' => 'tgl tgl-light', 'style' => 'visibility: hidden')) !!}
+                    <label for="checkbox1" class="tgl-btn"></label>
+                </div>
+            </div>
+        </div>
+        <div class="row mt-5">
+            <div class="col">
+                <div class="form-group">
+                    {!! Form::submit('Inchecken', array('class' => 'btn btn-success btn-inchecken')) !!}
+                </div>
+                {!! Form::close() !!}
+            </div>
+        </div>
+    </div>
+@endsection
+
+@section('titleExtra', 'Zoeken')
+
+@section('contentExtra')
+    <div class="patient-search white-bg">
+        <div class="row">
+            <div class="col-12">
+                <input type="search" class="form-control form-style pl-2" name="searchPatient" id="searchPatient" placeholder="Type hier uw zoekterm..." />
+            </div>
+        </div>
+    </div>
+@endsection
+
+@section('parsley')
+    <script>
+        $(function () {
+            $('#checkinform').parsley();
+        })
+    </script>
 @endsection
