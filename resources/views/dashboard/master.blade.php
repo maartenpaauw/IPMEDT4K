@@ -78,15 +78,17 @@
         </aside>
         <div class="sidebar-overlay" id="sidebar-overlay"></div>
         @if ($errors->any())
-            <div class="row mt-5" style="margin-top: 5rem !important;">
+            <div class="row mt-5 mr-2" style="margin-top: 5rem !important;">
                 <div class="col-6 offset-6">
                     <div class="alert alert-danger alert-dismissible fade show" role="alert">
                         <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                         </button>
+                        <ul class="m-0 p-0">
                         @foreach ($errors->all() as $error)
-                            <strong>Oeps!</strong> {{ $error }}
+                            <li class="error-li"><strong>Oeps!</strong> {{ $error }}</li>
                         @endforeach
+                        </ul>
                     </div>
                 </div>
             </div>
