@@ -67,9 +67,9 @@
 
 @section('content')
     <div class="patient-create white-bg">
+        {!! Form::open(array('action' => 'Web\PatientController@store', 'method' => 'POST', 'id' => 'checkinform')) !!}
         <div class="row">
             <div class="col-6">
-                {!! Form::open(array('action' => 'Web\PatientController@store', 'method' => 'POST', 'id' => 'checkinform')) !!}
                 <div class="form-group mt-4">
                     {!! Form::label('first_name', 'Voornaam', array('for' => 'first_name', 'class' => 'form-label')) !!}<span class="brand-danger"> *</span>
                     {!! Form::text('first_name', '', array('class' => 'form-control form-style', 'required' => 'required', 'data-parsley-trigger' => 'change', 'minlength' => '2', 'data-parsley-pattern' => '^[A-Za-z ]*$', 'parsley-rangelength' => '2,50]')) !!}
@@ -106,9 +106,9 @@
                 <div class="form-group">
                     {!! Form::submit('Inchecken', array('class' => 'btn btn-success btn-inchecken')) !!}
                 </div>
-                {!! Form::close() !!}
             </div>
         </div>
+        {!! Form::close() !!}
     </div>
 @endsection
 
@@ -127,6 +127,7 @@
 @section('parsley')
     <script>
         $(function () {
+            console.log($('#checkinform'));
             $('#checkinform').parsley();
         })
     </script>
