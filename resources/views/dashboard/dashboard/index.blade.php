@@ -14,6 +14,7 @@
         <div class="col-12 col-lg-6">
             <div class="row">
                 <dashboard-waiting-too-long :initial-patients="{{ $patients }}"></dashboard-waiting-too-long>
+                <dashboard-no-triage :initial-patients="{{ $patients_without_triage }}"></dashboard-no-triage>
             </div>
         </div>
     </div>

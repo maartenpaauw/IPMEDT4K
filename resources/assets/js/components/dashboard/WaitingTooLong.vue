@@ -1,5 +1,5 @@
 <template>
-    <div class="col-12 p-4 white-bg border-light-gray">
+    <div class="col-12 p-4 mb-5 white-bg border-light-gray">
         <div class="row">
             <div class="col-12">
                 <h3 class="h4 dark-blue m-0 p-0 mb-4">
