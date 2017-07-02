@@ -63,13 +63,13 @@
     <table id="patientsTable" class="table tablesorter table-striped bg-white">
         <thead>
         <tr>
-            <th class="th-clickable">Urg <i class="fa fa-sort fa-pull-right pt-1" aria-hidden="true"></i></th>
-            <th class="th-clickable">Patientnummer <i class="fa fa-sort fa-pull-right pt-1" aria-hidden="true"></i></th>
-            <th class="th-clickable">Naam <i class="fa fa-sort fa-pull-right pt-1" aria-hidden="true"></i></th>
-            <th class="th-clickable">Status <i class="fa fa-sort fa-pull-right pt-1" aria-hidden="true"></i></th>
-            <th class="th-clickable">Code <i class="fa fa-sort fa-pull-right pt-1" aria-hidden="true"></i></th>
-            <th class="th-clickable">Ingecheckt <i class="fa fa-sort fa-pull-right pt-1" aria-hidden="true"></i></th>
-            <th>Urgentie Wijzigen</th>
+            <th class="th-clickable border-right-1">Urg <i class="fa fa-sort fa-pull-right pt-1" aria-hidden="true"></i></th>
+            <th class="th-clickable border-right-1">Patientnummer <i class="fa fa-sort fa-pull-right pt-1" aria-hidden="true"></i></th>
+            <th class="th-clickable border-right-1">Naam <i class="fa fa-sort fa-pull-right pt-1" aria-hidden="true"></i></th>
+            <th class="th-clickable border-right-1">Status <i class="fa fa-sort fa-pull-right pt-1" aria-hidden="true"></i></th>
+            <th class="th-clickable border-right-1">Code <i class="fa fa-sort fa-pull-right pt-1" aria-hidden="true"></i></th>
+            <th class="th-clickable border-right-1">Ingecheckt <i class="fa fa-sort fa-pull-right pt-1" aria-hidden="true"></i></th>
+            <th class="border-right-1">Urgentie Wijzigen</th>
             <th>Uitchecken</th>
         </tr>
         </thead>
