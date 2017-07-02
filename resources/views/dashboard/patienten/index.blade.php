@@ -127,7 +127,6 @@
 @section('parsley')
     <script>
         $(function () {
-            console.log($('#checkinform'));
             $('#checkinform').parsley();
         })
     </script>
