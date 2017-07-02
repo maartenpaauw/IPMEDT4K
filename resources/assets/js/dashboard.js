@@ -65,7 +65,9 @@ $(function() {
     });
 });
 
-
+/***********************************************
+ *        Menu Settings
+ ***********************************************/
 function setSameHeights($container) {
 
     $container = $container || $('.sameheight-container');
@@ -99,7 +101,9 @@ function setSameHeights($container) {
     });
 }
 
-
+/***********************************************
+ *        SideMenu Settings
+ ***********************************************/
 $(function () {
 
     $('#sidebar-menu, #customize-menu').metisMenu({
@@ -118,6 +122,7 @@ $(function () {
     });
 
 });
+
 $(function() {
     $('.nav-profile > li > a').on('click', function() {
         var $el = $(this).next();
@@ -136,9 +141,10 @@ $(function() {
 
 });
 
+/***********************************************
+ *        ParsleyMessages
+ ***********************************************/
 $(function () {
-    // Validation errors messages for Parsley
-// Load this after Parsley
 
     Parsley.addMessages('nl', {
         defaultMessage: "Deze waarde lijkt onjuist.",
@@ -165,6 +171,10 @@ $(function () {
     Parsley.setLocale('nl');
 });
 
+
+/***********************************************
+ *        Delete Patient
+ ***********************************************/
 $(function () {
    $('.delete-from-history').on('click', function () {
        swal({
@@ -187,6 +197,10 @@ $(function () {
        });
    })
 });
+
+/***********************************************
+ *        DOM Functions
+ ***********************************************/
 
 $(function () {
     $(document).ready(function()
@@ -223,6 +237,10 @@ $(function () {
     );
 });
 
+
+/***********************************************
+ *        Toggle function for buttons
+ ***********************************************/
 function toggleButton(id, classhider) {
     $(id).click(function() {
         $(classhider).toggle();
@@ -232,6 +250,9 @@ function toggleButton(id, classhider) {
     });
 }
 
+/***********************************************
+ *        FilterTable function
+ ***********************************************/
 function filterTable(tableIdAndRow, keyupInput) {
     var $rows = $(tableIdAndRow);
 

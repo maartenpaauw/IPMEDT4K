@@ -6,6 +6,8 @@ use Carbon\Carbon;
 use Illuminate\Http\Request;
 use IPMEDT4K\Http\Controllers\Controller;
 use IPMEDT4K\Models\Patient;
+use IPMEDT4K\Models\Status;
+use IPMEDT4K\Models\Triage;
 
 class PatientController extends Controller
 {
@@ -55,10 +57,10 @@ class PatientController extends Controller
         $patient->band_number = $request->band_number;
         $patient->last_name = $request->last_name;
         $patient->checked_in_at = Carbon::now();
-        $patient->status_id = $request->input('status_id') ? intval($request->input('status_id')) : 1;
+        $patient->status_id = $request->input('status_id') ? intval($request->input('status_id')) : Triage::onmiddelijk()->id;
 
-        if($request->input('status_id') == 3){
-            $patient->triage_id = 1;
+        if($request->input('status_id') == Status::inBehandeling()->id){
+            $patient->triage_id = Triage::onmiddelijk()->id;
         }
 
         $patient->save();
@@ -116,8 +118,17 @@ class PatientController extends Controller
         $patient->band_number = $request->band_number;
         $patient->last_name = $request->last_name;
         $patient->checked_in_at = Carbon::now();
-        $patient->treated_at = Carbon::now();
-        $patient->status_id = $request->input('status_id') ? intval($request->input('status_id')) : 1;
+
+        if($request->input('status_id') == Status::uitgecheckt()->id){
+            $patient->checked_out_at = Carbon::now();
+        }
+
+        if($request->input('status_id') == Status::inBehandeling()->id){
+            $patient->treated_at = Carbon::now();
+        }
+
+
+        $patient->status_id = $request->input('status_id') ? intval($request->input('status_id')) : Triage::onmiddelijk()->id;
 
         $patient->update();
 
@@ -143,7 +154,7 @@ class PatientController extends Controller
 
     public function checkout($id) {
         $patient = Patient::findOrFail($id);
-        $patient->status_id = 4;
+        $patient->status_id = Status::uitgecheckt()->id;
         $patient->checked_out_at = Carbon::now();
 
         $patient->update();
