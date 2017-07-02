@@ -209,7 +209,19 @@ $(function () {
                 var $dateElement = $(dateElem);
                 var formatted = moment($dateElement.text(), 'YYYY-MM-DD HH-mm-ss').format('DD-MM-YYYY - HH:mm:ss');
                 $dateElement.text(formatted);
-            })
+            });
+
+            $("#hideIncheck").click(function() {
+                $(".patient-create").toggle();
+            });
+
+            $("#hideSearch").click(function () {
+                $(".patient-search").toggle();
+            });
+
+            $("#hidePatients").click(function () {
+                $(".table").toggle();
+            });
         }
     );
 });
