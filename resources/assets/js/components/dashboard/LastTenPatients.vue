@@ -54,7 +54,7 @@
                 if (patient.triage === null) {
 
                     // Geef de standaard achtergrond terug.
-                    return 'bg-white';
+                    return 'bg-gray';
 
                     // Wel een triage?
                 } else {

@@ -20,7 +20,7 @@
                     </thead>
                     <tbody>
                     <tr v-for="(patient, index) in patients">
-                        <td class="text-white text-center bg-white" />
+                        <td class="text-white text-center bg-gray" />
                         <td class="pl-5"><strong>{{ patient.band_number }}</strong></td>
                         <td class="pl-5 hidden-md-down">{{ patient.first_name }} {{ patient.last_name }}</td>
                         <td class="pl-5">
