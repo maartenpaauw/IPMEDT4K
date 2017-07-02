@@ -22,7 +22,7 @@
                     <tbody>
                         <tr v-for="(patient, index) in tooLate">
                             <td class="text-white text-center" :class="background(patient.triage.slug)" />
-                            <td class="pl-5"><strong>{{ patient.band_number | number }}</strong></td>
+                            <td class="pl-5"><strong>{{ patient.band_number }}</strong></td>
                             <td class="pl-5 hidden-md-down">{{ patient.first_name }} {{ patient.last_name }}</td>
                             <td class="pl-5">
                                 <i class="fa fa-clock-o"></i> <span class="ml-2">{{ waiting(patient.created_at) }} minuten</span>
@@ -113,12 +113,6 @@
 
                 // Every 1 minute.
             }, 1000 * 60);
-        },
-        filters: {
-            number (value) {
-                // Convert the value to a local number string.
-                return value.toLocaleString('nl-NL');
-            }
         }
     }
 </script>

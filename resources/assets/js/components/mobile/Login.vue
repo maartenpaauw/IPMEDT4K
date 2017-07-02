@@ -25,7 +25,7 @@
         },
         methods: {
             submit () {
-                window.location.href = `${this.band_number.replace(/\D/g,'')}/status`
+                window.location.href = `${this.band_number}/status`
             }
         }
     }

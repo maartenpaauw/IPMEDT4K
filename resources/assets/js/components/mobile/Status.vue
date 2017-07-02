@@ -1,7 +1,7 @@
 <template>
     <div class="row text-center">
         <div class="col-12 py-5" :class="background">
-            <h1 class="text-white">{{ patient.band_number | number }}</h1>
+            <h1 class="text-white">{{ patient.band_number }}</h1>
             <h2 class="text-white h6 mb-0x">{{ sentence }}</h2>
         </div>
     </div>
@@ -56,12 +56,6 @@
             setInterval(() => {
                 this.getWaiting();
             }, 1000 * 15)
-        },
-        filters: {
-            number (value) {
-                // Convert the value to a local number string.
-                return value.toLocaleString('nl-NL');
-            }
         }
     }
 </script>
