@@ -102,8 +102,11 @@
                 <div class="title-search-block">
                     <div class="title-block">
                         <div class="row">
-                            <div class="col-md-6">
+                            <div class="col-6">
                                 <h3 class="title">@yield('titleExtra')</h3>
+                            </div>
+                            <div class="col-6">
+                                <button class="btn btn-primary pull-right" id="hideIncheck">Hide</button>
                             </div>
                         </div>
                     </div>
@@ -111,12 +114,32 @@
                 </div>
             </article>
         @endif
-        <article class="content items-list-page @if(Request::url() === route('dashboard')){{ "pt-5" }}@endif">
+        @if(View::hasSection('titleExtra2'))
+            <article class="contentExtra items-list-page pb-0">
+                <div class="title-search-block">
+                    <div class="title-block">
+                        <div class="row">
+                            <div class="col-6">
+                                <h3 class="title">@yield('titleExtra2')</h3>
+                            </div>
+                            <div class="col-6">
+                                <button class="btn btn-primary pull-right" id="hideSearch">Hide</button>
+                            </div>
+                        </div>
+                    </div>
+                    @yield('contentExtra2')
+                </div>
+            </article>
+        @endif
+        <article class="contentExtra items-list-page @if(Request::url() === route('dashboard')){{ "pt-5" }}@endif">
             <div class="title-search-block">
                 <div class="title-block">
                     <div class="row">
-                        <div class="col-md-6">
+                        <div class="col-6">
                             <h3 class="title">@yield('title')</h3>
+                        </div>
+                        <div class="col-6">
+                            <button class="btn btn-primary pull-right" id="hidePatients">Hide</button>
                         </div>
                     </div>
                 </div>

@@ -49,6 +49,18 @@
     </div>
 @endsection
 
+@section('titleExtra2', 'Zoeken')
+
+@section('contentExtra2')
+    <div class="patient-search white-bg">
+        <div class="row">
+            <div class="col-12">
+                <input type="search" name="searchPatient" id="searchPatient"/>
+            </div>
+        </div>
+    </div>
+@endsection
+
 @section('parsley')
     <script>
         $(function () {
