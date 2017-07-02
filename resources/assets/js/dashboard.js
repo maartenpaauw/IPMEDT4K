@@ -211,20 +211,40 @@ $(function () {
                 $dateElement.text(formatted);
             });
 
-            $("#hideIncheck").click(function() {
-                $(".patient-create").toggle();
-            });
+            toggleButton("#hideIncheck", ".patient-create");
+            toggleButton("#hideSearch", ".patient-search");
+            toggleButton("#hidePatients", ".table");
 
-            $("#hideSearch").click(function () {
-                $(".patient-search").toggle();
-            });
-
-            $("#hidePatients").click(function () {
-                $(".table").toggle();
-            });
+            filterTable("#patientsTable tr.tableResults", "#searchPatient");
         }
     );
 });
+
+function toggleButton(id, classhider) {
+    $(id).click(function() {
+        $(classhider).toggle();
+        $(this).text(function(i, text){
+            return text === "Verberg" ? "Toon" : "Verberg";
+        })
+    });
+}
+
+function filterTable(tableIdAndRow, keyupInput) {
+    var $rows = $(tableIdAndRow);
+
+    $(keyupInput).keyup(function() {
+
+        var val = "^(?=.*\\b" + $.trim($(this).val()).split(/\s+/).join("\\b)(?=.*\\b") + ").*$",
+            reg = RegExp(val, "i"),
+            text;
+
+        $rows.show().filter(function() {
+            text = $(this).text().replace(/\s+/g, " ");
+            return !reg.test(text);
+        }).hide();
+    });
+}
+
 
 
 /***********************************************
