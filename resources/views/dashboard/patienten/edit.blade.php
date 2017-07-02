@@ -1,6 +1,6 @@
 @extends('dashboard.master')
 
-@section('title', 'Edit Patiënt')
+@section('title', 'Aanpassen patiënt')
 
 @section('content')
     <div class="patient-create white-bg">

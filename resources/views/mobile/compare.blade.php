@@ -4,18 +4,19 @@
 
 @section('header')
     <!-- Status bar -->
-    <mobile-status :patient="{{ $patient }}" :initial-waiting-patients="{{ $waiting_patients }}"></mobile-status>
+    <mobile-status :initial-patient="{{ $patient }}" initial-waiting-patients="{{ $waiting_patients }}"></mobile-status>
 @endsection
 
 @section('content')
     <!-- Introduction -->
-    <mobile-introduction :patient="{{ $patient }}"></mobile-introduction>
+    <mobile-introduction :initial-patient="{{ $patient }}"></mobile-introduction>
 
     <!-- Compare -->
-    <mobile-compare v-for="compare in {{ $patient->triage->comparisons }}" :compare="compare" :key="compare.id"></mobile-compare>
+    <mobile-comparisons :initial-patient="{{ $patient }}"></mobile-comparisons>
+
 
     <!-- Button -->
-    <mobile-button :patient="{{ $patient }}" href="{{ $status }}">
+    <mobile-button :initial-patient="{{ $patient }}" href="{{ $status }}">
         <strong class="text-white">Ga terug</strong>
         <i class="fa fa-chevron-left fa-pull-left text-white pt-1"></i>
     </mobile-button>
