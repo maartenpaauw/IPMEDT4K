@@ -27,23 +27,23 @@
                     {!! Form::label('triage_id', 'Triage kleur', array('for' => 'triage_id', 'class' => 'form-label', 'required' => 'required', 'data-parsley-trigger' => 'change')) !!}<span class="brand-danger"> *</span>
                     <div class="checkRadioContainer">
                         <label class="brand-danger-bg">
-                            {!! Form::radio('triage_id', '1')!!}
+                            {!! Form::radio('triage_id', '1', false, ['class' => 'triage_radio_1'])!!}
                             <i class="fa fa-check fa-2x"></i>
                         </label>
                         <label class="brand-warning-bg">
-                            {!! Form::radio('triage_id', '2')!!}
+                            {!! Form::radio('triage_id', '2', false, ['class' => 'triage_radio_2'])!!}
                             <i class="fa fa-check fa-2x"></i>
                         </label>
                         <label class="brand-watchout-bg">
-                            {!! Form::radio('triage_id', '3')!!}
+                            {!! Form::radio('triage_id', '3', false, ['class' => 'triage_radio_3'])!!}
                             <i class="fa fa-check fa-2x"></i>
                         </label>
                         <label class="brand-success-bg">
-                            {!! Form::radio('triage_id', '4')!!}
+                            {!! Form::radio('triage_id', '4', false, ['class' => 'triage_radio_4'])!!}
                             <i class="fa fa-check fa-2x"></i>
                         </label>
                         <label class="brand-info-bg">
-                            {!! Form::radio('triage_id', '5')!!}
+                            {!! Form::radio('triage_id', '5', false, ['class' => 'triage_radio_5'])!!}
                             <i class="fa fa-check fa-2x"></i>
                         </label>
                     </div>
