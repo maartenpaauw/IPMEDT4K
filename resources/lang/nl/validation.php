@@ -103,6 +103,14 @@ return [
         'attribute-name' => [
             'rule-name' => 'custom-message',
         ],
+
+        'number' => [
+            'unique' => 'Patiëntnummer is al in gebruik.',
+        ],
+
+        'band_number' => [
+            'unique' => 'Bandnummer is al in gebruik.',
+        ],
     ],
 
     /*

@@ -99,11 +99,10 @@ class PatientController extends Controller
     {
         $patient = Patient::findOrFail($id);
 
-        // TODO:: Dit werkt nog niet #aids
         $this->validate($request, [
-            'number' => 'required|unique:patients,number,'.$patient->number.'number',
+            'number' => 'required|unique:patients,number,'.$id,
             'first_name' => 'required',
-            'band_number' => 'required|unique:patients,band_number,'.$patient->band_number.'band_number',
+            'band_number' => 'required|unique:patients,band_number,'.$id,
             'last_name' => 'required',
         ]);
 
