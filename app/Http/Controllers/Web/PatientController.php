@@ -116,6 +116,7 @@ class PatientController extends Controller
         $patient->band_number = $request->band_number;
         $patient->last_name = $request->last_name;
         $patient->checked_in_at = Carbon::now();
+        $patient->treated_at = Carbon::now();
         $patient->status_id = $request->input('status_id') ? intval($request->input('status_id')) : 1;
 
         $patient->update();
