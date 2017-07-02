@@ -60,4 +60,11 @@ class PatientController extends Controller
     public function lastTenPatients () {
         return Patient::orderBy('created_at', 'DESC')->take(10)->get();
     }
+
+    /**
+     *
+     */
+    public function noTriage () {
+        return Patient::where('triage_id', null)->get();
+    }
 }

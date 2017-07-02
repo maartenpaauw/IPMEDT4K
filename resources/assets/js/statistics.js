@@ -19,6 +19,7 @@ Vue.component('dashboard-fast-check-in',     require('./components/dashboard/Fas
 Vue.component('dashboard-patients',          require('./components/dashboard/Patients.vue'));
 Vue.component('dashboard-waiting-too-long',  require('./components/dashboard/WaitingTooLong.vue'));
 Vue.component('dashboard-last-ten-patients', require('./components/dashboard/LastTenPatients.vue'));
+Vue.component('dashboard-no-triage',         require('./components/dashboard/NoTriage.vue'));
 
 const app = new Vue({
     el: '#app'
