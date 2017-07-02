@@ -106,7 +106,7 @@
                                 <h3 class="title">@yield('titleExtra')</h3>
                             </div>
                             <div class="col-6">
-                                <button class="btn btn-primary pull-right" id="hideIncheck">Hide</button>
+                                <button class="btn btn-primary pull-right" id="hideIncheck">Verberg</button>
                             </div>
                         </div>
                     </div>
@@ -123,7 +123,7 @@
                                 <h3 class="title">@yield('titleExtra2')</h3>
                             </div>
                             <div class="col-6">
-                                <button class="btn btn-primary pull-right" id="hideSearch">Hide</button>
+                                <button class="btn btn-primary pull-right" id="hideSearch">Verberg</button>
                             </div>
                         </div>
                     </div>
@@ -139,7 +139,7 @@
                             <h3 class="title">@yield('title')</h3>
                         </div>
                         <div class="col-6">
-                            <button class="btn btn-primary pull-right" id="hidePatients">Hide</button>
+                            <button class="btn btn-primary pull-right" id="hidePatients">Verberg</button>
                         </div>
                     </div>
                 </div>
