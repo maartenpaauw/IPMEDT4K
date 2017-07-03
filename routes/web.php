@@ -31,6 +31,7 @@ Route::group(['middleware' => 'auth'], function() {
 Route::get('monitor', 'Web\MonitorController')->name('monitor');
 
 Route::get('inloggen',                   array('uses' => 'Web\PersonalController@login'))->name('patient.login');
+Route::get('INLOGGEN',                   array('uses' => 'Web\PersonalController@login'))->name('patient.login');
 Route::get('{band_number}/status/',      array('uses' => 'Web\PersonalController@status'))->name('patient.status');
 Route::get('{band_number}/vergelijken/', array('uses' => 'Web\PersonalController@compare'))->name('patient.compare');
 
