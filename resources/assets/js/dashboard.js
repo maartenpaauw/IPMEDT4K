@@ -225,6 +225,12 @@ $(function () {
                 $dateElement.text(formatted);
             });
 
+            checkStatusSelector(".triage_radio_1", 3);
+            checkStatusSelector(".triage_radio_2", 2);
+            checkStatusSelector(".triage_radio_3", 2);
+            checkStatusSelector(".triage_radio_4", 2);
+            checkStatusSelector(".triage_radio_5", 2);
+
             toggleButton("#hideIncheck", ".patient-create");
             toggleButton("#hideSearch", ".patient-search");
             toggleButton("#hideSearchHistory", ".patient-search");
@@ -233,9 +239,24 @@ $(function () {
 
             filterTable("#patientsTable tr.tableResults", "#searchPatient");
             filterTable("#historyTable tr.tableResults", "#searchPatient");
+
+            setTimeout(function(){
+                $('body').addClass('loaded');
+                $('h1').css('color','#222222');
+            }, 3000);
         }
     );
 });
+
+
+/***********************************************
+ *        Status Selector
+ ***********************************************/
+function checkStatusSelector(idClick, valRadio){
+    $(idClick).on('click', function () {
+        $("#status_id").val(valRadio);
+    });
+}
 
 
 /***********************************************

@@ -24,10 +24,10 @@
     <meta name="msapplication-TileColor" content="#ffffff">
     <meta name="msapplication-TileImage" content="{{ asset('faviconms-icon-144x144.png') }}">
     <meta name="theme-color" content="#ffffff">
-
+    <meta content="{{ csrf_token() }}" name="csrf-token">
     <link href="{{ mix('css/app.css') }}" rel="stylesheet">
     <link href="{{ mix('css/dashboard.css') }}" id="theme-style" rel="stylesheet">
-    <meta content="{{ csrf_token() }}" name="csrf-token">
+    <script type="text/javascript" src="{{ URL::asset('js/vendor/modernizr-2.6.2.min.js') }}"></script>
 </head>
 <body>
 <div class="main-wrapper">
@@ -56,6 +56,13 @@
                 @endif
             </div>
         </header>
+        <div id="loader-wrapper">
+            <div id="loader"></div>
+
+            <div class="loader-section section-left"></div>
+            <div class="loader-section section-right"></div>
+
+        </div>
         <aside class="sidebar">
             <div class="sidebar-container">
                 <div class="sidebar-header">
