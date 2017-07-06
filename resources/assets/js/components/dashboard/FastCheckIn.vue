@@ -1,9 +1,9 @@
 <template>
-    <div class="col-12 p-4 mb-5 blue-dark-bg text-center">
-        <a class="h4 text-white text-uppercase p-0 m-0" :href="href">
+    <a class="col-12 p-4 mb-5 blue-dark-bg text-center" :href="href">
+        <p class="h4 text-white text-uppercase p-0 m-0">
             <i class="fa fa-external-link align-middle" /> <span class="pl-3">Snel een patiënt toevoegen?</span>
-        </a>
-    </div>
+        </p>
+    </a>
 </template>
 
 <script>
