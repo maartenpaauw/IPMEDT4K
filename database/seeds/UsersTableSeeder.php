@@ -33,6 +33,20 @@ class UsersTableSeeder extends Seeder
                 'password'   => Hash::make(env('USERS_PASSWORD')),
                 'created_at' => $date,
                 'updated_at' => $date
+            ],
+            [
+                'name'       => 'Robbert Winkel',
+                'email'      => 'winkel.r@hsleiden.nl',
+                'password'   => Hash::make(env('USERS_PASSWORD')),
+                'created_at' => $date,
+                'updated_at' => $date
+            ],
+            [
+                'name'       => 'Jeroen de Meij',
+                'email'      => 'meij.de.j@hsleiden.nl',
+                'password'   => Hash::make(env('USERS_PASSWORD')),
+                'created_at' => $date,
+                'updated_at' => $date
             ]
         ]);
     }
