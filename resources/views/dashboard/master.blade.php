@@ -128,7 +128,7 @@
             </article>
         @endif
         @if(View::hasSection('titleExtra'))
-            <article class="contentExtra items-list-page pb-0">
+            <article class="contentExtra items-list-page @if(Request::url() === route('historie')){{ "pb-5" }}@else pb-0 @endif">
                 <div class="title-search-block">
                     <div class="title-block">
                         <div class="row">
