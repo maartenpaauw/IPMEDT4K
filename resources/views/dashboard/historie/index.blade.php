@@ -60,9 +60,9 @@
                         <div class="date">{!! $patient->checked_out_at !!}</div>
                     </td>
                     <td>
-                        {!! Form::model($patient, ['method' => 'DELETE', 'action' => ['Web\HistoryController@destroy',$patient->id], 'id' => 'destroyhistory']) !!}
+                        {!! Form::model($patient, ['method' => 'DELETE', 'action' => ['Web\HistoryController@destroy', $patient->id ], 'id' => 'destroy-history-' . $patient->id ]) !!}
                         {!! Form::close() !!}
-                        <button class="btn btn-danger rounded delete-from-history">Verwijderen</button>
+                        <button class="btn btn-danger rounded delete-from-history" data-model-id="{{ $patient->id }}">Verwijderen</button>
                     </td>
                 </tr>
             @endif

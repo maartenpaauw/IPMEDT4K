@@ -176,7 +176,9 @@ $(function () {
  *        Delete Patient
  ***********************************************/
 $(function () {
-   $('.delete-from-history').on('click', function () {
+    $('.delete-from-history').on('click', function () {
+       var $that = $(this),
+           id = $that.attr('data-model-id');
        swal({
            title: "Weet u zeker dat u de patiënt wilt verwijderen?",
            text: "Deze stap kan niet ongedaan gemaakt worden!",
@@ -190,12 +192,12 @@ $(function () {
        function (isConfirm) {
            if(isConfirm) {
                swal("Verwijderd!", "De patiënt is verwijderd", "success");
-               $("#destroyhistory").submit();
+               $("#destroy-history-" + id).submit();
            } else {
                swal("Gecancelled!", "De patiënt is niet verwijderd", "error");
            }
        });
-   })
+   });
 });
 
 /***********************************************
