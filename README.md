@@ -23,8 +23,10 @@ $ git clone https://github.com/maartenpaauw/IPMEDT4K.git .
 $ cp env.example .env
 ```
 Vul het aan met de database gegevens.
+Vul ook de open weather API key in.
 Vervolgens open je de terminal en voer je de volgende commando's uit:
 ```sh
+$ php artisan key:generate
 $ php artisan migrate --seed
 $ npm install / yarn install
 $ composer install
